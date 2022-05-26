@@ -22,13 +22,10 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(255);
   image(gretel, xGret, yGret, 30, 30); 
   image(hansel, xHans, yHans, 30, 30);
-  
-  //background(255);
   stroke(0);
-  //fill(175);
 
   
   if (gretLeads) {
