@@ -18,7 +18,7 @@ boolean hansLeads;
 void setup() {
   size(600, 600);
   hansel = loadImage("pixil-frame-0.png");
-  gretel = loadImage("pixil-frame-0(1).png");
+  gretel = loadImage("pixil-frame-0 (1).png");
 }
 
 void draw() {
