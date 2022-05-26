@@ -1,3 +1,6 @@
+PImage hansel;
+PImage gretel;
+
 int xGret = 200;
 int yGret = 200;
 float xGspeed = 0;
@@ -14,12 +17,14 @@ boolean hansLeads;
 
 void setup() {
   size(600, 600);
+  hansel = loadImage("pixil-frame-0.png");
+  gretel = loadImage("pixil-frame-0(1).png");
 }
 
 void draw() {
   background(0);
-  ellipse(xGret, yGret, 30, 30); 
-  ellipse(xHans, yHans, 30, 30);
+  image(gretel, xGret, yGret, 30, 30); 
+  image(hansel, xHans, yHans, 30, 30);
   
   //background(255);
   stroke(0);
