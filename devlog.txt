@@ -59,9 +59,30 @@ Tasnim Chowdhury :: Researched story, play, and RPG elements.
 
 2022-5-26
 --------------------------------------------------------------
+Diana Akhmedova :: Added flag, worked on proposal, added proposal.
+
+Faiza Huda :: Start v0 pde file; work on movement and tracking,
+              made and tried to upload images.
+
+Tasnim Chowdhury :: Worked on proposal, did research.
+==============================================================
+
+
+2022-5-27
+--------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda :: Start v0 pde file; work on movement and tracking
+Faiza Huda ::
+
+Tasnim Chowdhury ::
+==============================================================
+
+
+2022-5-28
+--------------------------------------------------------------
+Diana Akhmedova ::
+
+Faiza Huda ::
 
 Tasnim Chowdhury ::
 ==============================================================
