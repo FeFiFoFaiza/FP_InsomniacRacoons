@@ -61,7 +61,7 @@ Tasnim Chowdhury :: Researched story, play, and RPG elements.
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda ::
+Faiza Huda :: Start v0 pde file; work on movement and tracking
 
 Tasnim Chowdhury ::
 ==============================================================
