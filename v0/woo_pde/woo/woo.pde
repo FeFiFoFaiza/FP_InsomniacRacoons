@@ -7,7 +7,7 @@ float xGspeed = 0;
 float yGspeed = 0;
 
 
-int xHans = 170;
+int xHans = 160;
 int yHans = 200;
 float xHspeed = 0;
 float yHspeed = 0;
@@ -17,21 +17,21 @@ boolean hansLeads;
 
 void setup() {
   size(600, 600);
-  hansel = loadImage("pixil-frame-0.png");
-  gretel = loadImage("pixil-frame-0 (1).png");
+  hansel = loadImage("Hansel.png");
+  gretel = loadImage("Gretel.png");
 }
 
 void draw() {
   background(255);
-  image(gretel, xGret, yGret, 30, 30); 
-  image(hansel, xHans, yHans, 30, 30);
+  image(gretel, xGret, yGret, 70, 70); 
+  image(hansel, xHans, yHans, 70, 70);
   stroke(0);
 
   
   if (gretLeads) {
-    if (xGret > xHans + 30) {
+    if (xGret > xHans + 40) {
       xHspeed = 1;
-    } else {
+    } else { 
       xHspeed = -1;
     }
   
@@ -43,11 +43,12 @@ void draw() {
     
     xHans += xHspeed;
     yHans += yHspeed;
+    
   } else if (hansLeads) {
     
-    if (xGret + 30 < xHans) {
+    if (xGret - 40 < xHans) {
       xGspeed = 1;
-    } else {
+    }  else {
       xGspeed = -1;
     }
   
