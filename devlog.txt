@@ -83,7 +83,7 @@ Tasnim Chowdhury :: Worked on the UML diagrams.
 
 2022-5-28
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Coded in sprite animations for Hansel and Gretel.
 
 Faiza Huda ::
 
