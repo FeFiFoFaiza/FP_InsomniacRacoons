@@ -1,6 +1,12 @@
 PImage hansel;
 PImage gretel;
 
+PImage playerImages [];
+PImage ememyImages [];
+int playerFrames;
+int enemyFrames;
+
+
 int xGret = 200;
 int yGret = 200;
 float xGspeed = 0;
@@ -17,8 +23,15 @@ boolean hansLeads;
 
 void setup() {
   size(600, 600);
-  hansel = loadImage("Hansel.png");
-  gretel = loadImage("Gretel.png");
+  hansel = loadImage("Hansel/hans_front_1.png");
+  gretel = loadImage("Gretel/gret_front_1.png");
+  
+  playerFrames = 3;
+  enemyFrames = 12;
+  playerImages = new PImage[playerFrames];
+  for (int i = 1; i < playerFrames; i++) {
+    playerImages[i] = loadImage("Gretel/gret_front_" + i + ".png");
+  }
 }
 
 void draw() {
@@ -64,7 +77,7 @@ void draw() {
     //  yGspeed = -1;
     //}
     
-    xGspeed = -0.03*(xGret - xHans));
+    xGspeed = -0.03*(xGret - xHans);
     yGspeed = -0.03*(yGret - yHans);
     
     xGret += xGspeed;
