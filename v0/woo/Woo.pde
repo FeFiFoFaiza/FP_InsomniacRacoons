@@ -5,6 +5,8 @@ PImage playerImages [];
 PImage ememyImages [];
 int playerFrames;
 int enemyFrames;
+int currentFrame = 0;
+float x, y;
 
 
 int xGret = 200;
@@ -24,13 +26,13 @@ boolean hansLeads;
 void setup() {
   size(600, 600);
   hansel = loadImage("Hansel/hans_front_1.png");
-  gretel = loadImage("Gretel/gret_front_1.png");
+  gretel = loadImage("Gretel/gret_1.png");
   
-  playerFrames = 3;
+  playerFrames = 12;
   enemyFrames = 12;
   playerImages = new PImage[playerFrames];
   for (int i = 1; i < playerFrames; i++) {
-    playerImages[i] = loadImage("Gretel/gret_front_" + i + ".png");
+    playerImages[i] = loadImage("Gretel/gret_" + i + ".png");
   }
 }
 
@@ -40,43 +42,17 @@ void draw() {
   image(hansel, xHans-35, yHans-35, 70, 70);
   stroke(0);
 
-  
   if (gretLeads) {
-    //if (xGret > xHans + 40) {
-    //  xHspeed = 1;
-    //} else { 
-    //  xHspeed = 0;
-    //}
-  
-    //if (yGret > yHans) {
-    //  yHspeed = 1;
-    //} else {
-    //  yHspeed = 0;
-    //}
-
-      xHspeed = 0.03*(xGret - xHans);
-      yHspeed = 0.03*(yGret - yHans);
+    xHspeed = 0.03*(xGret - xHans);
+    yHspeed = 0.03*(yGret - yHans);
     
-    
-     println(xHspeed + " " + yHspeed);
+    println(xHspeed + " " + yHspeed);
     
     xHans += xHspeed;
     yHans += yHspeed;
-    
-  } else if (hansLeads) {
-    
-    //if (xGret - 40 < xHans) {
-    //  xGspeed = 1;
-    //}  else {
-    //  xGspeed = -1;
-    //}
+  }
   
-    //if (yGret < yHans) {
-    //  yGspeed = 1;
-    //} else {
-    //  yGspeed = -1;
-    //}
-    
+  else if (hansLeads) {    
     xGspeed = -0.03*(xGret - xHans);
     yGspeed = -0.03*(yGret - yHans);
     
@@ -91,18 +67,30 @@ void keyPressed() {
       yGret -= 5;
       gretLeads = true;
       hansLeads = false;
-    } else if (keyCode == DOWN) {
+    }
+    else if (keyCode == DOWN) {
       yHans += 5;
       hansLeads = true;
       gretLeads = false;
-    } else if (keyCode == LEFT) {
+    }
+    else if (keyCode == LEFT) {
       xHans -= 5;
       hansLeads = true;
       gretLeads = false;
-    } else if (keyCode == RIGHT) {
+    }
+    else if (keyCode == RIGHT) {
       xGret += 5; 
       gretLeads = true;
       hansLeads = false;
     }
+    
+    currentFrame++;
+    if (currentFrame == playerFrames) {
+      currentFrame = 0;
+    }
   }
+}
+  
+void display() {
+  image(playerImages[currentFrame], x, y);
 }
