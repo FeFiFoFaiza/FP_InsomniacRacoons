@@ -64,17 +64,20 @@ Diana Akhmedova :: Added flag, worked on proposal, added proposal.
 Faiza Huda :: Start v0 pde file; work on movement and tracking,
               made and tried to upload images.
 
-Tasnim Chowdhury :: Worked on proposal, did research.
+Tasnim Chowdhury :: Worked on proposal,
+                    researched various RPG elements.
 ==============================================================
 
 
 2022-5-27
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Worked on Hansel and Gretel sprites,
+                   finished sprite animations.
 
-Faiza Huda ::
+Faiza Huda :: Worked on movement, fixed the shaking,
+              worked on the UML diagrams.
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: Worked on the UML diagrams.
 ==============================================================
 
 
