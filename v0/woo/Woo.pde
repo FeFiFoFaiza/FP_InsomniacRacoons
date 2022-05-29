@@ -28,12 +28,18 @@ float yHspeed = 0;
 boolean gretLeads;
 boolean hansLeads;
 
+PFont f;
+String s = "";
+float x = 70;
+
 void setup() {
-  size(600, 600);
+  //size(600, 600);
+  fullScreen();
   
   gretelFrames = 12;
   hanselFrames = 12;
   //enemyFrames = 12;
+  
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
   for (int i = 0; i < gretelFrames; i++) {
@@ -42,10 +48,17 @@ void setup() {
   for (int i = 0; i < hanselFrames; i++) {
     hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
   }
+  fill(0, 0, 0);
+  f = loadFont("yoster.ttf");
+  s = "i want cheesecake!";
+  textFont(f);
+  textSize(40);
+  dialogue(s);
 }
 
 void draw() {
-  background(255);
+  //background(255);
+  
   image(gretelImages[currentFrame + offset], xGret-35, yGret-35, 70, 100); 
   image(hanselImages[currentFrame + offset], xHans-35, yHans-35, 70, 100);
   stroke(0);
@@ -72,32 +85,39 @@ void draw() {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) {
+      offset = 6;
       yGret -= 5;
       gretLeads = true;
       hansLeads = false;
-      offset = 6;
     }
     else if (keyCode == DOWN) {
+      offset = 0;
       yHans += 5;
       hansLeads = true;
       gretLeads = false;
-      offset = 0;
     }
     else if (keyCode == LEFT) {
+      offset = 3;
       xHans -= 5;
       hansLeads = true;
       gretLeads = false;
-      offset = 3;
     }
     else if (keyCode == RIGHT) {
+      offset = 9;
       xGret += 5; 
       gretLeads = true;
       hansLeads = false;
-      offset = 9;
     }
   }
   if (delay == 0) {
     currentFrame = (currentFrame + 1) % loopFrames;
   }
   delay = (delay + 1) % 5;
+}
+
+void dialogue(String sentence) {
+  for (int i = 0; i < sentence.length(); i++) {
+    text(sentence.charAt(i), x, 800);
+    x = x + 25;
+  }
 }
