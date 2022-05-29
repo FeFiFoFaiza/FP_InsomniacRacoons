@@ -28,7 +28,7 @@ float yHspeed = 0;
 boolean gretLeads;
 boolean hansLeads;
 
-PFont f;
+PFont font;
 String s = "";
 float x = 70;
 
@@ -48,16 +48,18 @@ void setup() {
   for (int i = 0; i < hanselFrames; i++) {
     hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
   }
-  fill(0, 0, 0);
-  f = loadFont("yoster.ttf");
-  s = "i want cheesecake!";
-  textFont(f);
-  textSize(40);
-  dialogue(s);
 }
 
 void draw() {
-  //background(255);
+  background(255);
+  
+  //text("cheese", 100, 500);
+  fill(0, 0, 0);
+  font = createFont("west-england.regular.ttf", 64);
+  s = "i want cheesecake!";
+  textFont(font, 64);
+  textSize(50);
+  dialogue(s);
   
   image(gretelImages[currentFrame + offset], xGret-35, yGret-35, 70, 100); 
   image(hanselImages[currentFrame + offset], xHans-35, yHans-35, 70, 100);
@@ -67,7 +69,7 @@ void draw() {
     xHspeed = 0.03*(xGret - xHans);
     yHspeed = 0.03*(yGret - yHans);
     
-    println(xHspeed + " " + yHspeed);
+    //println(xHspeed + " " + yHspeed);
     
     xHans += xHspeed;
     yHans += yHspeed;
@@ -118,6 +120,6 @@ void keyPressed() {
 void dialogue(String sentence) {
   for (int i = 0; i < sentence.length(); i++) {
     text(sentence.charAt(i), x, 800);
-    x = x + 25;
+    x = x + 30;
   }
 }
