@@ -7,7 +7,7 @@ int gretelFrames, hanselFrames;
 
 boolean up, down, left, right;
 
-Kid k;
+Kid kid;
 
 void setup() {
   fullScreen();
@@ -24,7 +24,7 @@ void setup() {
     hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
   }
   
-  k = new Kid();
+  kid = new Kid();
   
   up = false;
   down = false;
@@ -35,9 +35,9 @@ void setup() {
 void draw() {
   background(255);
   
-  k.whoLeads();
-  k.walk();
-  k.display();
+  kid.whoLeads();
+  kid.walk();
+  kid.display();
   
   //text("cheese", 100, 500);
   //fill(0, 0, 0);
