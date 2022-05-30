@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Kid {
   
   String _name;
@@ -20,6 +22,27 @@ class Kid {
   int loopFrames = 3;
   int offset = 0;
   int delay = 0;
+  
+  Queue inventory = new LinkedList<>();
+  boolean pickedUp = false;
+  
+  boolean inventoryFull() {
+    return (inventory.size() > 6);
+  }
+  
+  void updateInventory(Item item) {
+    if (pickedUp) {
+      if (!inventoryFull()) {
+        inventory.add(item);
+      }
+      else {
+        // idk how to drop items on the ground,
+        // maybe display the PImage and then its pickuppable
+        inventory.remove();
+        inventory.add(item);
+      }
+    }
+  }
   
   
   Kid() {
