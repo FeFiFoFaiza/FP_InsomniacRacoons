@@ -11,7 +11,6 @@ Kid k;
 
 void setup() {
   fullScreen();
-  //background(255);
   
   gretelFrames = 12;
   hanselFrames = 12;
@@ -37,7 +36,7 @@ void draw() {
   background(255);
   
   k.whoLeads();
-  k.update();
+  k.walk();
   k.display();
   
   //text("cheese", 100, 500);
@@ -47,7 +46,7 @@ void draw() {
   //textFont(font, 64);
   //textSize(50);
   //dialogue(s);
-  stroke(0);
+  //stroke(0);
 }
 
 void keyPressed() {

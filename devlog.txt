@@ -103,7 +103,9 @@ Tasnim Chowdhury :: Worked on the UML diagrams.
 
 2022-5-30
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Created Kid.pde, Hansel.pde, and Gretel.pde.
+                   Moved movement + sprite animation code into
+                   the new classes.
 
 Faiza Huda ::
 

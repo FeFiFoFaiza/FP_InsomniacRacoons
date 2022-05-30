@@ -6,12 +6,6 @@ class Hansel extends Kid {
     _strength = str;
   }
   
-  
-  
-  //public void walk() {
-    
-  //}
-  
   //public void superMove() {
     
   //}

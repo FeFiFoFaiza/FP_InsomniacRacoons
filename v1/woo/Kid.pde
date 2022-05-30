@@ -1,4 +1,5 @@
 class Kid {
+  
   String _name;
   int _health;
   int _strength;
@@ -13,13 +14,55 @@ class Kid {
   float xHspeed = 0;
   float yHspeed = 0;
   
-  boolean gretLeads;
-  boolean hansLeads;
+  boolean gretLeads, hansLeads;
   
   int currentFrame = 0;
   int loopFrames = 3;
   int offset = 0;
   int delay = 0;
+  
+  
+  Kid() {
+    this._health = 1;
+    this._strength = 1;
+  }
+  
+  
+  Kid(int hp, int str) {
+    this._health = hp;
+    this._strength = str;
+  }
+  
+  
+  int getHealth() {
+    return _health;
+  }
+  
+  
+  int getStrength() {
+    return _strength;
+  }
+  
+  
+  void setHealth(int newHealth) {
+    this._health = newHealth;
+  }
+  
+  
+  void setStrength(int newStrength) {
+    this._strength = newStrength;
+  }
+  
+  
+  //public void attack() {
+    
+  //}
+  
+  
+  //public void superMove() {
+    
+  //}
+  
   
   void whoLeads() {
     if (gretLeads) {
@@ -41,12 +84,14 @@ class Kid {
     }
   }  
   
+  
   void display() {
     image(gretelImages[currentFrame + offset], xGret-35, yGret-35, 70, 100); 
     image(hanselImages[currentFrame + offset], xHans-35, yHans-35, 70, 100);
   }
   
-  void update() {
+  
+  void walk() {
     if (up) {
       offset = 6;
       yGret -= 5;
@@ -83,38 +128,4 @@ class Kid {
       delay = (delay + 1) % 5;
     }
   }
-  
-  Kid() {
-    this._health = 0;
-    this._strength = 0;
-  }
-  
-  Kid(int hp, int str) {
-    this._health = hp;
-    this._strength = str;
-  }
-  
-  int getHealth() {
-    return _health;
-  }
-  
-  int getStrength() {
-    return _strength;
-  }
-  
-  void setHealth(int newHealth) {
-    this._health = newHealth;
-  }
-  
-  void setStrength(int newStrength) {
-    this._strength = newStrength;
-  }
-  
-  //public void attack() {
-    
-  //}
-  
-  //public void superMove() {
-    
-  //}
 }
