@@ -10,7 +10,8 @@ boolean up, down, left, right;
 Kid kid;
 
 void setup() {
-  fullScreen();
+  size(1600, 960);
+  Background peep = new Background();
   
   gretelFrames = 12;
   hanselFrames = 12;
@@ -33,7 +34,7 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  //background(255);
   
   kid.whoLeads();
   kid.walk();
