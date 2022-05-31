@@ -1,20 +1,14 @@
-//import Java.util;
+import java.util.*;
 
 class Monster {
   
   int health;
   int strength;
   double atkRate;
-  //Queue<Integer> moveList;
-  
-  void setup() {
-  }
-  
-  void draw() {
-  }
-  
-  //Kid = superclass of Hansel/Gretel
-  int attack(Kid name) {
+  Queue moveList = new LinkedList<>();
+ 
+
+  public int attack(Kid name) {
     int dmg = (int)(strength * atkRate);
     if (Math.random() > atkRate) {
     dmg = 0;
@@ -26,39 +20,40 @@ class Monster {
     return dmg;
   }
   
-  boolean isAlive() {
+  public boolean isAlive() {
     return (health > 0);
   }
   
-  void lowerHP(int dmg) {
+  public void lowerHP(int dmg) {
     health -= dmg;
   }
   
-  int getHealth() {
+  public int getHealth() {
     return health;
   }
   
-  int getStrength() {
+  public int getStrength() {
     return strength;
   }
   
-  double getatkRate() {
+  public double getatkRate() {
     return atkRate;
   }
   
-  double setAtkRate(double r) {
+  public double setAtkRate(double r) {
     this.atkRate = r;
     return r;
    }
   
-  int setHealth(int h) {
+  public int setHealth(int h) {
     this.health = h;
     return h;
   }
   
-  int setStrength(int s) {
+  public int setStrength(int s) {
     this.strength = s;
     return s;
   }
+
 
 }
