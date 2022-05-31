@@ -26,9 +26,14 @@ class Kid {
   Queue inventory = new LinkedList<>();
   boolean pickedUp = false;
   
+  Item cookie = new Item();
+  Item items[] = new Item[6];
+  
+    
   boolean inventoryFull() {
     return (inventory.size() > 6);
   }
+  
   
   void updateInventory(Item item) {
     if (pickedUp) {
@@ -111,6 +116,7 @@ class Kid {
   void display() {
     image(gretelImages[currentFrame + offset], xGret-35, yGret-35, 70, 100); 
     image(hanselImages[currentFrame + offset], xHans-35, yHans-35, 70, 100);
+    //shape(cookie, 20, 20, 300, 300);
   }
   
   
