@@ -23,16 +23,24 @@ class Kid {
   int offset = 0;
   int delay = 0;
   
-  Queue inventory = new LinkedList<>();
+  ArrayList<Item> inventory = new ArrayList<Item>();
   boolean pickedUp = false;
   
   Item cookie = new Item();
   Item items[] = new Item[6];
   
-    
+  
+  void inventoryReset() {
+    for (int i = 0; i < inventory.size(); i++) {
+      inventory.set(i, null);
+    }
+  }
+  
+  
   boolean inventoryFull() {
     return (inventory.size() > 6);
   }
+  
   
   void updateInventory(Item item) {
     if (pickedUp) {
@@ -42,7 +50,7 @@ class Kid {
       else {
         // idk how to drop items on the ground,
         // maybe display the PImage and then its pickuppable
-        inventory.remove();
+        inventory.remove(item);
         inventory.add(item);
       }
     }
