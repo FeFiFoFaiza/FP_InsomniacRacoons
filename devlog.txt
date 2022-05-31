@@ -109,13 +109,13 @@ Tasnim Chowdhury :: Worked on the UML diagrams.
 --------------------------------------------------------------
 Diana Akhmedova :: Created Kid.pde, Hansel.pde, and Gretel.pde.
                    Moved movement + sprite animation code into
-                   the new classes.
+                   the new classes, began on inventory.
 
 Faiza Huda :: Created Background.pde, Grass.pde, Path.pde,
               Tile.pde, Tree.pde
               Updated devlog zone of reflection
               Updated "current working version" of Woo
-              
+
 Tasnim Chowdhury :: Created Monsters.pde, Wolf.pde, Witch.pde.
 ==============================================================
 
