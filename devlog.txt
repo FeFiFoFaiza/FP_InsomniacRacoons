@@ -16,12 +16,16 @@ OBSTACLES OVERCOME
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- How to do interactive background with animated sprites
+  Compromises might have to be made.
 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Image rendering in processing:
+  LoadImage, PImage, PGraphics, Tints and stuff
+- Animating:
+  Using a PImage array and a constantly updating background
 
 
 MID-DEVELOPMENT DESIGN CHANGES
@@ -108,7 +112,9 @@ Diana Akhmedova :: Created Kid.pde, Hansel.pde, and Gretel.pde.
                    the new classes.
 
 Faiza Huda :: Created Background.pde, Grass.pde, Path.pde,
-              Tile.pde, Tree.pde.
+              Tile.pde, Tree.pde
+              Updated devlog zone of reflection
+              Updated "current working version" of Woo
               
 Tasnim Chowdhury :: Created Monsters.pde, Wolf.pde, Witch.pde.
 ==============================================================
