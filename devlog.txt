@@ -107,9 +107,10 @@ Diana Akhmedova :: Created Kid.pde, Hansel.pde, and Gretel.pde.
                    Moved movement + sprite animation code into
                    the new classes.
 
-Faiza Huda ::
-
-Tasnim Chowdhury ::
+Faiza Huda :: Created Background.pde, Grass.pde, Path.pde,
+              Tile.pde, Tree.pde.
+              
+Tasnim Chowdhury :: Created Monsters.pde, Wolf.pde, Witch.pde.
 ==============================================================
 
 
