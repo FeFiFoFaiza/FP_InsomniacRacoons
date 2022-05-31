@@ -1,4 +1,4 @@
-PImage hansel, gretel;
+PImage hansel, gretel, bg;
 
 PImage gretelImages [];
 PImage hanselImages [];
@@ -12,6 +12,8 @@ Kid kid;
 void setup() {
   size(1600, 960);
   Background peep = new Background();
+  saveFrame("testWorld.png");
+  bg = loadImage("testWorld.png");
   
   gretelFrames = 12;
   hanselFrames = 12;
@@ -34,7 +36,7 @@ void setup() {
 }
 
 void draw() {
-  //background(255);
+  background(bg);
   
   kid.whoLeads();
   kid.walk();

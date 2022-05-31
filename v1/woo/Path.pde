@@ -7,4 +7,3 @@ class Path extends Tile{
       image(path, xCor, yCor, 64, 64);
   }
 }
-

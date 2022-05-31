@@ -34,11 +34,6 @@ class Kid {
     return (inventory.size() > 6);
   }
   
-<<<<<<< HEAD
-  
-=======
-  /**
->>>>>>> 71ba3aee108c695562dcf241fad2d001faf33860
   void updateInventory(Item item) {
     if (pickedUp) {
       if (!inventoryFull()) {
@@ -52,7 +47,6 @@ class Kid {
       }
     }
   }
-  **/
   
   Kid() {
     this._health = 1;
