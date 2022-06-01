@@ -4,8 +4,8 @@ Faiza Huda
 Tasnim Chowdhury
 pd08
 ---------------------
-<name>
-<description>
+Once Upon a Loaf
+Quaint little fantasy RPG
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
@@ -16,12 +16,16 @@ OBSTACLES OVERCOME
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- How to do interactive background with animated sprites
+  Compromises might have to be made.
 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Image rendering in processing:
+  LoadImage, PImage, PGraphics, Tints and stuff
+- Animating:
+  Using a PImage array and a constantly updating background
 
 
 MID-DEVELOPMENT DESIGN CHANGES
@@ -105,16 +109,28 @@ Tasnim Chowdhury :: Worked on the UML diagrams.
 --------------------------------------------------------------
 Diana Akhmedova :: Created Kid.pde, Hansel.pde, and Gretel.pde.
                    Moved movement + sprite animation code into
-                   the new classes.
+                   the new classes, began on inventory.
 
 Faiza Huda :: Created Background.pde, Grass.pde, Path.pde,
-              Tile.pde, Tree.pde.
-              
+              Tile.pde, Tree.pde
+              Updated devlog zone of reflection
+              Updated "current working version" of Woo
+
 Tasnim Chowdhury :: Created Monsters.pde, Wolf.pde, Witch.pde.
 ==============================================================
 
 
 2022-5-31
+--------------------------------------------------------------
+Diana Akhmedova :: Worked on flow chart
+
+Faiza Huda :: Worked on flow chart
+
+Tasnim Chowdhury :: Worked on flow chart
+==============================================================
+
+
+2022-6-1
 --------------------------------------------------------------
 Diana Akhmedova ::
 
@@ -124,7 +140,37 @@ Tasnim Chowdhury ::
 ==============================================================
 
 
-2022-6-1
+2022-6-2
+--------------------------------------------------------------
+Diana Akhmedova ::
+
+Faiza Huda ::
+
+Tasnim Chowdhury ::
+==============================================================
+
+
+2022-6-3
+--------------------------------------------------------------
+Diana Akhmedova ::
+
+Faiza Huda ::
+
+Tasnim Chowdhury ::
+==============================================================
+
+
+2022-6-4
+--------------------------------------------------------------
+Diana Akhmedova ::
+
+Faiza Huda ::
+
+Tasnim Chowdhury ::
+==============================================================
+
+
+2022-6-5
 --------------------------------------------------------------
 Diana Akhmedova ::
 
