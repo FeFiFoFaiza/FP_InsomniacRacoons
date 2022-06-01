@@ -4,8 +4,8 @@ Faiza Huda
 Tasnim Chowdhury
 pd08
 ---------------------
-<name>
-<description>
+Once Upon a Loaf
+Quaint little fantasy RPG
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
@@ -122,11 +122,11 @@ Tasnim Chowdhury :: Created Monsters.pde, Wolf.pde, Witch.pde.
 
 2022-5-31
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Worked on flow chart
 
-Faiza Huda ::
+Faiza Huda :: Worked on flow chart
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: Worked on flow chart
 ==============================================================
 
 
