@@ -123,7 +123,12 @@ class Kid {
   
   
   void walk() {
-    xTile, yTile, yGTemp, xGTemp, yHTemp, xHTemp = 0;
+    xTile = 0;
+    yTile = 0;
+    yGTemp = 0;
+    yHTemp = 0;
+    xGTemp = 0;
+    xHTemp = 0;
     if (up) {
       offset = 6;
       yGTemp = -5;
@@ -161,7 +166,7 @@ class Kid {
     }
     if (gretLeads){
         xTile = (xGret + xGTemp) / 64; 
-        yTile = (yGret + yGTemp) / 64;
+        yTile = ((yGret + yGTemp) / 64);
         if (checkBoundaries(xTile, yTile)) {
            System.out.println("TREEEEE: " + xTile + " " +yTile);
            System.out.println(xGret + " " + yGret);
@@ -189,21 +194,21 @@ class Kid {
   
   boolean checkTriggers (int x, int y) {
      if (peep.map[y][x].isTrigger) {
-       if (xGret == 0) || (xHans == 0) {
-         xGret == 1600;
-         xHans == 1570;
+       if ((xGret == 0) || (xHans == 0)) {
+         xGret = 1600;
+         xHans = 1570;
        }
-       if (xGret == 1600) || (xHans == 1600){
-         yGret == 0;
-         yHans == 30;
+       if ((xGret == 1600) || (xHans == 1600)){
+         yGret = 0;
+         yHans = 30;
        }
-       if (yGret == 0) || (yHans == 0) {
-         yGret == 1600;
-         yHans == 1570;
+       if ((yGret == 0) || (yHans == 0)) {
+         yGret = 1600;
+         yHans = 1570;
        }
-       if (yGret == 1600) || (yHans == 1600){
-         yGret == 0;
-         yHans == 30;
+       if ((yGret == 1600) || (yHans == 1600)){
+         yGret = 0;
+         yHans = 30;
        }
      }
      return false;
