@@ -11,13 +11,13 @@ Quaint little fantasy RPG
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- How to do interactive background with animated sprites
+  Compromises might have to be made.
 
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- How to do interactive background with animated sprites
-  Compromises might have to be made.
+- How to properly do trigger point / motion for the next setting
 
 
 COOL STUFF LEARNED
@@ -134,7 +134,9 @@ Tasnim Chowdhury :: Worked on flow chart
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda ::
+Faiza Huda :: Made crude collisions
+              Created new map to work with
+              Started process on trigger points
 
 Tasnim Chowdhury ::
 ==============================================================
