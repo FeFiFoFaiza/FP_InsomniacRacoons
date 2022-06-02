@@ -29,10 +29,13 @@ class Kid {
   Item cookie = new Item();
   Item items[] = new Item[6];
   
-    
+  int xTile, yTile, yGTemp, xGTemp, yHTemp, xHTemp;
+
+
   boolean inventoryFull() {
     return (inventory.size() > 6);
   }
+  
   
   void updateInventory(Item item) {
     if (pickedUp) {
@@ -47,6 +50,7 @@ class Kid {
       }
     }
   }
+  
   
   Kid() {
     this._health = 1;
@@ -119,27 +123,28 @@ class Kid {
   
   
   void walk() {
+    xTile, yTile, yGTemp, xGTemp, yHTemp, xHTemp = 0;
     if (up) {
       offset = 6;
-      yGret -= 5;
+      yGTemp = -5;
       gretLeads = true;
       hansLeads = false;
     }
     if (down) {
       offset = 0;
-      yHans += 5;
+      yHTemp = 5;
       hansLeads = true;
       gretLeads = false;
     }
     if (left) {
       offset = 3;
-      xHans -= 5;
+      xHTemp = -5;
       hansLeads = true;
       gretLeads = false;
     }
     if (right) {
       offset = 9;
-      xGret += 5; 
+      xGTemp = 5; 
       gretLeads = true;
       hansLeads = false;
     }
@@ -154,5 +159,53 @@ class Kid {
       }
       delay = (delay + 1) % 5;
     }
+    if (gretLeads){
+        xTile = (xGret + xGTemp) / 64; 
+        yTile = (yGret + yGTemp) / 64;
+        if (checkBoundaries(xTile, yTile)) {
+           System.out.println("TREEEEE: " + xTile + " " +yTile);
+           System.out.println(xGret + " " + yGret);
+        } else {
+          xGret += xGTemp;
+          yGret += yGTemp;
+        }
+     }
+     else if (hansLeads){
+        xTile = (xHans + xHTemp) / 64; 
+        yTile = 1 + ((yHans + yHTemp) / 64);
+        if (checkBoundaries(xTile, yTile)) {
+           System.out.println("TREEEEE: " + xTile + " " +yTile);
+           System.out.println(xHans + " " + yHans);
+        } else {
+          xHans += xHTemp;
+          yHans += yHTemp;
+        }
+     }
+  }
+
+  boolean checkBoundaries (int x, int y){
+    return peep.map[y][x].isCollidable;
+  }
+  
+  boolean checkTriggers (int x, int y) {
+     if (peep.map[y][x].isTrigger) {
+       if (xGret == 0) || (xHans == 0) {
+         xGret == 1600;
+         xHans == 1570;
+       }
+       if (xGret == 1600) || (xHans == 1600){
+         yGret == 0;
+         yHans == 30;
+       }
+       if (yGret == 0) || (yHans == 0) {
+         yGret == 1600;
+         yHans == 1570;
+       }
+       if (yGret == 1600) || (yHans == 1600){
+         yGret == 0;
+         yHans == 30;
+       }
+     }
+     return false;
   }
 }

@@ -1,10 +1,22 @@
 class Tile {
-   int poo = 0;
-   public Tile() {
-      poo = 10; 
+   int xCor;
+   int yCor;
+   boolean isCollidable;
+   boolean isSpawnable;
+   boolean isTrigger;
+   
+   
+   public Tile(int x, int y, boolean stat) {
+      xCor = x;
+      yCor = y;
+      isCollidable = stat;
    }
    
-   int getPoo() {
-      return poo; 
+   int getXCor() {
+      return xCor; 
+   }
+   
+   int getYCor() {
+     return yCor;
    }
 }
