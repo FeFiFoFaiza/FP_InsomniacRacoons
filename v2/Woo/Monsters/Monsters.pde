@@ -6,6 +6,7 @@ class Monster {
   int strength;
   double atkRate;
   Queue moveList = new LinkedList<>();
+  moveList = ["basic1", "basic2", "basic3", "mid1", "mid2", "basic3", "basic2", "basic1", "ult" ];
  
 
   public int attack(Kid name) {
@@ -19,6 +20,14 @@ class Monster {
     name.lowerHP(dmg);
     return dmg;
   }
+  
+  public int attack(String move) {
+    int dmg = 0;
+    String dialogue;
+    if (move == "basic1") {
+      dmg = (int)(strength * (0.5);
+      
+  } else
   
   public boolean isAlive() {
     return (health > 0);

@@ -9,8 +9,7 @@ class Witch extends Monsters {
     setHealth(120);
     setStrength(8);
     setatkRate(1.8);
-    
-    //moveList = ??
+ 
   }
   
    void display() {
