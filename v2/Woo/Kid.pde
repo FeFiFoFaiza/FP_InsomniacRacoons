@@ -6,13 +6,13 @@ class Kid {
   int _health;
   int _strength;
   
-  int xGret = 200;
-  int yGret = 200;
+  int xGret = 65;
+  int yGret = 925;
   float xGspeed = 0;
   float yGspeed = 0;
   
-  int xHans = 170;
-  int yHans = 200;
+  int xHans = 35;
+  int yHans = 925;
   float xHspeed = 0;
   float yHspeed = 0;
   
@@ -189,27 +189,31 @@ class Kid {
   }
 
   boolean checkBoundaries (int x, int y){
+    if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
+    checkTriggers(x, y);
+    System.out.println(x + " " + y + " " + peep.map[y][x].isCollidable);
     return peep.map[y][x].isCollidable;
   }
   
   boolean checkTriggers (int x, int y) {
      if (peep.map[y][x].isTrigger) {
        if ((xGret == 0) || (xHans == 0)) {
-         xGret = 1600;
-         xHans = 1570;
+         xGret += 1600;
+         xHans += 1600;
        }
        if ((xGret == 1600) || (xHans == 1600)){
-         yGret = 0;
-         yHans = 30;
+         yGret -= 1600;
+         yHans -= 1600;
        }
        if ((yGret == 0) || (yHans == 0)) {
-         yGret = 1600;
-         yHans = 1570;
+         yGret += 1600;
+         yHans += 1600;
        }
        if ((yGret == 1600) || (yHans == 1600)){
-         yGret = 0;
-         yHans = 30;
+         yGret -= 1600;
+         yHans -= 1600;
        }
+       return true;
      }
      return false;
   }

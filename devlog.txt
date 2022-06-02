@@ -13,6 +13,7 @@ OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - How to do interactive background with animated sprites
   Compromises might have to be made.
+- Edge cases for collisions
 
 
 UNRESOLVED ISSUES
@@ -132,13 +133,14 @@ Tasnim Chowdhury :: Worked on flow chart
 
 2022-6-1
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Created overall world map
 
 Faiza Huda :: Made crude collisions
               Created new map to work with
               Started process on trigger points
+              Created overall world map
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: Created overall world map
 ==============================================================
 
 
@@ -146,7 +148,7 @@ Tasnim Chowdhury ::
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda ::
+Faiza Huda :: Edge cases for collisions
 
 Tasnim Chowdhury ::
 ==============================================================
