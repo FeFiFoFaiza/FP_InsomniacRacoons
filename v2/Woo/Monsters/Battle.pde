@@ -1,3 +1,5 @@
+import java.util*; 
+
 class Battle {
   Monsters enemy;
   boolean won;
@@ -28,20 +30,23 @@ class Battle {
     playerTurn = true;
   }
   
-  public void enemyMoveFinder() {
+  public String enemyMoveFinder() {
     Queue enemyMoveList = enemy.moveList;
-    //queue and dequueuewee here
+    String temp = enemyMoveList.peek();
+    enemyMoveList.remove();
+    enemyMoveList.add(temp);
+    return temp;
   }
   
   public int playerMove() {
     int dmg = 0;
-    if (playerMove == "attack") {
+    if (playerMove.equals("attack")) {
       //attack
-    } else if (playerMove == "defend") {
+    } else if (playerMove.equals("defend")) {
       //defend
-    } else if (playerMove == "punch") {
+    } else if (playerMove.equals("punch")) {
       //punch
-    } else if (playerMove == "breadcrumbs") {
+    } else if (playerMove.equals("breadcrumbs")) {
       //ult
    } else {
      return 0;

@@ -11,7 +11,7 @@ class Witch extends Monsters {
     
   }
   
-   void display() {
+   void displayWitch() {
      Witch = loadImage("");
      image(Witch, x, y, 32, 32);
    }
@@ -19,24 +19,24 @@ class Witch extends Monsters {
    public int attack(String move) {
     int dmg = 0;
     String dialogue;
-    if (move == "basic1") {
+    if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5);
-      dialogue = "Muahahah. Witch cackled!"; 
-    } else if (move == "basic2") {
+      dialogue = "Muahahah. The Witch cackled!"; 
+    } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5);
-      dialogue = "Witch is wacked you with broomstick"; 
-    } else if (move == "basic3") {
+      dialogue = "The Witch wacked you with broomstick!"; 
+    } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5);
-       dialogue = "Witch slapped you."; 
-    } else if (move == "mid1") {
+       dialogue = "The Witch slapped you."; 
+    } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      dialogue = "Witch splashed Draughtof Living Death!";
-    } else if (move == "mid2") {
+      dialogue = "The Witch splashed Draught of Living Death!";
+    } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      dialogue = "Witch used Confundo!";
-    } else if (move == "ult") {
+      dialogue = "The Witch used Confundo!";
+    } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      dialogue = "Witch casted spell of Wailing Children";
+      dialogue = "The Witch casted Avada Kedavra!";
     } else {
       dmg = 0;
       dialogie = "oops?";
