@@ -6,6 +6,8 @@ PImage hanselImages [];
 int gretelFrames, hanselFrames;
 
 boolean up, down, left, right;
+boolean startG = true;
+Dialogue dialogue;
 
 Background peep;
 Kid kid;
@@ -25,6 +27,7 @@ void setup() {
     hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
   }
   
+  dialogue = new Dialogue();
   kid = new Kid();
   
   up = false;
@@ -48,6 +51,10 @@ void draw() {
   //textSize(50);
   //dialogue(s);
   //stroke(0);
+  
+  if (startG) {
+    dialogue.startGame();
+  }
 }
 
 void keyPressed() {
