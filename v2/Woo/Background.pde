@@ -20,21 +20,64 @@ class Background {
     tileYCor = 0;
     for (int j = 0; j < str.length; j++) {
       for (int i = 0; i < 25; i++) {
-        if(str[j].charAt(i) == '1'){
-          map[j][i] = new Path(tileXCor, tileYCor, false, false);
+        if(str[j].charAt(i) == '-'){
+          map[j][i] = new Path(tileXCor, tileYCor, false, false); // path
+        }
+        else if (str[j].charAt(i) == '*'){
+          map[j][i] = new Grass(tileXCor, tileYCor, false, false); // grass
+        }
+        //else if (str[j].charAt(i) == '3'){
+        //  map[j][i] = new Tree(tileXCor, tileYCor, true);
+        //}
+        else if (str[j].charAt(i) == '#'){
+          map[j][i] = new Path(tileXCor, tileYCor, true, false); // trigger points
+        }
+        else if (str[j].charAt(i) == '@'){
+          map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
+        }
+        
+        
+        // trees
+        else if (str[j].charAt(i) == '1'){
+          map[j][i] = new Tree_Full_1(tileXCor, tileYCor, true);
         }
         else if (str[j].charAt(i) == '2'){
-          map[j][i] = new Grass(tileXCor, tileYCor, false, false);
+          map[j][i] = new Tree_Full_2(tileXCor, tileYCor, true);
         }
         else if (str[j].charAt(i) == '3'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true);
+          map[j][i] = new Tree_Full_3(tileXCor, tileYCor, true);
         }
-        else if (str[j].charAt(i) == 'A'){
-          map[j][i] = new Path(tileXCor, tileYCor, true, false);
+        else if (str[j].charAt(i) == '4'){
+          map[j][i] = new Tree_Full_4(tileXCor, tileYCor, true);
         }
-        else if (str[j].charAt(i) == 'B'){
-          map[j][i] = new Grass(tileXCor, tileYCor, true, false);
+        
+        else if (str[j].charAt(i) == '5'){
+          map[j][i] = new Tree_Edge_1(tileXCor, tileYCor, true);
         }
+        else if (str[j].charAt(i) == '6'){
+          map[j][i] = new Tree_Edge_2(tileXCor, tileYCor, true);
+        }
+        else if (str[j].charAt(i) == '7'){
+          map[j][i] = new Tree_Edge_3(tileXCor, tileYCor, true);
+        }
+        else if (str[j].charAt(i) == '8'){
+          map[j][i] = new Tree_Edge_4(tileXCor, tileYCor, true);
+        }
+        
+        else if (str[j].charAt(i) == '9'){
+          map[j][i] = new Tree_Up_1(tileXCor, tileYCor, true);
+        }
+        else if (str[j].charAt(i) == '0'){
+          map[j][i] = new Tree_Up_2(tileXCor, tileYCor, true);
+        }
+        else if (str[j].charAt(i) == 'P'){
+          map[j][i] = new Tree_UpFill_1(tileXCor, tileYCor, true);
+        }
+        else if (str[j].charAt(i) == 'O'){
+          map[j][i] = new Tree_UpFill_2(tileXCor, tileYCor, true);
+        }
+        
+        
         tileXCor += 64;
        }
        tileXCor = 0;
@@ -44,12 +87,12 @@ class Background {
   }
 
   PImage bgImage(){
-     return bg; 
+    return bg;
   }
 
   void ForestUno(){
-    bg = loadImage("WorldPics/Forest1.png");
-    str = loadStrings("Forest1.txt");
+    //bg = loadImage("WorldPics/Forest2.png");
+    str = loadStrings("Forest3.txt");
   }
   
 }
