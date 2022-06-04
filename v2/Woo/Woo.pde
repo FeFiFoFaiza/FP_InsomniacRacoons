@@ -19,14 +19,14 @@ void setup() {
   gretelFrames = 12;
   hanselFrames = 12;
   
-  //gretelImages = new PImage[gretelFrames];
-  //hanselImages = new PImage[hanselFrames];
-  //for (int i = 0; i < gretelFrames; i++) {
-  //  gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
-  //}
-  //for (int i = 0; i < hanselFrames; i++) {
-  //  hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
-  //}
+  gretelImages = new PImage[gretelFrames];
+  hanselImages = new PImage[hanselFrames];
+  for (int i = 0; i < gretelFrames; i++) {
+    gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
+  }
+  for (int i = 0; i < hanselFrames; i++) {
+    hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
+  }
   
   dialogue = new Dialogue();
   kid = new Kid();
@@ -38,11 +38,11 @@ void setup() {
 }
 
 void draw() {
-  //background(peep.bgImage());
+  background(peep.bgImage());
   
-  //kid.whoLeads();
-  //kid.walk();
-  //kid.display();
+  kid.whoLeads();
+  kid.walk();
+  kid.display();
   
   //text("cheese", 100, 500);
   //fill(0, 0, 0);

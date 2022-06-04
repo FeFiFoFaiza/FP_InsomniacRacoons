@@ -26,9 +26,9 @@ class Background {
         else if (str[j].charAt(i) == '*'){
           map[j][i] = new Grass(tileXCor, tileYCor, false, false); // grass
         }
-        //else if (str[j].charAt(i) == '3'){
-        //  map[j][i] = new Tree(tileXCor, tileYCor, true);
-        //}
+        else if (str[j].charAt(i) == 'H'){
+          map[j][i] = new Tree(tileXCor, tileYCor, true);
+        }
         else if (str[j].charAt(i) == '#'){
           map[j][i] = new Path(tileXCor, tileYCor, true, false); // trigger points
         }
@@ -91,8 +91,8 @@ class Background {
   }
 
   void ForestUno(){
-    //bg = loadImage("WorldPics/Forest2.png");
-    str = loadStrings("Forest3.txt");
+    bg = loadImage("WorldPics/Forest1.png");
+    str = loadStrings("Forest1.txt");
   }
   
 }
