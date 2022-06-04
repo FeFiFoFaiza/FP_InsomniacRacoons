@@ -12,15 +12,21 @@ Dialogue dialogue;
 Background peep;
 Kid kid;
 
+PFont font;
+
 void setup() {
   size(1600, 960);
   background(202, 158, 81);
   peep = new Background();
+  
   gretelFrames = 12;
   hanselFrames = 12;
-  
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
+  
+  font = createFont("pcsenior.ttf", 16);
+  textFont(font);
+  
   for (int i = 0; i < gretelFrames; i++) {
     gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
   }
@@ -47,45 +53,47 @@ void draw() {
   //text("cheese", 100, 500);
   //fill(0, 0, 0);
   //font = createFont("west-england.regular.ttf", 64);
-  //s = "i want cheesecake!";
+  ////s = "i want cheesecake!";
   //textFont(font, 64);
   //textSize(50);
-  //dialogue(s);
+  ////dialogue(s);
   //stroke(0);
   
-  //if (startG) {
-  //  dialogue.startGame();
-  //}
+  if (startG) {
+    dialogue.startGame();
+  }
 }
 
 void keyPressed() {
-  if (key == CODED) {
-    if (keyCode == UP) {
-      up = true;
-      down = false;
-      left = false;
-      right = false;
-    }
-    if (keyCode == DOWN) {
-      down = true;
-      up = false;
-      left = false;
-      right = false;
-    }
-    if (keyCode == LEFT) {
-      left = true;
-      up = false;
-      down = false;
-      right = false;
-    }
-    if (keyCode == RIGHT) {
-      right = true;
-      up = false;
-      down = false;
-      left = false;
-    }
+  if (keyCode == UP || key == 'w') {
+    up = true;
+    down = false;
+    left = false;
+    right = false;
+  }
+  if (keyCode == DOWN || key == 's') {
+    down = true;
+    up = false;
+    left = false;
+    right = false;
+  }
+  if (keyCode == LEFT || key == 'a') {
+    left = true;
+    up = false;
+    down = false;
+    right = false;
+  }
+  if (keyCode == RIGHT || key == 'd') {
+    right = true;
+    up = false;
+    down = false;
+    left = false;
+  }
+  if (key == 'f') {
+    startG = false;
   }
 }
+
 
 void keyReleased() {
   up = false;
