@@ -76,6 +76,12 @@ class Background {
         else if (str[j].charAt(i) == 'O'){
           map[j][i] = new Tree_UpFill_2(tileXCor, tileYCor, true);
         }
+        else if (str[j].charAt(i) == 'S'){
+          map[j][i] = new Tree_UpTrunk_1(tileXCor, tileYCor, true);
+        }
+        else if (str[j].charAt(i) == 'A'){
+          map[j][i] = new Tree_UpTrunk_2(tileXCor, tileYCor, true);
+        }
         
         
         tileXCor += 64;
@@ -91,8 +97,8 @@ class Background {
   }
 
   void ForestUno(){
-    bg = loadImage("WorldPics/Forest1.png");
-    str = loadStrings("Forest1.txt");
+    //bg = loadImage("WorldPics/Forest1.png");
+    str = loadStrings("Forest4.txt");
   }
   
 }
