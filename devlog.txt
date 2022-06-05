@@ -19,6 +19,7 @@ OBSTACLES OVERCOME
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - How to properly do trigger point / motion for the next setting
+- Display health bar, dialogue, menu in battle
 
 
 COOL STUFF LEARNED
@@ -31,7 +32,7 @@ COOL STUFF LEARNED
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--
+- Got rid of inventory
 
 
 LESSONS LEARNED
@@ -163,7 +164,8 @@ Diana Akhmedova :: Worked on more detailed world map,
 
 Faiza Huda ::
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: Worked on battle mechanisms, adjusted Witch
+                    and Wolf moves.
 ==============================================================
 
 
@@ -183,5 +185,7 @@ Diana Akhmedova ::
 
 Faiza Huda ::
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: Created v3. Finished Battle mechanics,
+                    finished healing fairy + siren + snake +
+                    imp + witch + wolf with completed moves. 
 ==============================================================
