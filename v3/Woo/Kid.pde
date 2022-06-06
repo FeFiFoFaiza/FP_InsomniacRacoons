@@ -3,7 +3,7 @@ import java.util.*;
 class Kid {
   
   String _name;
-  int _health;
+  int _health = 0;
   int _strength;
   
   int xGret = 65;
@@ -52,19 +52,20 @@ class Kid {
   }
   
   
-  Kid() {
+  public Kid() {
     this._health = 100;
     this._strength = 10;
   }
   
   
-  Kid(int hp, int str) {
+  public Kid(int hp, int str) {
     this._health = hp;
     this._strength = str;
   }
   
   
-  int getHealth() {
+  public int getHealth() {
+    println(_health);
     return _health;
   }
   
@@ -96,13 +97,13 @@ class Kid {
   
   void whoLeads() {
     if (gretLeads) {
-    xHspeed = 0.03*(xGret - xHans);
-    yHspeed = 0.03*(yGret - yHans);
-    
-    //println(xHspeed + " " + yHspeed);
-    
-    xHans += xHspeed;
-    yHans += yHspeed;
+      xHspeed = 0.03*(xGret - xHans);
+      yHspeed = 0.03*(yGret - yHans);
+      
+      //println(xHspeed + " " + yHspeed);
+      
+      xHans += xHspeed;
+      yHans += yHspeed;
     }
     
     else if (hansLeads) {    
@@ -164,7 +165,7 @@ class Kid {
       }
       delay = (delay + 1) % 5;
     }
-    if (gretLeads){
+    if (gretLeads) {
         xTile = (xGret + xGTemp) / 64; 
         yTile = ((yGret + yGTemp) / 64);
         if (checkBoundaries(xTile, yTile)) {
@@ -197,8 +198,7 @@ class Kid {
     return peep.map[y][x].isCollidable;
   }
   
-  void checkEnemy(int x, int y) {
-    
+  void checkEnemy(int x, int y) { 
     if (peep.map[y][x].isSpawnable) {
       inBattle = true; //CHANGE l8R
       peep.battleMenu();

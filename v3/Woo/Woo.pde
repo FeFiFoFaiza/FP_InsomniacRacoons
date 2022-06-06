@@ -8,15 +8,22 @@ int gretelFrames, hanselFrames;
 boolean up, down, left, right;
 boolean startG = true;
 boolean tutorial = false;
+boolean storyDialogue = false;
 Dialogue dialogue;
+String story;
 
 Background peep;
 Kid kid;
+//Battle battle;
 
 PFont font;
 boolean inBattle; 
 
 void setup() {
+  kid = new Kid(100, 10);
+  dialogue = new Dialogue();
+  //battle = new Battle();
+  
   size(1600, 960);
   //background(202, 158, 81);
   peep = new Background();
@@ -37,8 +44,8 @@ void setup() {
     hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
   }
   
-  dialogue = new Dialogue();
-  kid = new Kid(100, 10);
+  
+  
   
   up = false;
   down = false;
@@ -55,12 +62,19 @@ void draw() {
     dialogue.startGame();
   }
   
-  if ( !inBattle && !startG) {
-    kid.display();
+  if (storyDialogue) {
+    dialogue.writeDialogue(story);
   }
   
-  kid.whoLeads();
-  kid.walk();
+  if ( !inBattle && !startG) {
+      kid.display();
+      
+      if ( !tutorial ) {
+        kid.whoLeads();
+        kid.walk();
+      }
+  }
+  
   
   
   //text("cheese", 100, 500);
@@ -79,6 +93,7 @@ void draw() {
   
   if (inBattle) {
     image(enemy, 700, 100);
+    
   }
 }
 

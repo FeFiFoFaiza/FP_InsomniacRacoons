@@ -42,6 +42,10 @@ class Dialogue {
     text("any menus.", 530, 645);
   }
   
-  
+  //updating dialogue
+  public void writeDialogue(String story) {
+    textSize(25);
+    text(story, 500, 800);
+  }
 
 }

@@ -140,7 +140,7 @@ class Background {
   void battleMenu() {
     if (inBattle) {
       bg = loadImage("WorldPics/black.png");
-      battle.turn();      
+      battle.turn();
     }    
   }
   
