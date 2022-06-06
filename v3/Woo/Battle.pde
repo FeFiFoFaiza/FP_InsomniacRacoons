@@ -6,6 +6,7 @@ class Battle {
   
   //setup
   private Monsters enemy;
+  
   private String dialogue;
   private boolean won;
   private boolean playerTurn = true;
@@ -27,7 +28,7 @@ class Battle {
   //setup
   public Battle(Monsters type) {
     enemy = type;
-    enemyHp = enemy.getHealth();
+    enemyHp = enemy.getHp();
     strength = kid.getStrength();
   }
   
@@ -94,7 +95,7 @@ class Battle {
       dialogue = enemy+ " missed its attack because you successfully dodged! ";
       dialogue();
     }
-    playerDefense = 15;
+    kidDefense = 15;
     //healthBar();
   }
   
@@ -107,7 +108,7 @@ class Battle {
       enemy.setHp(enemy.getHp() - realDmg);
       dialogue();
     } else {
-      dialogue = +enemy+ " dodged your attack! ";
+      dialogue = enemy.name + " dodged your attack! ";
       dialogue();
     }
     //healthBar();
@@ -117,12 +118,12 @@ class Battle {
   //after winning battle
   public void updateBaseStats(String enemyType) {
     if (enemyType.equals("Wolf") ) {
-      Kid.setStrength((int) (strength * 1.5));
-      Kid.setHp((int) (kidHp + 30));
+      kid.setStrength((int) (strength * 1.5));
+      kid.setHealth((int) (kidHp + 30));
       dialogue = "Your health increased by 30HP. Your strength increased by 50%.";
     } else { 
-      Kid.setStrength((int) (strength * 1.05));
-      Kid.setHp((int) (kidHp + 5));
+      kid.setStrength((int) (strength * 1.05));
+      kid.setHealth((int) (kidHp + 5));
       dialogue = "Your health increased by 10HP. Your strength increased by 5%.";
     }
   }
@@ -131,7 +132,7 @@ class Battle {
   public int enemyMove() {
     enemyMoveFinder();
     int dmg = 0;
-    enemy.attack(enemyNextMove) = dmg;
+    dmg = enemy.attack(enemyNextMove);
     dialogue = enemy.getDialogue();
     return dmg;
     playerTurn = true;
@@ -139,7 +140,7 @@ class Battle {
   
   //updates queue of enemy moves
   public void enemyMoveFinder() {
-    Queue enemyMoveList = enemy.moveList;
+    Queue<String> enemyMoveList = enemy.moveList;
     String temp = enemyMoveList.peek();
     enemyMoveList.remove();
     enemyMoveList.add(temp);

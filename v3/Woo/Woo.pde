@@ -1,4 +1,5 @@
-PImage hansel, gretel, bg, enemy;
+PImage hansel, gretel, bg;
+PImage enemy;
 
 PImage gretelImages [];
 PImage hanselImages [];

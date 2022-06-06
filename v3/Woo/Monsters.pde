@@ -9,7 +9,7 @@ class Monsters {
   private int y;
   String name;
 
-  private Queue moveList = new LinkedList<>();
+  private Queue<String> moveList = new LinkedList<String>();
   
   public Monsters() {
     moveList.add("basic1");
@@ -42,7 +42,7 @@ class Monsters {
     return dialogue;
   }
   
-  public int getHealth() {
+  public int getHp() {
     return health;
   }
   
@@ -51,7 +51,7 @@ class Monsters {
   }
   
   
-  public int setHealth(int h) {
+  public int setHp(int h) {
     this.health = h;
     return h;
   }
@@ -59,6 +59,10 @@ class Monsters {
   public int setStrength(int s) {
     this.strength = s;
     return s;
+  }
+  
+  public int attack(String n) {
+    return 0;
   }
 
 
