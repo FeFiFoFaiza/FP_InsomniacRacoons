@@ -6,6 +6,8 @@ class Background {
   int tileYCor;
   
   PImage bg;
+  Imp imp = new Imp();
+  Battle battle = new Battle(imp);
 
   public Background(){
      //bg = loadImage("WorldPics/World.png");
@@ -99,6 +101,15 @@ class Background {
   void ForestUno(){
     bg = loadImage("WorldPics/Forest1.png");
     str = loadStrings("Forest1.txt");
+  }
+  
+  void battleMenu() {
+    
+    bg = loadImage("WorldPics/black.png");
+    battle.turn();
+    
+    
+    
   }
   
 }

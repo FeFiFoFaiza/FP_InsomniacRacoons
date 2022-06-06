@@ -190,9 +190,18 @@ class Kid {
 
   boolean checkBoundaries (int x, int y){
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
-    checkTriggers(x, y);
+    checkEnemy(x, y);
+    //inBattle = false;
     System.out.println(x + " " + y + " " + peep.map[y][x].isCollidable);
     return peep.map[y][x].isCollidable;
+  }
+  
+  void checkEnemy(int x, int y) {
+    
+    if (peep.map[y][x].isSpawnable) {
+      inBattle = true;
+     peep.battleMenu();
+    }
   }
   
   boolean checkTriggers (int x, int y) {
@@ -217,4 +226,8 @@ class Kid {
      }
      return false;
   }
+}
+
+class Battle {
+  
 }

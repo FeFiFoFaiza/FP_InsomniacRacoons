@@ -41,5 +41,7 @@ class Dialogue {
     text("Press X to close", 530, 615);
     text("any menus.", 530, 645);
   }
+  
+  
 
 }

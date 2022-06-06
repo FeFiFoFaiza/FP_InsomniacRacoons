@@ -1,4 +1,4 @@
-PImage hansel, gretel, bg;
+PImage hansel, gretel, bg, enemy;
 
 PImage gretelImages [];
 PImage hanselImages [];
@@ -14,6 +14,7 @@ Background peep;
 Kid kid;
 
 PFont font;
+boolean inBattle; 
 
 void setup() {
   size(1600, 960);
@@ -24,6 +25,7 @@ void setup() {
   hanselFrames = 12;
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
+  
   
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
@@ -49,7 +51,9 @@ void draw() {
   
   kid.whoLeads();
   kid.walk();
-  kid.display();
+  if ( !inBattle ) {
+    kid.display();
+  }
   
   //text("cheese", 100, 500);
   //fill(0, 0, 0);
@@ -66,9 +70,15 @@ void draw() {
   if (tutorial) {
     dialogue.tutorial();
   }
+  
+  if (inBattle) {
+    enemy = loadImage("ReplacementAvatars/imageplaceholder.jpg");
+    image(enemy, 700, 100);
+  }
 }
 
 void keyPressed() {
+  if ( !inBattle ) {
   if (keyCode == UP || key == 'w') {
     startG = false;
     tutorial = false;
@@ -108,6 +118,7 @@ void keyPressed() {
   if (key == 't') {
     startG = false;
     tutorial = true;
+  }
   }
 }
 
