@@ -97,8 +97,8 @@ class Background {
   }
 
   void ForestUno(){
-    //bg = loadImage("WorldPics/Forest1.png");
-    str = loadStrings("Forest4.txt");
+    bg = loadImage("WorldPics/Forest1.png");
+    str = loadStrings("Forest1.txt");
   }
   
 }
