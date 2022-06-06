@@ -53,8 +53,8 @@ class Kid {
   
   
   Kid() {
-    this._health = 1;
-    this._strength = 1;
+    this._health = 100;
+    this._strength = 10;
   }
   
   
@@ -191,6 +191,7 @@ class Kid {
   boolean checkBoundaries (int x, int y){
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
     checkTriggers(x, y);
+    checkEnemy(x,y);
     //inBattle = false;
     System.out.println(x + " " + y + " " + peep.map[y][x].isCollidable);
     return peep.map[y][x].isCollidable;
@@ -199,8 +200,8 @@ class Kid {
   void checkEnemy(int x, int y) {
     
     if (peep.map[y][x].isSpawnable) {
-      inBattle = false; //CHANGE l8R
-     peep.battleMenu();
+      inBattle = true; //CHANGE l8R
+      peep.battleMenu();
     }
   }
   

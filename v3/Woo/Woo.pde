@@ -38,7 +38,7 @@ void setup() {
   }
   
   dialogue = new Dialogue();
-  kid = new Kid();
+  kid = new Kid(100, 10);
   
   up = false;
   down = false;
@@ -51,11 +51,17 @@ void setup() {
 void draw() {
   background(peep.bgImage());
   
-  kid.whoLeads();
-  kid.walk();
-  if ( !inBattle ) {
+  if (startG) {
+    dialogue.startGame();
+  }
+  
+  if ( !inBattle && !startG) {
     kid.display();
   }
+  
+  kid.whoLeads();
+  kid.walk();
+  
   
   //text("cheese", 100, 500);
   //fill(0, 0, 0);
@@ -66,9 +72,7 @@ void draw() {
   ////dialogue(s);
   //stroke(0);
   
-  if (startG) {
-    dialogue.startGame();
-  }
+  
   if (tutorial) {
     dialogue.tutorial();
   }
@@ -81,32 +85,24 @@ void draw() {
 void keyPressed() {
   if ( !inBattle ) {
     if (keyCode == UP || key == 'w') {
-      startG = false;
-      tutorial = false;
       up = true;
       down = false;
       left = false;
       right = false;
     }
     if (keyCode == DOWN || key == 's') {
-      startG = false;
-      tutorial = false;
       down = true;
       up = false;
       left = false;
       right = false;
     }
     if (keyCode == LEFT || key == 'a') {
-      startG = false;
-      tutorial = false;
       left = true;
       up = false;
       down = false;
       right = false;
     }
     if (keyCode == RIGHT || key == 'd') {
-      startG = false;
-      tutorial = false;
       right = true;
       up = false;
       down = false;

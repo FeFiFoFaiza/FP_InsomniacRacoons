@@ -29,6 +29,7 @@ class Battle {
   public Battle(Monsters type) {
     enemy = type;
     enemyHp = enemy.getHp();
+    //kidHp = kid.getHealth();
     strength = 5;//FIX L8R
   }
   
@@ -75,7 +76,8 @@ class Battle {
       dialogue();
       updateBaseStats(enemy.name);
       dialogue();
-    } else if ( kidHp <= 0 ) {
+    } else if ( kid.getHealth() <= 0 ) {
+      System.out.println("HELP " + kidHp);
       dialogue = "Game over.";
       dialogue();
       status = true;
