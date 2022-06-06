@@ -5,7 +5,7 @@ class Imp extends Monsters {
   
   public Imp() {
     super();
-    setHealth(50);
+    setHp(50);
     setStrength(8);
     name = "Imp";
     

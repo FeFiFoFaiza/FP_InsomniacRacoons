@@ -6,7 +6,7 @@ class Snake extends Monsters {
   public Snake() {
     super();
     name = "Snake";
-    setHealth(50);
+    setHp(50);
     setStrength(8);
     
   }

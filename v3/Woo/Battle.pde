@@ -29,7 +29,7 @@ class Battle {
   public Battle(Monsters type) {
     enemy = type;
     enemyHp = enemy.getHp();
-    strength = kid.getStrength();
+    strength = 5;//FIX L8R
   }
   
   //void draw() {
@@ -134,8 +134,8 @@ class Battle {
     int dmg = 0;
     dmg = enemy.attack(enemyNextMove);
     dialogue = enemy.getDialogue();
-    return dmg;
     playerTurn = true;
+    return dmg;
   }
   
   //updates queue of enemy moves

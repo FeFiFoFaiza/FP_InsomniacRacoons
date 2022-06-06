@@ -6,7 +6,7 @@ class Wolf extends Monsters {
   public Wolf() {
     super();
     name = "Wolf";
-    setHealth(80);
+    setHp(80);
     setStrength(15);
     
   }

@@ -2,11 +2,11 @@ import java.util.*;
 
 class Monsters {
   
-  private int health;
-  private int strength;
-  private String dialogue; 
-  private int x;
-  private int y;
+  int health;
+  int strength;
+  String dialogue; 
+  int x;
+  int y;
   String name;
 
   private Queue<String> moveList = new LinkedList<String>();

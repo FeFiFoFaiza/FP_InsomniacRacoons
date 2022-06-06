@@ -5,9 +5,9 @@ class Siren extends Monsters {
   
   public Siren() {
     super();
-    setHealth(100);
+    setHp(100);
     setStrength(15);
-    name = Siren;
+    name = "Siren";
     
   }
   

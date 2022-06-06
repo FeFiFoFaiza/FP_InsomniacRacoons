@@ -1,4 +1,3 @@
-PImage hansel, gretel, bg;
 PImage enemy;
 
 PImage gretelImages [];
@@ -19,7 +18,7 @@ boolean inBattle;
 
 void setup() {
   size(1600, 960);
-  background(202, 158, 81);
+  //background(202, 158, 81);
   peep = new Background();
   
   gretelFrames = 12;
@@ -45,6 +44,8 @@ void setup() {
   down = false;
   left = false;
   right = false;
+  
+  enemy = loadImage("Enemies/piggy.jpg"); //CHANGE TO PNG
 }
 
 void draw() {
@@ -73,53 +74,52 @@ void draw() {
   }
   
   if (inBattle) {
-    enemy = loadImage("ReplacementAvatars/imageplaceholder.jpg");
     image(enemy, 700, 100);
   }
 }
 
 void keyPressed() {
   if ( !inBattle ) {
-  if (keyCode == UP || key == 'w') {
-    startG = false;
-    tutorial = false;
-    up = true;
-    down = false;
-    left = false;
-    right = false;
-  }
-  if (keyCode == DOWN || key == 's') {
-    startG = false;
-    tutorial = false;
-    down = true;
-    up = false;
-    left = false;
-    right = false;
-  }
-  if (keyCode == LEFT || key == 'a') {
-    startG = false;
-    tutorial = false;
-    left = true;
-    up = false;
-    down = false;
-    right = false;
-  }
-  if (keyCode == RIGHT || key == 'd') {
-    startG = false;
-    tutorial = false;
-    right = true;
-    up = false;
-    down = false;
-    left = false;
-  }
-  if (key == 'x') {
-    startG = false;
-    tutorial = false;
-  }
-  if (key == 't') {
-    startG = false;
-    tutorial = true;
-  }
+    if (keyCode == UP || key == 'w') {
+      startG = false;
+      tutorial = false;
+      up = true;
+      down = false;
+      left = false;
+      right = false;
+    }
+    if (keyCode == DOWN || key == 's') {
+      startG = false;
+      tutorial = false;
+      down = true;
+      up = false;
+      left = false;
+      right = false;
+    }
+    if (keyCode == LEFT || key == 'a') {
+      startG = false;
+      tutorial = false;
+      left = true;
+      up = false;
+      down = false;
+      right = false;
+    }
+    if (keyCode == RIGHT || key == 'd') {
+      startG = false;
+      tutorial = false;
+      right = true;
+      up = false;
+      down = false;
+      left = false;
+    }
+    if (key == 'x') {
+      startG = false;
+      tutorial = false;
+    }
+    if (key == 't') {
+      startG = false;
+      tutorial = true;
+    }
   }
 }
 

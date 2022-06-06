@@ -4,6 +4,7 @@ class Background {
   Tile[][] map = new Tile[25][25];
   int tileXCor;
   int tileYCor;
+  int nextSetting;
   
   PImage bg;
   Imp imp = new Imp();
@@ -37,55 +38,81 @@ class Background {
         else if (str[j].charAt(i) == '@'){
           map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
         }
-        
+        else if (str[j].charAt(i) == 'w'){
+          map[j][i] = new Water(tileXCor, tileYCor, true); 
+        }
         
         // trees
         else if (str[j].charAt(i) == '1'){
-          map[j][i] = new Tree_Full_1(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "A");
         }
         else if (str[j].charAt(i) == '2'){
-          map[j][i] = new Tree_Full_2(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "B");
         }
         else if (str[j].charAt(i) == '3'){
-          map[j][i] = new Tree_Full_3(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "C");
         }
         else if (str[j].charAt(i) == '4'){
-          map[j][i] = new Tree_Full_4(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "D");
         }
         
         else if (str[j].charAt(i) == '5'){
-          map[j][i] = new Tree_Edge_1(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "E");
         }
         else if (str[j].charAt(i) == '6'){
-          map[j][i] = new Tree_Edge_2(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "F");
         }
         else if (str[j].charAt(i) == '7'){
-          map[j][i] = new Tree_Edge_3(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "G");
         }
         else if (str[j].charAt(i) == '8'){
-          map[j][i] = new Tree_Edge_4(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "H");
         }
         
         else if (str[j].charAt(i) == '9'){
-          map[j][i] = new Tree_Up_1(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "I");
         }
         else if (str[j].charAt(i) == '0'){
-          map[j][i] = new Tree_Up_2(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "J");
         }
         else if (str[j].charAt(i) == 'P'){
-          map[j][i] = new Tree_UpFill_1(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "K");
         }
         else if (str[j].charAt(i) == 'O'){
-          map[j][i] = new Tree_UpFill_2(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "L");
         }
         else if (str[j].charAt(i) == 'S'){
-          map[j][i] = new Tree_UpTrunk_1(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "M");
         }
         else if (str[j].charAt(i) == 'A'){
-          map[j][i] = new Tree_UpTrunk_2(tileXCor, tileYCor, true);
+          map[j][i] = new Tree(tileXCor, tileYCor, true, "N");
         }
         
-        
+        //water
+        else if (str[j].charAt(i) == 'q'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "A");
+        }
+        else if (str[j].charAt(i) == 'w'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "B");
+        }
+        else if (str[j].charAt(i) == 'e'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "C");
+        }
+        else if (str[j].charAt(i) == 'r'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "D");
+        }
+        else if (str[j].charAt(i) == 't'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "E");
+        }
+        else if (str[j].charAt(i) == 'y'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "F");
+        }
+        else if (str[j].charAt(i) == 'u'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "G");
+        }
+        else if (str[j].charAt(i) == 'i'){
+          map[j][i] = new Water(tileXCor, tileYCor, true, "H");
+        }
         tileXCor += 64;
        }
        tileXCor = 0;
@@ -99,17 +126,29 @@ class Background {
   }
 
   void ForestUno(){
-    bg = loadImage("WorldPics/Forest1.png");
+    bg = loadImage("WorldPics/Forest_1.png");
     str = loadStrings("Forest1.txt");
+    nextSetting = 2;
+  }
+  
+  void ForestDos(){
+    bg = loadImage("WorldPics/Forest_2.png");
+    str = loadStrings("Forest2.txt");
+    nextSetting = 3;
   }
   
   void battleMenu() {
-    
-    bg = loadImage("WorldPics/black.png");
-    battle.turn();
-    
-    
-    
+    if (inBattle) {
+      bg = loadImage("WorldPics/black.png");
+      battle.turn();      
+    }    
+  }
+  
+  void nextSetting(){
+    if (nextSetting == 2) {
+       ForestDos();
+       render();
+    }
   }
   
 }

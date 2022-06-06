@@ -8,7 +8,7 @@ class Witch extends Monsters {
     x = xCor;
     y = yCor;
     name = "Witch";
-    setHealth(200);
+    setHp(200);
     setStrength(20);
     
   }

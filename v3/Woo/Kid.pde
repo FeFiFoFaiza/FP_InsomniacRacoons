@@ -190,7 +190,7 @@ class Kid {
 
   boolean checkBoundaries (int x, int y){
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
-    checkEnemy(x, y);
+    checkTriggers(x, y);
     //inBattle = false;
     System.out.println(x + " " + y + " " + peep.map[y][x].isCollidable);
     return peep.map[y][x].isCollidable;
@@ -199,35 +199,35 @@ class Kid {
   void checkEnemy(int x, int y) {
     
     if (peep.map[y][x].isSpawnable) {
-      inBattle = true;
+      inBattle = false; //CHANGE l8R
      peep.battleMenu();
     }
   }
   
   boolean checkTriggers (int x, int y) {
      if (peep.map[y][x].isTrigger) {
-       if ((xGret == 0) || (xHans == 0)) {
+       if ((xGret <= 35) || (xHans <= 35)) {
          xGret += 1600;
          xHans += 1600;
        }
-       if ((xGret == 1600) || (xHans == 1600)){
-         yGret -= 1600;
-         yHans -= 1600;
+       if ((xGret >= 1560) || (xHans >= 1560)){
+         xGret -= 1600;
+         xHans -= 1600;
        }
-       if ((yGret == 0) || (yHans == 0)) {
+       if ((yGret <= 35) || (yHans <= 35)) {
          yGret += 1600;
          yHans += 1600;
        }
-       if ((yGret == 1600) || (yHans == 1600)){
+       if ((yGret >= 1560) || (yHans >= 1560)){
          yGret -= 1600;
          yHans -= 1600;
+       }
+       if ((xGret <= 35) || (xHans <= 35) || (xGret >= 1560) || (xHans >= 1560) || (yGret <= 35) || (yHans <= 35) || (yGret >= 1560) || (yHans >= 1560) ) {
+         System.out.println("TRIGGER" + xGret + " " + yGret);
+         peep.nextSetting();
        }
        return true;
      }
      return false;
   }
-}
-
-class Battle {
-  
 }

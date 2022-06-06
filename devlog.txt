@@ -14,11 +14,14 @@ OBSTACLES OVERCOME
 - How to do interactive background with animated sprites
   Compromises might have to be made.
 - Edge cases for collisions
+- Triggering into the next setting
 
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - How to properly do trigger point / motion for the next setting
+    - Backtracking into past map
+    - The trigger detection is quite messy -> find a way to make detection work for a smaller radius
 - Display health bar, dialogue, menu in battle
 
 
@@ -39,7 +42,7 @@ LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
--
+- If it says "mixing active and static" IT MEANS CHECK YOUR BRACKETS IN EVERY TAB/CLASS
 
 
 
@@ -162,28 +165,21 @@ Tasnim Chowdhury :: Worked on the battling mechanics,
 Diana Akhmedova :: Worked on more detailed world map,
                    Created start game dialogue and added font.
 
-Faiza Huda ::
+Faiza Huda :: Finished changing coordinates for trigger points
 
 Tasnim Chowdhury :: Worked on battle mechanisms, adjusted Witch
                     and Wolf moves.
 ==============================================================
 
-
-2022-6-4
+2022-6-4 && 2022-6-5
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda ::
-
-Tasnim Chowdhury ::
-==============================================================
-
-
-2022-6-5
---------------------------------------------------------------
-Diana Akhmedova ::
-
-Faiza Huda ::
+Faiza Huda :: Added water tile(s)
+              Debugged what happened with integrating Monster into Woo
+              Created two of the maps whose layouts should be apart of final design 
+              Made it so when triggered goes to the next setting
+              Cleaned up tree tiles into one concise file
 
 Tasnim Chowdhury :: Created v3. Finished Battle mechanics,
                     finished healing fairy + siren + snake +
