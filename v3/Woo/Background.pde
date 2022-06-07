@@ -41,6 +41,9 @@ class Background {
         else if (str[j].charAt(i) == 'w'){
           map[j][i] = new Water(tileXCor, tileYCor, true); 
         }
+        else if (str[j].charAt(i) == 'R'){
+          map[j][i] = new Rock(tileXCor, tileYCor, true);
+         }
         
         // trees
         else if (str[j].charAt(i) == '1'){
