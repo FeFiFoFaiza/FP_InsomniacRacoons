@@ -13,7 +13,7 @@ class Background {
   public Background(){
      //bg = loadImage("WorldPics/World.png");
      //str = loadStrings("World.txt");
-     ForestUno();
+     ForestSiete();
      render();
   }
   
@@ -38,7 +38,7 @@ class Background {
         else if (str[j].charAt(i) == '@'){
           map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
         }
-        else if (str[j].charAt(i) == 'w'){
+        else if (str[j].charAt(i) == 'W'){
           map[j][i] = new Water(tileXCor, tileYCor, true); 
         }
         else if (str[j].charAt(i) == 'R'){
@@ -140,6 +140,33 @@ class Background {
     nextSetting = 3;
   }
   
+  void ForestCuatro() {
+    // bg = loadImage("WorldPics/Forest_4.png");
+    str = loadStrings("Forest4.txt");
+    nextSetting = 5; 
+  }
+  
+  void ForestSeis() {                    
+    // bg = loadImage("WorldPics/Forest_4.png");
+    str = loadStrings("Forest5.txt");
+    nextSetting = 6; 
+  }
+  
+  void ForestSiete() {                
+    // bg = loadImage("WorldPics/Forest_4.png");
+    str = loadStrings("Forest6.txt");
+    nextSetting = 7;
+  }
+  
+  void ForestOcho() {            
+    // bg = loadImage("WorldPics/Forest_4.png");
+    str = loadStrings("Forest7.txt");
+    nextSetting = 8;
+  }
+  
+  
+  
+  
   void battleMenu() {
     if (inBattle) {
       bg = loadImage("WorldPics/black.png");
@@ -153,7 +180,7 @@ class Background {
   }
   
   void nextSetting() {
-    if (nextSetting == 2) {
+    if (nextSetting == 10){
        ForestDos();
        render();
     }
