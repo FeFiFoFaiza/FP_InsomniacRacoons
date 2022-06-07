@@ -5,6 +5,7 @@ class Background {
   int tileXCor;
   int tileYCor;
   int nextSetting;
+  LinkedList<String> worldList = new LinkedList<String>();
   
   PImage bg;
   //Imp imp = new Imp();
@@ -157,6 +158,13 @@ class Background {
        ForestDos();
        render();
     }
+  }
+  
+  void setUpList() {
+    for (int i = 1; i <= 4; i++) {
+       worldList.add("Forest" + i + ".png");
+    }
+    System.out.println(worldList.size());
   }
   
 }

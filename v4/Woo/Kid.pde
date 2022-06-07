@@ -168,10 +168,7 @@ class Kid {
     if (gretLeads) {
         xTile = (xGret + xGTemp) / 64; 
         yTile = ((yGret + yGTemp) / 64);
-        if (checkBoundaries(xTile, yTile)) {
-           System.out.println("TREEEEE: " + xTile + " " +yTile);
-           System.out.println(xGret + " " + yGret);
-        } else {
+        if (!checkBoundaries(xTile, yTile)) {
           xGret += xGTemp;
           yGret += yGTemp;
         }
@@ -179,10 +176,7 @@ class Kid {
      else if (hansLeads){
         xTile = (xHans + xHTemp) / 64; 
         yTile = 1 + ((yHans + yHTemp) / 64);
-        if (checkBoundaries(xTile, yTile)) {
-           System.out.println("TREEEEE: " + xTile + " " +yTile);
-           System.out.println(xHans + " " + yHans);
-        } else {
+        if (!checkBoundaries(xTile, yTile)) {
           xHans += xHTemp;
           yHans += yHTemp;
         }
@@ -200,7 +194,11 @@ class Kid {
   
   void checkEnemy(int x, int y) { 
     if (peep.map[y][x].isSpawnable) {
-      inBattle = true; //CHANGE l8R
+      double battleChance = random(1);
+      if (battleChance < 0.33) {
+        inBattle = true; 
+      }
+      System.out.println("chances: " + battleChance);
     }
   }
   
