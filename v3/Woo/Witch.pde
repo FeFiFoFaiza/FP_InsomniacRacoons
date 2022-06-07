@@ -22,25 +22,25 @@ class Witch extends Monsters {
     int dmg = 0;
     if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5));
-      dialogue = "Muahahah. The Witch cackles!"; 
+      story.add("Muahahah. The Witch cackles!"); 
     } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5));
-      dialogue = "The Witch wackes you with broomstick!"; 
+      story.add("The Witch wackes you with broomstick!"); 
     } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5));
-       dialogue = "The Witch slaps you."; 
+       story.add("The Witch slaps you."); 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      dialogue = "The Witch splashes Draught of Living Death!";
+      story.add("The Witch splashes Draught of Living Death!");
     } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      dialogue = "The Witch uses Confundo!";
+      story.add("The Witch uses Confundo!");
     } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      dialogue = "The Witch casts Avada Kedavra!";
+      story.add("The Witch casts Avada Kedavra!");
     } else {
       dmg = 0;
-      dialogue = "oops?";
+      println("oops?");
     }
     return dmg;
    }

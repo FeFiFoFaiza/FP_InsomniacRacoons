@@ -1,5 +1,7 @@
 class Dialogue {
   
+  String lines;
+  
   void startGame() {
     stroke(45, 20, 18);
     strokeWeight(5);
@@ -43,9 +45,24 @@ class Dialogue {
   }
   
   //updating dialogue
-  public void writeDialogue(String story) {
+  public void writeDialogue() {
+    println(story.peek());
+    lines = story.peek();
+    fill(255);
     textSize(25);
-    text(story, 500, 800);
+    text(lines, 500, 800);
+    delay(2000);
+    story.remove();
+    toggleDialogue();
+  }
+  
+  void toggleDialogue() {
+    if (storyDialogue) {
+      storyDialogue = false;
+    }
+    else {
+      storyDialogue = true;
+    }
   }
 
 }

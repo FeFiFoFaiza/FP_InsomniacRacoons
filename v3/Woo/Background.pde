@@ -7,8 +7,8 @@ class Background {
   int nextSetting;
   
   PImage bg;
-  Imp imp = new Imp();
-  Battle battle = new Battle(imp);
+  //Imp imp = new Imp();
+  //Battle battle = new Battle(imp);
 
   public Background(){
      //bg = loadImage("WorldPics/World.png");
@@ -17,7 +17,7 @@ class Background {
      render();
   }
   
-  void render(){
+  void render() {
     map = new Tile[25][25];
     tileXCor = 0;
     tileYCor = 0;
@@ -121,17 +121,17 @@ class Background {
      }
   }
 
-  PImage bgImage(){
+  PImage bgImage() {
     return bg;
   }
 
-  void ForestUno(){
+  void ForestUno() {
     bg = loadImage("WorldPics/Forest_1.png");
     str = loadStrings("Forest1.txt");
     nextSetting = 2;
   }
   
-  void ForestDos(){
+  void ForestDos() {
     bg = loadImage("WorldPics/Forest_2.png");
     str = loadStrings("Forest2.txt");
     nextSetting = 3;
@@ -140,11 +140,16 @@ class Background {
   void battleMenu() {
     if (inBattle) {
       bg = loadImage("WorldPics/black.png");
-      battle.turn();
-    }    
+    }
   }
   
-  void nextSetting(){
+  void battleTurn() {
+    if (inBattle) {
+      battle.turn();
+    }
+  }
+  
+  void nextSetting() {
     if (nextSetting == 2) {
        ForestDos();
        render();

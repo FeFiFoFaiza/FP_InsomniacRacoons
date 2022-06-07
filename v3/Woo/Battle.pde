@@ -9,7 +9,7 @@ class Battle {
   
   //private String dialogue;
   private boolean won;
-  private boolean playerTurn = true;
+  //boolean playerTurn = true;
   private boolean status; //game over
   
   //stats
@@ -17,11 +17,13 @@ class Battle {
   
   private int kidHp = 0;
   private int strength;
-  private int kidDefense = 15;
+  private int kidDefense = 5;
   
   //moves
-  private int ultCounter; //checks if player punched enough times to access ult
-  private String playerMove;
+  int ultCounter; //checks if player punched enough times to access ult
+  String playerMove;
+  char currKey;
+  char newKey;
   
   private String enemyNextMove;
   //String story;
@@ -30,10 +32,8 @@ class Battle {
   public Battle(Monsters type) {
     enemy = type;
     enemyHp = enemy.getHp();
-    //println(kid);
     kidHp = kid.getHealth();
-    println(kidHp);
-    strength = 5;//FIX L8R
+    strength = kid.getStrength();
   }
   
   //void draw() {
@@ -56,19 +56,64 @@ class Battle {
   public void healthBar() {
   }
   
-  
-  
+  char checkKeyPressed() {
+    currKey = key;
+    return currKey;
+  }
+
   public void turn() {
     System.out.println("HELP " + kidHp);
     System.out.println(enemy.isAlive());
     println((kid.getHealth()));
+    
     if ( (enemy.isAlive()) && (kidHp > 0) ) {
       inBattle = true;
       System.out.println("HELP1 " + kidHp);
-      story = "Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.";
       storyDialogue = true;
+      story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
+
+      playerTurn = true;
       //player turn
-      keyPressed();
+      while (playerTurn) {
+        delay(2000);
+        newKey = checkKeyPressed();
+        println(newKey);
+        //for (int i = 0; i < 10; i++) {
+          if (newKey == 1) {
+              playerMove = "attack"; //no changes
+              println(playerMove);
+              playerTurn = false;
+           }
+           if (newKey == 2) {
+              playerMove = "defend"; //lower dmg done on en, lower dmg done on player
+              println(playerMove);
+              playerTurn = false;
+           }
+           if (newKey == 3) {
+              playerMove = "punch"; // higher dmg done on en, higher on player
+              println(playerMove);
+              ultCounter++;
+              playerTurn = false;
+           }
+           if ((newKey == 4) && (ultCounter >= 3)) {
+              playerMove = "breadcrumbs"; //higher dmg done on en
+              println(playerMove);
+              ultCounter = 0;
+              playerTurn = false;
+           }
+           else {
+             newKey = checkKeyPressed();
+           }
+          // else {
+          //   println("dying");
+          //   delay(1000);
+          //}
+        //}
+        //println("ataaack");
+        //playerMove = "attack"; //no changes
+        //println(playerMove);
+        //playerTurn = false;
+      }
       updEnemy(playerMove()); 
       //enemy turn
       updPlayer(enemyMove());
@@ -76,16 +121,13 @@ class Battle {
     else if ( (!enemy.isAlive()) && (kidHp > 0) ) {
       System.out.println("HELP2 " + kidHp);
       won = true;
-      story = "You defeated" + enemy + " .";
+      story.add("You defeated" + enemy.getName() + ".");
       status = true;
-      dialogue.writeDialogue(story);
       updateBaseStats(enemy.name);
-      //dialogue.writeDialogue(story);
     }
     else if ( (enemy.isAlive()) && (kidHp <= 0) ) {
       System.out.println("HELP3 " + kidHp);
-      story = "Game over.";
-      dialogue.writeDialogue(story);
+      story.add("Game over.");
       status = true;
     } 
     else {
@@ -101,12 +143,11 @@ class Battle {
     int randomNumber = (int) ((Math.random()*6) + 1);
     if (randomNumber > 1) {
       kid.setHealth((kidHp + kidDefense) - realDmg);
-      //dialogue.writeDialogue(story);
+      story.add("You defended!");
     } else {
-      story = enemy + " missed its attack because you successfully dodged! ";
-      dialogue.writeDialogue(story);
+      story.add(enemy.getName() + " missed its attack because you successfully dodged!");
     }
-    kidDefense = 15;
+    kidDefense = 1;
     //healthBar();
   }
   
@@ -117,10 +158,8 @@ class Battle {
     int randomNumber = (int) ((Math.random()*6) + 1);
     if (randomNumber > 1) {
       enemy.setHp(enemy.getHp() - realDmg);
-      //dialogue.writeDialogue(story);
     } else {
-      story = enemy.name + " dodged your attack! ";
-      dialogue.writeDialogue(story);
+      story.add(enemy.getName() + " dodged your attack!");
     }
     //healthBar();
   
@@ -131,11 +170,11 @@ class Battle {
     if (enemyType.equals("Wolf") ) {
       kid.setStrength((int) (strength * 1.5));
       kid.setHealth((int) (kidHp + 30));
-      story = "Your health increased by 30HP. Your strength increased by 50%.";
+      story.add("Your health increased by 30HP. Your strength increased by 50%.");
     } else { 
       kid.setStrength((int) (strength * 1.05));
       kid.setHealth((int) (kidHp + 5));
-      story = "Your health increased by 10HP. Your strength increased by 5%.";
+      story.add("Your health increased by 10HP. Your strength increased by 5%.");
     }
   }
   
@@ -144,7 +183,6 @@ class Battle {
     enemyMoveFinder();
     int dmg = 0;
     dmg = enemy.attack(enemyNextMove);
-    story = enemy.getDialogue();
     playerTurn = true;
     return dmg;
   }
@@ -166,23 +204,23 @@ class Battle {
         //attack
         dmg = strength;
         kidDefense = 15;
-        story = "You kicked " +enemy+ " for " +dmg+ " hp, keeping your guard up.";
+        story.add("You kicked " + enemy.getName() + " for " + dmg + " hp, keeping your guard up.");
       } else if (playerMove.equals("defend")) {
         //defend
         dmg = (int)(strength * 0.3);
         kidDefense = kidDefense + (int)(kidDefense * 0.85);
-        story = "You guarded yourself against " +enemy+ " but delt " +dmg+ " hp of damage!"; 
+        story.add("You guarded yourself against " + enemy.getName() + " but delt " + dmg + " hp of damage!"); 
       } else if (playerMove.equals("punch")) {
         //punch
         dmg = (int)(strength * 1.85);
         kidDefense = 0;
         
-        story = "You punched " +enemy+ " with all you had for a whopping" +dmg+ " hp, but leaving yourself vulnerable!"; 
+        story.add("You punched " + enemy.getName() + " with all you had for a whopping" + dmg + " hp, but leaving yourself vulnerable!"); 
       } else if (playerMove.equals("breadcrumbs")) {
         //ult
         kidDefense = 15;
         dmg = (int)(strength * 2.4);
-        story = "You threw the mighty breadcrumbs at " +enemy+ " for " +dmg+ " hp of damage!";
+        story.add("You threw the mighty breadcrumbs at " + enemy.getName() + " for " + dmg + " hp of damage!");
      } else {
        return 0;
      }
@@ -195,29 +233,26 @@ class Battle {
   }
   
   //choosing player's move
-  void keyPressed() { //playerMoves  
-     if (key == CODED && playerTurn == true) {
-      if (keyCode == 1) {
-        playerMove = "attack"; //no changes
-        println(playerMove);
-      }
-      if (keyCode == 2) {
-        playerMove = "defend"; //lower dmg done on en, lower dmg done on player
-        println(playerMove);
-      }
-      if (keyCode == 3) {
-        playerMove = "punch"; // higher dmg done on en, higher on player
-        println(playerMove);
-        ultCounter++;
-      }
-      if ( (keyCode == 4) &&  (ultCounter >= 3) ) {
-        playerMove = "breadcrumbs"; //higher dmg done on en
-        println(playerMove);
-        ultCounter = 0;
-      }
-    }
-    playerTurn = false;
-  }
+  //void keyPressed() { //playerMoves  
+  //  //if (inBattle && playerTurn) {
+  //    println(command);
+  //    if (key == '1') {
+  //        command = 1;
+  //     }
+  //     else if (key == '2') {
+  //        command = 2;
+  //     }
+  //     else if (key == '3') {
+  //        command = 3;
+  //     }
+  //     else if (key == '4') {
+  //        command = 4;
+  //     }
+  //     else {
+  //       println("error");
+  //     }
+  //  //}
+  //}
   
   
 }

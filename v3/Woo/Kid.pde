@@ -201,7 +201,6 @@ class Kid {
   void checkEnemy(int x, int y) { 
     if (peep.map[y][x].isSpawnable) {
       inBattle = true; //CHANGE l8R
-      peep.battleMenu();
     }
   }
   

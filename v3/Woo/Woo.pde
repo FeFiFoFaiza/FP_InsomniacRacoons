@@ -10,18 +10,27 @@ boolean startG = true;
 boolean tutorial = false;
 boolean storyDialogue = false;
 Dialogue dialogue;
-String story;
+Queue<String> story;
 
 Background peep;
 Kid kid;
 //Battle battle;
+boolean playerTurn = false;
 
 PFont font;
-boolean inBattle; 
+boolean inBattle;
+Imp imp;
+  Battle battle;
+
+int counter = 0;
+int command = 0;
 
 void setup() {
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
+  story = new LinkedList<String>();
+  imp = new Imp();
+  battle = new Battle(imp);
   //battle = new Battle();
   
   size(1600, 960);
@@ -45,8 +54,6 @@ void setup() {
   }
   
   
-  
-  
   up = false;
   down = false;
   left = false;
@@ -62,10 +69,6 @@ void draw() {
     dialogue.startGame();
   }
   
-  if (storyDialogue) {
-    dialogue.writeDialogue(story);
-  }
-  
   if ( !inBattle && !startG) {
       kid.display();
       
@@ -73,28 +76,48 @@ void draw() {
         kid.whoLeads();
         kid.walk();
       }
-  }
-  
-  
-  
-  //text("cheese", 100, 500);
-  //fill(0, 0, 0);
-  //font = createFont("west-england.regular.ttf", 64);
-  ////s = "i want cheesecake!";
-  //textFont(font, 64);
-  //textSize(50);
-  ////dialogue(s);
-  //stroke(0);
-  
+  }  
   
   if (tutorial) {
     dialogue.tutorial();
   }
   
   if (inBattle) {
+    peep.battleMenu();
     image(enemy, 700, 100);
     
+    peep.battleTurn();
+    dialogue.writeDialogue();
+    //delay(2000);
   }
+  
+   if (inBattle && playerTurn) {
+    if (keyCode == 49) {
+        command = 1;
+        println("command 1");
+     }
+     if (keyCode == 50) {
+        command = 2;
+        println("command 2");
+     }
+     if (keyCode == 51) {
+        command = 3;
+        println("command 3");
+     }
+     if (keyCode == 52) {
+        command = 4;
+        println("command 4");
+     }
+  }
+  
+  //if (storyDialogue) {
+  //  if (counter == 0) {
+  //    peep.battleMenu();
+  //    counter++;
+  //  }
+  //  dialogue.writeDialogue();
+  //  delay(2000);
+  //}
 }
 
 void keyPressed() {
@@ -132,6 +155,26 @@ void keyPressed() {
       tutorial = true;
     }
   }
+  
+  //if (inBattle && playerTurn) {
+  //  if (keyCode == 49) {
+  //      command = 1;
+  //      println("command 1");
+  //   }
+  //   if (keyCode == 50) {
+  //      command = 2;
+  //      println("command 2");
+  //   }
+  //   if (keyCode == 51) {
+  //      command = 3;
+  //      println("command 3");
+  //   }
+  //   if (keyCode == 52) {
+  //      command = 4;
+  //      println("command 4");
+  //   }
+  //}
+  
 }
 
 

@@ -4,7 +4,6 @@ class Monsters {
   
   int health;
   int strength;
-  String dialogue; 
   int x;
   int y;
   String name;
@@ -38,8 +37,8 @@ class Monsters {
   
   }
   
-  public String getDialogue() {
-    return dialogue;
+  public String getName() {
+    return name;
   }
   
   public int getHp() {
