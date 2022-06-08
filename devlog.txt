@@ -15,13 +15,12 @@ OBSTACLES OVERCOME
   Compromises might have to be made.
 - Edge cases for collisions
 - Triggering into the next setting
-
-
-UNRESOLVED ISSUES
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - How to properly do trigger point / motion for the next setting
     - Backtracking into past map
     - The trigger detection is quite messy -> find a way to make detection work for a smaller radius
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Display health bar, dialogue, menu in battle
 
 
@@ -31,11 +30,14 @@ COOL STUFF LEARNED
   LoadImage, PImage, PGraphics, Tints and stuff
 - Animating:
   Using a PImage array and a constantly updating background
+- Maps in Java:
+  Maps, HashMaps, LinkedHashMaps, making mine own Map-esque structure
 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of inventory
+- Instead of using Doubly LinkedList for all the Trigger stuff, used a trusty Ol ArrayList
 
 
 LESSONS LEARNED
@@ -43,6 +45,9 @@ LESSONS LEARNED
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
 - If it says "mixing active and static" IT MEANS CHECK YOUR BRACKETS IN EVERY TAB/CLASS
+- Sometimes too complicated truly is too complicated
+- Do the actual math when trying to detect (and avoid) triggers within a certain radius 
+- Four hour coding/pacing around the room like a madman session is not the way to go because there may be merge conflicts ruining your whole life's work
 
 
 
@@ -177,38 +182,45 @@ Diana Akhmedova ::
 
 Faiza Huda :: Added water tile(s)
               Debugged what happened with integrating Monster into Woo
-              Created two of the maps whose layouts should be apart of final design 
+              Created two of the maps whose layouts should be apart of final design
               Made it so when triggered goes to the next setting
               Cleaned up tree tiles into one concise file
 
 Tasnim Chowdhury :: Created v3. Finished Battle mechanics,
                     finished healing fairy + siren + snake +
-                    imp + witch + wolf with completed moves. 
+                    imp + witch + wolf with completed moves.
 ==============================================================
 
 2022-6-6
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Integrated Battle mechanisms into Woo,
+                   tried fixing KeyPressed()
 
-Faiza Huda :: 
+Faiza Huda ::
 
-Tasnim Chowdhury ::  
+Tasnim Chowdhury ::  Integrated Battle mechanisms into Woo,
+                      tried fixing KeyPressed()
 ==============================================================
 
 2022-6-7
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Worked on integrating battle into Woo by
+                    fixing KeyPressed()
 
-Faiza Huda :: 
+Faiza Huda :: Created new data structure
+              Made backtracing functionality between moving through maps
+              Restructed all of trigger detecting
+              Created rock class and put in randomness for grass battles
 
-Tasnim Chowdhury ::  
+Tasnim Chowdhury :: Finished 10 maps, Bridge
+                    tiles
 ==============================================================
 
 2022-6-8
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda :: 
+Faiza Huda ::
 
-Tasnim Chowdhury ::  
+Tasnim Chowdhury ::
 ==============================================================

@@ -1,10 +1,14 @@
 class Background {
 
-  String[] str;
+  //String[] str;
   Tile[][] map = new Tile[25][25];
   int tileXCor;
   int tileYCor;
-  int nextSetting;
+  int currIndex;
+  DuplicateMap fwdTrigPnts;
+  DuplicateMap prevTrigPnts;
+  LinkedList<String[]> worldList;
+  ListIterator<String[]> worldIterator;
   
   PImage bg;
   //Imp imp = new Imp();
@@ -13,15 +17,26 @@ class Background {
   public Background(){
      //bg = loadImage("WorldPics/World.png");
      //str = loadStrings("World.txt");
-     Forest10();
+<<<<<<< HEAD
+      currIndex = 0;
+      fwdTrigPnts = new DuplicateMap();
+      prevTrigPnts = new DuplicateMap();
+      worldList = new LinkedList<String[]>();
+      setUpList();
+      render(worldList.get(0));
+=======
+     Forest1();
      render();
+>>>>>>> 27a37fdb059259900c0277e024927dc1296e5bdd
   }
   
-  void render() {
+  void render(String[] str) {
     map = new Tile[25][25];
     tileXCor = 0;
     tileYCor = 0;
-    for (int j = 0; j < str.length; j++) {
+    prevTrigPnts.reset();
+    fwdTrigPnts.reset();
+    for (int j = 0; j < 15; j++) {
       for (int i = 0; i < 25; i++) {
         if(str[j].charAt(i) == '-'){
           map[j][i] = new Path(tileXCor, tileYCor, false, false); // path
@@ -33,20 +48,22 @@ class Background {
           map[j][i] = new Tree(tileXCor, tileYCor, true);
         }
         else if (str[j].charAt(i) == '#'){
-          map[j][i] = new Path(tileXCor, tileYCor, true, false); // trigger points
+          map[j][i] = new Path(tileXCor, tileYCor, true, false); // forward trigger points
+          fwdTrigPnts.addValue(i, j);
+        }
+        else if (str[j].charAt(i) == '$'){
+          map[j][i] = new Path(tileXCor, tileYCor, true, false); // backward trigger points
+          prevTrigPnts.addValue(i, j);
         }
         else if (str[j].charAt(i) == '@'){
           map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
         }
-        else if (str[j].charAt(i) == 'W'){
-          map[j][i] = new Water(tileXCor, tileYCor, true); // water 
+        else if (str[j].charAt(i) == 'w'){
+          map[j][i] = new Water(tileXCor, tileYCor, true); 
         }
         else if (str[j].charAt(i) == 'R'){
-          map[j][i] = new Rock(tileXCor, tileYCor, true); //rock
+          map[j][i] = new Rock(tileXCor, tileYCor, true);
          }
-        else if (str[j].charAt(i) == 'B'){
-          map[j][i] = new Bridge(tileXCor, tileYCor, true, false); //bridge
-        }
         
         // trees
         else if (str[j].charAt(i) == '1'){
@@ -122,14 +139,17 @@ class Background {
         tileXCor += 64;
        }
        tileXCor = 0;
-       tileYCor += 64;
-       
+       tileYCor += 64;   
      }
+     bg = loadImage("WorldPics/Forest_" + currIndex + ".png");
   }
 
   PImage bgImage() {
     return bg;
   }
+<<<<<<< HEAD
+
+=======
   
   void Forest1() {
     bg = loadImage("WorldPics/Forest_1.png");
@@ -142,51 +162,52 @@ class Background {
     str = loadStrings("Forest2.txt");
     nextSetting = 3;
   }
+>>>>>>> 27a37fdb059259900c0277e024927dc1296e5bdd
   
   void Forest3() {
-   // bg = loadImage("WorldPics/Forest_3.png");
+   bg = loadImage("WorldPics/Forest_3.png");
     str = loadStrings("Forest3.txt");
     nextSetting = 4;
   }
   
   void Forest4() {
-    // bg = loadImage("WorldPics/Forest_4.png");
+    bg = loadImage("WorldPics/Forest_4.png");
     str = loadStrings("Forest4.txt");
     nextSetting = 5; 
   }
   
   void Forest5() {                    
-    // bg = loadImage("WorldPics/Forest_5.png");
+    bg = loadImage("WorldPics/Forest_5.png");
     str = loadStrings("Forest5.txt");
     nextSetting = 6; 
   }
   
   void Forest6() {                
-    // bg = loadImage("WorldPics/Forest_6.png");
+    bg = loadImage("WorldPics/Forest_6.png");
     str = loadStrings("Forest6.txt");
     nextSetting = 7;
   }
   
   void Forest7() {            
-    // bg = loadImage("WorldPics/Forest_7.png");
+    bg = loadImage("WorldPics/Forest_7.png");
     str = loadStrings("Forest7.txt");
     nextSetting = 8;
   }
   
   void Forest8() {            
-    // bg = loadImage("WorldPics/Forest_8.png");
+    bg = loadImage("WorldPics/Forest_8.png");
     str = loadStrings("Forest8.txt");
     nextSetting = 9;
   }
   
   void Forest9() {            
-    // bg = loadImage("WorldPics/Forest_9.png");
+    bg = loadImage("WorldPics/Forest_9.png");
     str = loadStrings("Forest9.txt");
     nextSetting = 10;
   }
   
   void Forest10() {            
-    // bg = loadImage("WorldPics/Forest_10.png");
+    bg = loadImage("WorldPics/Forest_10.png");
     str = loadStrings("Forest10.txt");
     nextSetting = 11;
   }
@@ -203,6 +224,8 @@ class Background {
     }
   }
   
+<<<<<<< HEAD
+=======
   void nextSetting() {
     if (nextSetting == 2) {
       Forest1();
@@ -236,5 +259,29 @@ class Background {
       render();
     }
  }
+>>>>>>> 27a37fdb059259900c0277e024927dc1296e5bdd
+  
+  void setUpList() {
+    for (int i = 0; i <= 3; i++) {
+      worldList.add(loadStrings("Forest" + i + ".txt"));
+    }
+    worldIterator = worldList.listIterator();
+  }
+  
+  void Triggered(int x, int y){
+    if (fwdTrigPnts.contains(x, y)) {
+      //it exists in forward
+      println("I exist?");
+      if (currIndex < worldList.size() -1){
+        currIndex++;
+        render(worldList.get(currIndex));
+      }
+    } else if (prevTrigPnts.contains(x, y)) {
+        if (currIndex > 0){
+          currIndex--;
+          render(worldList.get(currIndex));
+      }
+    }
+  }
   
 }

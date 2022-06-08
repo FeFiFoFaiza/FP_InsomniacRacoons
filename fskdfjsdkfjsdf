@@ -1,0 +1,65 @@
+[1mdiff --git a/v4/Woo/Background.pde b/v4/Woo/Background.pde[m
+[1mindex c15c9e8..a5d3474 100644[m
+[1m--- a/v4/Woo/Background.pde[m
+[1m+++ b/v4/Woo/Background.pde[m
+[36m@@ -5,6 +5,7 @@[m [mclass Background {[m
+   int tileXCor;[m
+   int tileYCor;[m
+   int nextSetting;[m
+[32m+[m[32m  LinkedList<String> worldList = new LinkedList<String>();[m
+   [m
+   PImage bg;[m
+   //Imp imp = new Imp();[m
+[36m@@ -159,4 +160,11 @@[m [mclass Background {[m
+     }[m
+   }[m
+   [m
+[32m+[m[32m  void setUpList() {[m
+[32m+[m[32m    for (int i = 1; i <= 4; i++) {[m
+[32m+[m[32m       worldList.add("Forest" + i + ".png");[m
+[32m+[m[32m    }[m
+[32m+[m[32m    System.out.println(worldList.size());[m
+[32m+[m[32m  }[m
+[32m+[m[41m  [m
+ }[m
+[1mdiff --git a/v4/Woo/Kid.pde b/v4/Woo/Kid.pde[m
+[1mindex 5a6c6c6..e3df51d 100644[m
+[1m--- a/v4/Woo/Kid.pde[m
+[1m+++ b/v4/Woo/Kid.pde[m
+[36m@@ -168,10 +168,7 @@[m [mclass Kid {[m
+     if (gretLeads) {[m
+         xTile = (xGret + xGTemp) / 64; [m
+         yTile = ((yGret + yGTemp) / 64);[m
+[31m-        if (checkBoundaries(xTile, yTile)) {[m
+[31m-           System.out.println("TREEEEE: " + xTile + " " +yTile);[m
+[31m-           System.out.println(xGret + " " + yGret);[m
+[31m-        } else {[m
+[32m+[m[32m        if (!checkBoundaries(xTile, yTile)) {[m
+           xGret += xGTemp;[m
+           yGret += yGTemp;[m
+         }[m
+[36m@@ -179,10 +176,7 @@[m [mclass Kid {[m
+      else if (hansLeads){[m
+         xTile = (xHans + xHTemp) / 64; [m
+         yTile = 1 + ((yHans + yHTemp) / 64);[m
+[31m-        if (checkBoundaries(xTile, yTile)) {[m
+[31m-           System.out.println("TREEEEE: " + xTile + " " +yTile);[m
+[31m-           System.out.println(xHans + " " + yHans);[m
+[31m-        } else {[m
+[32m+[m[32m        if (!checkBoundaries(xTile, yTile)) {[m
+           xHans += xHTemp;[m
+           yHans += yHTemp;[m
+         }[m
+[36m@@ -200,7 +194,11 @@[m [mclass Kid {[m
+   [m
+   void checkEnemy(int x, int y) { [m
+     if (peep.map[y][x].isSpawnable) {[m
+[31m-      inBattle = true; //CHANGE l8R[m
+[32m+[m[32m      double battleChance = random(1);[m
+[32m+[m[32m      if (battleChance < 0.33) {[m
+[32m+[m[32m        inBattle = true;[m[41m [m
+[32m+[m[32m      }[m
+[32m+[m[32m      System.out.println("chances: " + battleChance);[m
+     }[m
+   }[m
+   [m
