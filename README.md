@@ -11,7 +11,7 @@ Ohaiyo~ Welcome to our project uwu.
 We will attempt to program a 2D interactive recreation of our own twist on children's fairy tales (Hansel and Gretel) with rpg-style battles.
 
 ### How To Launch
-Inorder to launch it please type processing [insert file name l8r]
+Inorder to launch it please type processing Woo.pde and press Run.
 
 
 ⣿⡟⠙⠛⠋⠩⠭⣉⡛⢛⠫⠭⠄⠒⠄⠄⠄⠈⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿
