@@ -14,7 +14,7 @@ class Background {
   public Background(){
      //bg = loadImage("WorldPics/World.png");
      //str = loadStrings("World.txt");
-     ForestUno();
+     Forest1();
      render();
   }
   
@@ -128,17 +128,65 @@ class Background {
   PImage bgImage() {
     return bg;
   }
-
-  void ForestUno() {
+  
+  void Forest1() {
     bg = loadImage("WorldPics/Forest_1.png");
     str = loadStrings("Forest1.txt");
     nextSetting = 2;
   }
   
-  void ForestDos() {
+  void Forest2() {
     bg = loadImage("WorldPics/Forest_2.png");
     str = loadStrings("Forest2.txt");
     nextSetting = 3;
+  }
+  
+  void Forest3() {
+   bg = loadImage("WorldPics/Forest_3.png");
+    str = loadStrings("Forest3.txt");
+    nextSetting = 4;
+  }
+  
+  void Forest4() {
+    bg = loadImage("WorldPics/Forest_4.png");
+    str = loadStrings("Forest4.txt");
+    nextSetting = 5; 
+  }
+  
+  void Forest5() {                    
+    bg = loadImage("WorldPics/Forest_5.png");
+    str = loadStrings("Forest5.txt");
+    nextSetting = 6; 
+  }
+  
+  void Forest6() {                
+    bg = loadImage("WorldPics/Forest_6.png");
+    str = loadStrings("Forest6.txt");
+    nextSetting = 7;
+  }
+  
+  void Forest7() {            
+    bg = loadImage("WorldPics/Forest_7.png");
+    str = loadStrings("Forest7.txt");
+    nextSetting = 8;
+  }
+  
+  void Forest8() {            
+    bg = loadImage("WorldPics/Forest_8.png");
+    str = loadStrings("Forest8.txt");
+    nextSetting = 9;
+  }
+  
+  void Forest9() {            
+    bg = loadImage("WorldPics/Forest_9.png");
+    str = loadStrings("Forest9.txt");
+    nextSetting = 10;
+  }
+  
+  void Forest10() {            
+    bg = loadImage("WorldPics/Forest_10.png");
+    str = loadStrings("Forest10.txt");
+    nextSetting = 11;
   }
   
   void battleMenu() {
@@ -155,10 +203,37 @@ class Background {
   
   void nextSetting() {
     if (nextSetting == 2) {
-       ForestDos();
-       render();
+      Forest1();
+      render();
+    } else if (nextSetting == 3) {
+      Forest2();
+      render();
+    } else if (nextSetting == 4) {
+      Forest3();
+      render();
+    } else if (nextSetting == 5) {
+      Forest4();
+      render();
+    } else if (nextSetting == 6) {
+      Forest5();
+      render();
+    } else if (nextSetting == 7) {
+      Forest6();
+      render();
+    } else if (nextSetting == 8) {
+      Forest7();
+      render();
+    } else if (nextSetting == 9) {
+      Forest8();
+      render();
+    } else if (nextSetting == 10) {
+      Forest8();
+      render();
+    } else if (nextSetting == 11) {
+      Forest10();
+      render();
     }
-  }
+ }
   
   void setUpList() {
     for (int i = 1; i <= 4; i++) {

@@ -177,38 +177,43 @@ Diana Akhmedova ::
 
 Faiza Huda :: Added water tile(s)
               Debugged what happened with integrating Monster into Woo
-              Created two of the maps whose layouts should be apart of final design 
+              Created two of the maps whose layouts should be apart of final design
               Made it so when triggered goes to the next setting
               Cleaned up tree tiles into one concise file
 
 Tasnim Chowdhury :: Created v3. Finished Battle mechanics,
                     finished healing fairy + siren + snake +
-                    imp + witch + wolf with completed moves. 
+                    imp + witch + wolf with completed moves.
 ==============================================================
 
 2022-6-6
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Integrated Battle mechanisms into Woo,
+                   tried fixing KeyPressed()
 
-Faiza Huda :: 
+Faiza Huda ::
 
-Tasnim Chowdhury ::  
+Tasnim Chowdhury ::  Integrated Battle mechanisms into Woo,
+                      tried fixing KeyPressed()
 ==============================================================
 
 2022-6-7
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Worked on integrating battle into Woo by
+                    fixing KeyPressed()
 
-Faiza Huda :: 
+Faiza Huda :: Created doubly linked list for switching maps
+               function for trigger
 
-Tasnim Chowdhury ::  
+Tasnim Chowdhury :: Finished 10 maps, created Rock, Bridge
+                    tiles
 ==============================================================
 
 2022-6-8
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda :: 
+Faiza Huda ::
 
-Tasnim Chowdhury ::  
+Tasnim Chowdhury ::
 ==============================================================
