@@ -26,7 +26,7 @@ class Kid {
   int offset = 0;
   int delay = 0;
   
-  Queue inventory = new LinkedList<>();
+  Queue<> inventory = new LinkedList<>();
   boolean pickedUp = false;
   
   Item cookie = new Item();

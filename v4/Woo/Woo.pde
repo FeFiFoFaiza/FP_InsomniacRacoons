@@ -20,7 +20,7 @@ boolean playerTurn = false;
 PFont font;
 boolean inBattle;
 Imp imp;
-  Battle battle;
+Battle battle;
 
 int counter = 0;
 int command = 0;
@@ -29,8 +29,8 @@ void setup() {
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
   story = new LinkedList<String>();
-  imp = new Imp();
-  battle = new Battle(imp);
+  //imp = new Imp();
+  //battle = new Battle(imp);
   //battle = new Battle();
   
   size(1600, 960);
@@ -155,6 +155,10 @@ void keyPressed() {
       startG = false;
       tutorial = true;
     }
+  }
+  
+  if (inBattle && playerTurn) {
+    battle.keyPressed();
   }
   
   //if (inBattle && playerTurn) {
