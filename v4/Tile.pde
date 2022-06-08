@@ -10,6 +10,8 @@ class Tile {
       xCor = x;
       yCor = y;
       isCollidable = stat;
+      isSpawnable = false;
+      isTrigger = false;
    }
    
    int getXCor() {

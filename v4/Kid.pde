@@ -16,6 +16,9 @@ class Kid {
   float xHspeed = 0;
   float yHspeed = 0;
   
+  int xLead;
+  int yLead;
+  
   boolean gretLeads, hansLeads;
   
   int currentFrame = 0;
@@ -172,6 +175,8 @@ class Kid {
           xGret += xGTemp;
           yGret += yGTemp;
         }
+        xLead = xGret;
+        yLead = yGret;
      }
      else if (hansLeads){
         xTile = (xHans + xHTemp) / 64; 
@@ -180,6 +185,8 @@ class Kid {
           xHans += xHTemp;
           yHans += yHTemp;
         }
+        xLead = xHans;
+        yLead = yHans;
      }
   }
 
@@ -196,33 +203,39 @@ class Kid {
     if (peep.map[y][x].isSpawnable) {
       double battleChance = random(1);
       if (battleChance < 0.33) {
-        inBattle = true; 
+        inBattle = false; //CHANGE L8R WHEN BATTLE WORKS 
       }
       System.out.println("chances: " + battleChance);
     }
   }
   
   boolean checkTriggers (int x, int y) {
+    //FACTOR IN WITCH HOUSE LATER
      if (peep.map[y][x].isTrigger) {
-       if ((xGret <= 35) || (xHans <= 35)) {
-         xGret += 1600;
-         xHans += 1600;
+       println("BOO " + xGret + " " +yGret);
+       boolean inRadius = false;
+       if (xLead <= 35) {
+         xGret += 1510;
+         xHans += 1510;
+         inRadius = true;
        }
-       if ((xGret >= 1560) || (xHans >= 1560)){
-         xGret -= 1600;
-         xHans -= 1600;
+       if (xLead >= 1550){
+         xGret -= 1514;
+         xHans -= 1514;
+         inRadius = true;
        }
-       if ((yGret <= 35) || (yHans <= 35)) {
-         yGret += 1600;
-         yHans += 1600;
+       if (yLead <= 35) {
+         yGret += 1510;
+         yHans += 1510;
+         inRadius = true;
        }
-       if ((yGret >= 1560) || (yHans >= 1560)){
-         yGret -= 1600;
-         yHans -= 1600;
+       if (yLead >= 1550){
+         yGret -= 1514;
+         yHans -= 1514;
+         inRadius = true;
        }
-       if ((xGret <= 35) || (xHans <= 35) || (xGret >= 1560) || (xHans >= 1560) || (yGret <= 35) || (yHans <= 35) || (yGret >= 1560) || (yHans >= 1560) ) {
-         System.out.println("TRIGGER" + xGret + " " + yGret);
-         peep.nextSetting();
+       if (inRadius) {
+          peep.Triggered(x, y); 
        }
        return true;
      }
