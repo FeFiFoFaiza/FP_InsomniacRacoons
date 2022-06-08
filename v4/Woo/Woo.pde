@@ -42,9 +42,10 @@ void setup() {
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
   
-  
+  /**
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
+  **/
   
   for (int i = 0; i < gretelFrames; i++) {
     gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
@@ -110,14 +111,14 @@ void draw() {
      }
   }
   
-  //if (storyDialogue) {
-  //  if (counter == 0) {
-  //    peep.battleMenu();
-  //    counter++;
-  //  }
-  //  dialogue.writeDialogue();
-  //  delay(2000);
-  //}
+  if (storyDialogue) {
+    if (counter == 0) {
+      peep.battleMenu();
+      counter++;
+    }
+    dialogue.writeDialogue();
+    delay(2000);
+  }
 }
 
 void keyPressed() {

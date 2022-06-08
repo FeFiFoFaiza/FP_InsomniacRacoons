@@ -171,6 +171,7 @@ class Kid {
     if (gretLeads) {
         xTile = (xGret + xGTemp) / 64; 
         yTile = ((yGret + yGTemp) / 64);
+        println("BWAHAHAHAHA ");
         if (!checkBoundaries(xTile, yTile)) {
           xGret += xGTemp;
           yGret += yGTemp;
@@ -211,7 +212,8 @@ class Kid {
   
   boolean checkTriggers (int x, int y) {
     //FACTOR IN WITCH HOUSE LATER
-     if (peep.map[y][x].isTrigger) {
+    println("pein: " + x + " " + y);
+     if (peep.map[y][x].isTrigger){
        println("BOO " + xGret + " " +yGret);
        boolean inRadius = false;
        if (xLead <= 35) {
@@ -225,13 +227,13 @@ class Kid {
          inRadius = true;
        }
        if (yLead <= 35) {
-         yGret += 1510;
-         yHans += 1510;
+         yGret += 900;
+         yHans += 900;
          inRadius = true;
        }
-       if (yLead >= 1550){
-         yGret -= 1514;
-         yHans -= 1514;
+       if (yLead >= 930){
+         yGret -= 920;
+         yHans -= 920;
          inRadius = true;
        }
        if (inRadius) {
