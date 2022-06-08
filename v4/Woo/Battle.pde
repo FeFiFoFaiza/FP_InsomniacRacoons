@@ -236,22 +236,24 @@ class Battle {
   void keyPressed() { //playerMoves  
     //if (inBattle && playerTurn) {
       println(command);
-      if (key == '1') {
-          command = 1;
-       }
-       else if (key == '2') {
-          command = 2;
-       }
-       else if (key == '3') {
-          command = 3;
-       }
-       else if (key == '4') {
-          command = 4;
-       }
-       else {
-         println("error");
-       }
-    //}
+      if (inBattle && playerTurn) {
+        if (keyCode == 49) {
+            command = 1;
+            println("command 1");
+         }
+         if (keyCode == 50) {
+            command = 2;
+            println("command 2");
+         }
+         if (keyCode == 51) {
+            command = 3;
+            println("command 3");
+         }
+         if (keyCode == 52) {
+            command = 4;
+            println("command 4");
+         }
+      }
   }
   
   
