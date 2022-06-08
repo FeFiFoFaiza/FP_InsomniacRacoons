@@ -22,8 +22,6 @@ class Battle {
   //moves
   int ultCounter; //checks if player punched enough times to access ult
   String playerMove;
-  char currKey;
-  char newKey;
   
   private String enemyNextMove;
   //String story;
@@ -55,11 +53,7 @@ class Battle {
   //displays health bar
   public void healthBar() {
   }
-  
-  char checkKeyPressed() {
-    currKey = key;
-    return currKey;
-  }
+
 
   public void turn() {
     System.out.println("HELP " + kidHp);

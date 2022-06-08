@@ -25,6 +25,9 @@ Imp imp;
 int counter = 0;
 int command = 0;
 
+char currKey;
+char newKey;
+
 void setup() {
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
@@ -110,6 +113,8 @@ void draw() {
      }
   }
   
+  checkKeyPressed();
+  
   //if (storyDialogue) {
   //  if (counter == 0) {
   //    peep.battleMenu();
@@ -185,6 +190,10 @@ void keyReleased() {
   right = false;
 }
 
+char checkKeyPressed() {
+    currKey = key;
+    return currKey;
+  }
 
 //void dialogue(String sentence) {
 //  for (int i = 0; i < sentence.length(); i++) {
