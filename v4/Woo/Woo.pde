@@ -24,8 +24,7 @@ Battle battle;
 
 int counter = 0;
 int command = 0;
-
-AdvancedButton a,b,c;
+Button move1, move2, move3, move4;
 
 void setup() {
   kid = new Kid(100, 10);
@@ -34,6 +33,7 @@ void setup() {
   imp = new Imp();
   battle = new Battle(imp);
   //battle = new Battle();
+  move1 = new Button(100, 100, 100, 50, "Move 1", 0, 200, 200);
   
   size(1600, 960);
   //background(202, 158, 81);
@@ -83,28 +83,30 @@ void draw() {
      dialogue.tutorial();
    }
   
+  
+  
    if (inBattle) {
+     println("What");
      peep.battleMenu();
      image(enemy, 700, 100);
     
      peep.battleTurn();
      dialogue.writeDialogue();
+     //if (playerTurn) {
+     //  println("Who");
+       
+     //}
      //delay(2000);
    }
   
-   if (storyDialogue) {
-     if (counter == 0) {
-       peep.battleMenu();
-       counter++;
-     }
-     dialogue.writeDialogue();
-     delay(2000);
-   }
-   
-   if (playerTurn == false) {
-     println("whyyyyyyyyyyy");
-     command = 0;
-   }
+   //if (storyDialogue) {
+   //  if (counter == 0) {
+   //    peep.battleMenu();
+   //    counter++;
+   //  }
+   //  dialogue.writeDialogue();
+   //  //delay(2000);
+   //}
 }
 
 void keyPressed() {

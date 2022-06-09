@@ -201,11 +201,11 @@ class Kid {
   void checkEnemy(int x, int y) { 
     println("AHDSAKJSHDKJASHDKJASHD");
     if (peep.map[y][x].isSpawnable) {
-      double battleChance = random(1);
-      if (battleChance > 0.33) {
+      //double battleChance = random(1);
+      //if (battleChance > 0.33) {
         inBattle = true; //CHANGE L8R WHEN BATTLE WORKS 
-      }
-      System.out.println("chances: " + battleChance);
+      //}
+      //System.out.println("chances: " + battleChance);
     }
   }
   

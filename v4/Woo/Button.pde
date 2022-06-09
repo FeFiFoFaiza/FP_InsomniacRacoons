@@ -7,7 +7,7 @@ class Button {
   boolean pressed = false;
   boolean clicked = false;
   
-  Button(int x, int y, int h, String t, int r, int g, int b) {
+  Button(int x, int y, int w, int h, String t, int r, int g, int b) {
     pos.x = x;
     pos.y = y;
     widith = w;
@@ -22,10 +22,13 @@ class Button {
       if ((mouseX >= pos.x) && (mouseX <= pos.x + widith) && (mouseY >= pos.y) && (mouseY <= pos.y + heighteth)) {
         clicked = true;
       }
-      else {
-        pressed = false;
-        clicked = false;
-      }
+    }
+    else {
+      clicked = false;
+    }
+    
+    if (!mousePressed) {
+      pressed = false;
     }
   }
   
@@ -40,3 +43,4 @@ class Button {
   boolean isClicked() {
     return clicked;
   }
+}

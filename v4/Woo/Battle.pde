@@ -25,11 +25,17 @@ class Battle {
   
   //Queue<Character> playerMovesList = new LinkedList<Character>();
   
+  //Button move1, move2, move3, move4;
+  
   private String enemyNextMove;
   //String story;
   
   //setup
   public Battle(Monsters type) {
+    //move1 = new Button(100, 100, 100, 50, "Move 1", 0, 200, 200);
+    //move2 = new Button(100, 100, 100, 50, "Move 2", 0, 200, 200);
+    //move3 = new Button(100, 100, 100, 50, "Move 3", 0, 200, 200);
+    //move4 = new Button(100, 100, 100, 50, "Move 4", 0, 200, 200);
     enemy = type;
     enemyHp = enemy.getHp();
     kidHp = kid.getHealth();
@@ -55,71 +61,66 @@ class Battle {
   //displays health bar
   public void healthBar() {
   }
-  
-  //char returnPlayerMove() {
-  //  playerMovesList.peek();
-  //}
 
   public void turn() {
     System.out.println("HELP " + kidHp);
-    System.out.println(enemy.isAlive());
-    println((kid.getHealth()));
+    //System.out.println(enemy.isAlive());
+    //println((kid.getHealth()));
     
     if ( (enemy.isAlive()) && (kidHp > 0) ) {
       inBattle = true;
       playerTurn = true;
       System.out.println("HELP1 " + kidHp);
       storyDialogue = true;
-      
+
       story.add("You have 15 seconds to make your move!");
       story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
-      
+      println(playerTurn);
       //player turn
-      if (playerTurn) {
-        delay(2000);
-        println(command);
-        
-        println("comm: " + command);
-        if (inBattle && playerTurn) {
-          while (command != 1 || command != 2 || command != 3 || command != 4) {
-            if (command == 1) {
+      if (playerTurn && inBattle) {
+        println("im tired" + playerTurn);
+        move1.render();
+        //delay(2000);
+        while (playerTurn) {
+            move1.update();
+            if (move1.isClicked()) {
                 playerMove = "attack"; //no changes
                 println(playerMove);
                 playerTurn = false;
-                break;
+                //break;
              }
              if (command == 2) {
                 playerMove = "defend"; //lower dmg done on en, lower dmg done on player
                 println(playerMove);
                 playerTurn = false;
-                break;
+                //break;
              }
              if (command == 3) {
                 playerMove = "punch"; // higher dmg done on en, higher on player
                 println(playerMove);
                 ultCounter++;
                 playerTurn = false;
-                break;
+                //break;
              }
              if ((command == 4) && (ultCounter >= 3)) {
                 playerMove = "breadcrumbs"; //higher dmg done on en
                 println(playerMove);
                 ultCounter = 0;
                 playerTurn = false;
-                break;
+                //break;
              }
-             else {
-               println(command);
-               println(key);
-               println("dying");
-               delay(1000);
-             }
-          }
+             //else {
+             //  println(command);
+             //  println(key);
+             //  println("dying");
+             //  delay(1000);
+             //}
+          
         }
-        println("ataaack");
-        playerMove = "attack"; //no changes
-        println(playerMove);
-        playerTurn = false;
+        //println("ataaack");
+        //playerMove = "attack"; //no changes
+        //println(playerMove);
+        //playerTurn = false;
       }
       playerTurn = false;
       updEnemy(playerMove()); 
