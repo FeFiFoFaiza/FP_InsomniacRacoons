@@ -26,33 +26,33 @@ class Kid {
   int offset = 0;
   int delay = 0;
   
-  Queue<> inventory = new LinkedList<>();
-  boolean pickedUp = false;
+  //Queue<String> inventory = new LinkedList<String>();
+  //boolean pickedUp = false;
   
-  Item cookie = new Item();
-  Item items[] = new Item[6];
+  //Item cookie = new Item();
+  //Item items[] = new Item[6];
   
   int xTile, yTile, yGTemp, xGTemp, yHTemp, xHTemp;
 
 
-  boolean inventoryFull() {
-    return (inventory.size() > 6);
-  }
+  //boolean inventoryFull() {
+  //  return (inventory.size() > 6);
+  //}
   
   
-  void updateInventory(Item item) {
-    if (pickedUp) {
-      if (!inventoryFull()) {
-        inventory.add(item);
-      }
-      else {
-        // idk how to drop items on the ground,
-        // maybe display the PImage and then its pickuppable
-        inventory.remove();
-        inventory.add(item);
-      }
-    }
-  }
+  //void updateInventory(Item item) {
+  //  if (pickedUp) {
+  //    if (!inventoryFull()) {
+  //      inventory.add(item);
+  //    }
+  //    else {
+  //      // idk how to drop items on the ground,
+  //      // maybe display the PImage and then its pickuppable
+  //      inventory.remove();
+  //      inventory.add(item);
+  //    }
+  //  }
+  //}
   
   
   public Kid() {
@@ -202,8 +202,8 @@ class Kid {
     println("AHDSAKJSHDKJASHDKJASHD");
     if (peep.map[y][x].isSpawnable) {
       double battleChance = random(1);
-      if (battleChance < 0.33) {
-        inBattle = false; //CHANGE L8R WHEN BATTLE WORKS 
+      if (battleChance > 0.33) {
+        inBattle = true; //CHANGE L8R WHEN BATTLE WORKS 
       }
       System.out.println("chances: " + battleChance);
     }

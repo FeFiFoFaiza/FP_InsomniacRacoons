@@ -18,7 +18,6 @@ class Monsters {
     moveList.add("mid2");
     moveList.add("basic2");
     moveList.add("ult");
-    
   }
   
   public int getX() {

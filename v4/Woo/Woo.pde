@@ -29,8 +29,8 @@ void setup() {
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
   story = new LinkedList<String>();
-  //imp = new Imp();
-  //battle = new Battle(imp);
+  imp = new Imp();
+  battle = new Battle(imp);
   //battle = new Battle();
   
   size(1600, 960);
@@ -42,10 +42,8 @@ void setup() {
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
   
-  /**
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
-  **/
   
   for (int i = 0; i < gretelFrames; i++) {
     gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
@@ -92,36 +90,24 @@ void draw() {
      //delay(2000);
    }
   
-    if (inBattle && playerTurn) {
-     if (keyCode == 49) {
-         command = 1;
-         println("command 1");
-      }
-      if (keyCode == 50) {
-         command = 2;
-         println("command 2");
-      }
-      if (keyCode == 51) {
-         command = 3;
-         println("command 3");
-      }
-      if (keyCode == 52) {
-         command = 4;
-         println("command 4");
-      }
-  }
-  
-  if (storyDialogue) {
-    if (counter == 0) {
-      peep.battleMenu();
-      counter++;
-    }
-    dialogue.writeDialogue();
-    delay(2000);
-  }
+   if (storyDialogue) {
+     if (counter == 0) {
+       peep.battleMenu();
+       counter++;
+     }
+     dialogue.writeDialogue();
+     delay(2000);
+   }
+   
+   if (playerTurn == false) {
+     println("whyyyyyyyyyyy");
+     command = 0;
+   }
 }
 
 void keyPressed() {
+  battle.keyPressed();
+  
   if ( !inBattle ) {
     if (keyCode == UP || key == 'w') {
       up = true;
@@ -156,10 +142,6 @@ void keyPressed() {
       tutorial = true;
     }
   }
-  
-  if (inBattle && playerTurn) {
-    battle.keyPressed();
-  }
 }
 
 
@@ -169,11 +151,3 @@ void keyReleased() {
   left = false;
   right = false;
 }
-
-
-//void dialogue(String sentence) {
-//  for (int i = 0; i < sentence.length(); i++) {
-//    text(sentence.charAt(i), x, 800);
-//    x = x + 30;
-//  }
-//}

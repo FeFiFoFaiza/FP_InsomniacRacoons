@@ -22,14 +22,15 @@ class Battle {
   //moves
   int ultCounter; //checks if player punched enough times to access ult
   String playerMove;
-  char currKey;
-  char newKey;
+  
+  Queue<Character> playerMovesList = new LinkedList<Character>();
   
   private String enemyNextMove;
   //String story;
   
   //setup
   public Battle(Monsters type) {
+    playerMovesList.add('0');
     enemy = type;
     enemyHp = enemy.getHp();
     kidHp = kid.getHealth();
@@ -56,10 +57,9 @@ class Battle {
   public void healthBar() {
   }
   
-  char checkKeyPressed() {
-    currKey = key;
-    return currKey;
-  }
+  //char returnPlayerMove() {
+  //  playerMovesList.peek();
+  //}
 
   public void turn() {
     System.out.println("HELP " + kidHp);
@@ -68,52 +68,61 @@ class Battle {
     
     if ( (enemy.isAlive()) && (kidHp > 0) ) {
       inBattle = true;
+      playerTurn = true;
       System.out.println("HELP1 " + kidHp);
       storyDialogue = true;
-      story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
-
-      playerTurn = true;
+      
+      story.add("You have 15 seconds to make your move!");
+      story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use bread crumbs.\nYou can only use bread crumbs if you punch at least 3 times.");
+      
       //player turn
-      while (playerTurn) {
+      if (playerTurn) {
         delay(2000);
-        newKey = checkKeyPressed();
-        println(newKey);
-        //for (int i = 0; i < 10; i++) {
-          if (newKey == 1) {
-              playerMove = "attack"; //no changes
-              println(playerMove);
-              playerTurn = false;
-           }
-           if (newKey == 2) {
-              playerMove = "defend"; //lower dmg done on en, lower dmg done on player
-              println(playerMove);
-              playerTurn = false;
-           }
-           if (newKey == 3) {
-              playerMove = "punch"; // higher dmg done on en, higher on player
-              println(playerMove);
-              ultCounter++;
-              playerTurn = false;
-           }
-           if ((newKey == 4) && (ultCounter >= 3)) {
-              playerMove = "breadcrumbs"; //higher dmg done on en
-              println(playerMove);
-              ultCounter = 0;
-              playerTurn = false;
-           }
-           else {
-             newKey = checkKeyPressed();
-           }
-          // else {
-          //   println("dying");
-          //   delay(1000);
-          //}
-        //}
-        //println("ataaack");
-        //playerMove = "attack"; //no changes
-        //println(playerMove);
-        //playerTurn = false;
+        println(command);
+        
+        println("comm: " + command);
+        if (inBattle && playerTurn) {
+          for (int i = 0; i < 15; i++) {
+            if (playerMovesList.peek() == '1') {
+                playerMove = "attack"; //no changes
+                println(playerMove);
+                playerTurn = false;
+                break;
+             }
+             else if (playerMovesList.peek() == '2') {
+                playerMove = "defend"; //lower dmg done on en, lower dmg done on player
+                println(playerMove);
+                playerTurn = false;
+                break;
+             }
+             else if (playerMovesList.peek() == '3') {
+                playerMove = "punch"; // higher dmg done on en, higher on player
+                println(playerMove);
+                ultCounter++;
+                playerTurn = false;
+                break;
+             }
+             else if ((playerMovesList.peek() == '4') && (ultCounter >= 3)) {
+                playerMove = "breadcrumbs"; //higher dmg done on en
+                println(playerMove);
+                ultCounter = 0;
+                playerTurn = false;
+                break;
+             }
+             else {
+               println(playerMovesList.peek());
+               println(key);
+               println("dying");
+               delay(1000);
+             }
+          } 
+        }
+        println("ataaack");
+        playerMove = "attack"; //no changes
+        println(playerMove);
+        playerTurn = false;
       }
+      playerTurn = false;
       updEnemy(playerMove()); 
       //enemy turn
       updPlayer(enemyMove());
@@ -205,23 +214,26 @@ class Battle {
         dmg = strength;
         kidDefense = 15;
         story.add("You kicked " + enemy.getName() + " for " + dmg + " hp, keeping your guard up.");
-      } else if (playerMove.equals("defend")) {
+      }
+      else if (playerMove.equals("defend")) {
         //defend
         dmg = (int)(strength * 0.3);
         kidDefense = kidDefense + (int)(kidDefense * 0.85);
         story.add("You guarded yourself against " + enemy.getName() + " but delt " + dmg + " hp of damage!"); 
-      } else if (playerMove.equals("punch")) {
+      }
+      else if (playerMove.equals("punch")) {
         //punch
         dmg = (int)(strength * 1.85);
         kidDefense = 0;
-        
         story.add("You punched " + enemy.getName() + " with all you had for a whopping" + dmg + " hp, but leaving yourself vulnerable!"); 
-      } else if (playerMove.equals("breadcrumbs")) {
+      }
+      else if (playerMove.equals("breadcrumbs")) {
         //ult
         kidDefense = 15;
         dmg = (int)(strength * 2.4);
         story.add("You threw the mighty breadcrumbs at " + enemy.getName() + " for " + dmg + " hp of damage!");
-     } else {
+     }
+     else {
        return 0;
      }
      playerTurn = false;
@@ -233,26 +245,36 @@ class Battle {
   }
   
   //choosing player's move
-  void keyPressed() { //playerMoves  
-    //if (inBattle && playerTurn) {
+  void keyPressed() { //playerMoves
       println(command);
-      if (inBattle && playerTurn) {
-        if (keyCode == 49) {
-            command = 1;
-            println("command 1");
-         }
-         if (keyCode == 50) {
-            command = 2;
-            println("command 2");
-         }
-         if (keyCode == 51) {
-            command = 3;
-            println("command 3");
-         }
-         if (keyCode == 52) {
-            command = 4;
-            println("command 4");
-         }
+      println("acka");
+      println("inBattle " + inBattle + ", playerTurn " + playerTurn);
+      switch(key) {
+        case '1':
+          println("wwww");
+          playerMovesList.add('1');
+          playerMovesList.remove();
+          //command = 1;
+          println("command 1");
+          break;
+        case '2':
+          playerMovesList.add('2');
+          playerMovesList.remove();
+          //command = 1;
+          println("command 2");
+          break;
+        case '3':
+          playerMovesList.add('3');
+          playerMovesList.remove();
+          //command = 1;
+          println("command 3");
+          break;
+        case '4':
+          playerMovesList.add('4');
+          playerMovesList.remove();
+          //command = 1;
+          println("command 4");
+          break;
       }
   }
   

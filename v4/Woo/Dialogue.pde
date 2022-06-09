@@ -51,9 +51,9 @@ class Dialogue {
     fill(255);
     textSize(25);
     text(lines, 500, 800);
-    delay(2000);
     story.remove();
-    toggleDialogue();
+    delay(2000);
+    //toggleDialogue();
   }
   
   void toggleDialogue() {
