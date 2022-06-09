@@ -139,24 +139,28 @@ void keyPressed() {
       down = false;
       left = false;
       right = false;
+      println("weee");
     }
     if (keyCode == DOWN || key == 's') {
       down = true;
       up = false;
       left = false;
       right = false;
+      println("wooo");
     }
     if (keyCode == LEFT || key == 'a') {
       left = true;
       up = false;
       down = false;
       right = false;
+      println("deee");
     }
     if (keyCode == RIGHT || key == 'd') {
       right = true;
       up = false;
       down = false;
       left = false;
+      println("doooo");
     }
     if (key == 'x') {
       startG = false;
