@@ -46,14 +46,14 @@ class Dialogue {
   
   //updating dialogue
   public void writeDialogue() {
-    println(story.peek());
-    lines = story.peek();
-    fill(255);
-    textSize(25);
-    text(lines, 500, 800);
-    delay(2000);
-    story.remove();
-    //toggleDialogue();
+      println(story.peek());
+      lines = story.peek();
+      fill(255);
+      textSize(20);
+      text(lines, 200, 800);
+      story.remove();
+      delay(5000);
+      //toggleDialogue();
   }
   
   void toggleDialogue() {

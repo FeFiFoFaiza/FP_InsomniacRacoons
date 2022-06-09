@@ -19,8 +19,8 @@ Kid kid;
 
 PFont font;
 boolean inBattle;
+boolean battleWon;
 Imp imp;
-Battle battle;
 
 int counter = 0;
 int command = 0;
@@ -31,7 +31,7 @@ int command = 0;
 
    boolean won;
    boolean playerTurn = false;
-   boolean status; //game over
+
   
   //stats
    int enemyHp;
@@ -41,7 +41,7 @@ int command = 0;
   
   //moves
   int ultCounter; //checks if player punched enough times to access ult
-  String playerMove;
+  String playerMove = "";
   
    String enemyNextMove;
 
@@ -63,6 +63,8 @@ void setup() {
   hanselFrames = 12;
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
+  
+  enemyImage = loadImage("Enemies/piggy.jpg");
   
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
@@ -101,35 +103,40 @@ void draw() {
   
    if (tutorial) {
      dialogue.tutorial();
-   }
+   } 
+   
 
-   if (inBattle) {
-     println("What");
-     turn();
-     setBattleUp(imp);
-     while (playerMove == null) {
-       println(playerMove);
+   if (battle()) {
+    enemyImage = loadImage("Enemies/piggy.jpg");
+    
+    //  println("What");
+    //  turn();
+    //  setBattleUp(imp);
+    //  playerTurn = true;
+    //  //while (playerMove == null || playerMove != null) {
+    //  //  println(playerMove);
        
-       playerMove(playerMove);
-     }
-     battleMenu();
+    //  //  playerMove(playerMove);
+    //  //}
+    //  println(playerMove);
+    //  battleMenu();
    }
 }
 
-void battleMenu() {
-  if ((enemy.isAlive()) && (kidHp > 0)) {
-    turn1();
-  }
-  else if ((!enemy.isAlive()) && (kidHp > 0)) {
-    turn2();
-  }
-  else if ((enemy.isAlive()) && (kidHp <= 0)) {
-    turn3();
-  }
-  else {
-    println("error");
-  }
-}
+// void battleMenu() {
+//   if ((enemy.isAlive()) && (kidHp > 0)) {
+//     turn1();
+//   }
+//   else if ((!enemy.isAlive()) && (kidHp > 0)) {
+//     turn2();
+//   }
+//   else if ((enemy.isAlive()) && (kidHp <= 0)) {
+//     turn3();
+//   }
+//   else {
+//     println("error");
+//   }
+// }
 
 void keyPressed() {
   
@@ -171,8 +178,7 @@ void keyPressed() {
       tutorial = true;
     }
   }
-  
-  if (key == '1') {
+    if (key == '1') {
     println("1");
     if (inBattle && playerTurn) {
       playerMove = "attack";
@@ -200,6 +206,14 @@ void keyPressed() {
       println("444");
     }
   }
+  if (key == '9') {
+    if (inBattle && playerTurn) {
+      playerMove = "flee";
+      println("333");
+    }
+  }
+  
+  
   
 }
 
@@ -212,150 +226,58 @@ void keyReleased() {
 }
 
 
-
-
-
-
-void setBattleUp(Monsters type) {
+void setBattleUp() {
   inBattle = true;
   playerTurn = true;
-  storyDialogue = true;
-  enemy = type;
+  battleWon = false;
+  enemy = new Imp();
   enemyHp = enemy.getHp();
   kidHp = kid.getHealth();
   strength = kid.getStrength();
-  enemyImage = loadImage("Enemies/piggy.jpg");
+  peep.battleScreen();
+  background(peep.bgImage());
 }
 
-
-void turn1() {
-  //inBattle = true;
-  //playerTurn = true;
-  //storyDialogue = true;
-  
-  System.out.println("HELP1 " + kidHp);
-  
-  updEnemy(playerMove(playerMove)); 
-  updPlayer(enemyMove());
-}
-
-void turn2() {
-  System.out.println("HELP2 " + kidHp);
-  won = true;
-  story.add("You defeated" + enemy.getName() + ".");
-  status = true;
-  updateBaseStats(enemy.name);
-}
-
-void turn3() {
-  System.out.println("HELP3 " + kidHp);
-  story.add("Game over.");
-  status = true;
-}
-
-public void turn() {
-  bg = loadImage("WorldPics/black.png");
-  playerTurn = true;
-  story.add("You have 15 seconds to make your move!");
-  story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
-}
-
-
-public void updPlayer(int dmg) {
-  int max = dmg + 3;
-  int min = dmg - 3;
-  int realDmg = (int) (Math.random()*(max-min+1) + min);
-  int randomNumber = (int) ((Math.random()*6) + 1);
-  if (randomNumber > 1) {
-    kid.setHealth((kidHp + kidDefense) - realDmg);
-    story.add("You defended!");
-  } else {
-    story.add(enemy.getName() + " missed its attack because you successfully dodged!");
-  }
-  kidDefense = 1;
-  //healthBar();
-}
-
-public void updEnemy(int dmg) {
-  int max = dmg + 3;
-  int min = dmg - 3;
-  int realDmg = (int) (Math.random()*(max-min+1) + min); 
-  int randomNumber = (int) ((Math.random()*6) + 1);
-  if (randomNumber > 1) {
-    enemy.setHp(enemy.getHp() - realDmg);
-  } else {
-    story.add(enemy.getName() + " dodged your attack!");
-  }
-  //healthBar();
-
- }
-
-//after winning battle
-public void updateBaseStats(String enemyType) {
-  if (enemyType.equals("Wolf") ) {
-    kid.setStrength((int) (strength * 1.5));
-    kid.setHealth((int) (kidHp + 30));
-    story.add("Your health increased by 30HP. Your strength increased by 50%.");
-  } else { 
-    kid.setStrength((int) (strength * 1.05));
-    kid.setHealth((int) (kidHp + 5));
-    story.add("Your health increased by 10HP. Your strength increased by 5%.");
-  }
-}
-
-//damage done to player by enemy per turn
-public int enemyMove() {
-  enemyMoveFinder();
-  int dmg = 0;
-  dmg = enemy.attack(enemyNextMove);
-  playerTurn = true;
-  return dmg;
-}
-
-//updates queue of enemy moves
-public void enemyMoveFinder() {
-  Queue<String> enemyMoveList = enemy.moveList;
-  String temp = enemyMoveList.peek();
-  enemyMoveList.remove();
-  enemyMoveList.add(temp);
-  enemyNextMove = temp;
-}
-
-//damage done to enemy by player per turn
-public int playerMove(String pM) {
-  int dmg = 0;
-  if (!(pM == null)) {
-    if (pM.equals("attack")) {
-      //attack
-      dmg = strength;
-      kidDefense = 15;
-      story.add("You kicked " + enemy.getName() + " for " + dmg + " hp, keeping your guard up.");
+boolean battle(){
+  if (inBattle){
+    if (battleWon){
+      println("huzzah");
+      peep.exitBScreen();
+      inBattle = false;
+      return true;
+    } else {
+      image(enemyImage, 1200, 40, 60, 60);
+      if (playerMove.equals("flee")) {
+        inBattle = false;
+        peep.exitBScreen();
+        playerMove = "";
+        return true;
+      }
+      playerMove();
+      storyDialogue = false;
+      return false;
     }
-    else if (pM.equals("defend")) {
-      //defend
-      dmg = (int)(strength * 0.3);
-      kidDefense = kidDefense + (int)(kidDefense * 0.85);
-      story.add("You guarded yourself against " + enemy.getName() + " but delt " + dmg + " hp of damage!"); 
-    }
-    else if (pM.equals("punch")) {
-      //punch
-      dmg = (int)(strength * 1.85);
-      kidDefense = 0;
-      story.add("You punched " + enemy.getName() + " with all you had for a whopping" + dmg + " hp, but leaving yourself vulnerable!"); 
-    }
-    else if (pM.equals("breadcrumbs")) {
-      //ult
-      kidDefense = 15;
-      dmg = (int)(strength * 2.4);
-      story.add("You threw the mighty breadcrumbs at " + enemy.getName() + " for " + dmg + " hp of damage!");
-   }
-   else {
-     return 0;
-   }
-   playerTurn = false;
-   return dmg;
   }
-  else {
-    return 123;
+  return false;
+}
+
+void playerMove(){
+  fill(225);
+  text("Press 1 to attack, 2 to delay, 3 to punch", 50, 800); 
+  if (playerMove.equals("attack")){
+     battleMenu();
+     text("you've attacked!", 50, 800);
+  } else if (playerMove.equals("defend")){
+     battleMenu();
+     text("you've defended!", 50, 800); 
+  } else if (playerMove.equals("punch")){
+     battleMenu();
+     text("you've punched!", 50, 800); 
   }
+  playerMove = "";
+}
+
+void battleMenu(){
+   background(peep.bgImage());
+   image(enemyImage, 1200, 40, 60, 60);
 }

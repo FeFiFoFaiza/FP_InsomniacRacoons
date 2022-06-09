@@ -159,4 +159,11 @@ void Triggered(int x, int y){
     }
   }
   
+  void battleScreen() {
+     bg = loadImage("WorldPics/black.png"); 
+  }
+  
+  void exitBScreen(){
+      bg = loadImage("WorldPics/Forest_" + currIndex + ".png"); 
+  }
 }
