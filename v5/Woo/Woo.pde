@@ -1,4 +1,4 @@
-PImage enemy;
+//PImage enemy;
 
 PImage gretelImages [];
 PImage hanselImages [];
@@ -24,13 +24,16 @@ Battle battle;
 
 int counter = 0;
 int command = 0;
+Button move1, move2, move3, move4;
 
 void setup() {
+  move1 = new Button();
+  //move1 = new Button(100, 100, 100, 50, "Move 1", 0, 200, 200);
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
   story = new LinkedList<String>();
-  //imp = new Imp();
-  //battle = new Battle(imp);
+  imp = new Imp();
+  battle = new Battle(imp);
   //battle = new Battle();
   
   size(1600, 960);
@@ -45,7 +48,6 @@ void setup() {
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
   
-  
   for (int i = 0; i < gretelFrames; i++) {
     gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
   }
@@ -59,68 +61,48 @@ void setup() {
   left = false;
   right = false;
   
-  enemy = loadImage("Enemies/piggy.jpg"); //CHANGE TO PNG
+  //enemy = loadImage("Enemies/piggy.jpg"); //CHANGE TO PNG
 }
 
 void draw() {
-  // background(peep.bgImage());
+   background(peep.bgImage());
   
-  // if (startG) {
-  //   dialogue.startGame();
-  // }
+   if (startG) {
+     dialogue.startGame();
+   }
   
-  // if ( !inBattle && !startG) {
-  //     kid.display();
+   if ( !inBattle && !startG) {
+       kid.display();
       
-  //     if ( !tutorial ) {
-  //       kid.whoLeads();
-  //       kid.walk();
-  //     }
-  // }  
+       if ( !tutorial ) {
+         kid.whoLeads();
+         kid.walk();
+       }
+   }  
   
-  // if (tutorial) {
-  //   dialogue.tutorial();
-  // }
-  
-  // if (inBattle) {
-  //   peep.battleMenu();
-  //   image(enemy, 700, 100);
-    
-  //   peep.battleTurn();
-  //   dialogue.writeDialogue();
-  //   //delay(2000);
-  // }
-  
-  //  if (inBattle && playerTurn) {
-  //   if (keyCode == 49) {
-  //       command = 1;
-  //       println("command 1");
-  //    }
-  //    if (keyCode == 50) {
-  //       command = 2;
-  //       println("command 2");
-  //    }
-  //    if (keyCode == 51) {
-  //       command = 3;
-  //       println("command 3");
-  //    }
-  //    if (keyCode == 52) {
-  //       command = 4;
-  //       println("command 4");
-  //    }
-  //}
-  
-  //if (storyDialogue) {
-  //  if (counter == 0) {
-  //    peep.battleMenu();
-  //    counter++;
-  //  }
-  //  dialogue.writeDialogue();
-  //  delay(2000);
-  //}
+   if (tutorial) {
+     dialogue.tutorial();
+   }
+
+   if (inBattle) {
+     println("What");
+     peep.battleMenu();
+     battle.draw();
+   }
 }
 
+//void detectButton() {
+//      //if (move1.isClicked()) {
+//      //  println("pain");
+//      //}
+//      move1.render();
+//     move1.update();
+////     move1.render();
+//  }
+
 void keyPressed() {
+  //battle.keyPressed();
+  
   if ( !inBattle ) {
     if (keyCode == UP || key == 'w') {
       up = true;
@@ -155,10 +137,6 @@ void keyPressed() {
       tutorial = true;
     }
   }
-  
-  if (inBattle && playerTurn) {
-    battle.keyPressed();
-  }
 }
 
 
@@ -168,11 +146,3 @@ void keyReleased() {
   left = false;
   right = false;
 }
-
-
-//void dialogue(String sentence) {
-//  for (int i = 0; i < sentence.length(); i++) {
-//    text(sentence.charAt(i), x, 800);
-//    x = x + 30;
-//  }
-//}

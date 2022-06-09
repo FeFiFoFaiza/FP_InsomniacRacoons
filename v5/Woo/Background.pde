@@ -21,14 +21,12 @@ class Background {
       fwdTrigPnts = new DuplicateMap();
       prevTrigPnts = new DuplicateMap();
       worldList = new LinkedList<String[]>();
-      for (int i = 0; i <= 8; i++) {
-      worldList.add(loadStrings("WorldTxt/Forest" + i + ".txt"));
-      }
-      render(worldList.get(6));
+      setUpList();
+      render(worldList.get(0));
   }
   
   void render(String[] str) {
-    map = new Tile[15][25];
+    map = new Tile[25][25];
     tileXCor = 0;
     tileYCor = 0;
     prevTrigPnts.reset();
@@ -55,15 +53,13 @@ class Background {
         else if (str[j].charAt(i) == '@'){
           map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
         }
-        else if (str[j].charAt(i) == 'm'){
+        else if (str[j].charAt(i) == 'w'){
           map[j][i] = new Water(tileXCor, tileYCor, true); 
         }
         else if (str[j].charAt(i) == 'R'){
           map[j][i] = new Rock(tileXCor, tileYCor, true);
          }
-        else if (str[j].charAt(i) == 'B'){
-          map[j][i] = new Bridge(tileXCor, tileYCor, true, false); //bridge
-        }
+        
         // trees
         else if (str[j].charAt(i) == '1'){
           map[j][i] = new Tree(tileXCor, tileYCor, true, "A");
@@ -159,6 +155,14 @@ class Background {
   //    battle.turn();
   //  }
   //}
+  
+  
+  void setUpList() {
+    for (int i = 0; i <= 9; i++) {
+      worldList.add(loadStrings("WorldTxt/Forest" + i + ".txt"));
+    }
+    worldIterator = worldList.listIterator();
+  }
   
   void Triggered(int x, int y){
     if (fwdTrigPnts.contains(x, y)) {

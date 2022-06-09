@@ -26,13 +26,11 @@ class Kid {
   int offset = 0;
   int delay = 0;
   
-  /**
-  Queue<> inventory = new LinkedList<>();
-  boolean pickedUp = false;
-  **/
+  //Queue<String> inventory = new LinkedList<String>();
+  //boolean pickedUp = false;
   
-  Item cookie = new Item();
-  Item items[] = new Item[6];
+  //Item cookie = new Item();
+  //Item items[] = new Item[6];
   
   int xTile, yTile, yGTemp, xGTemp, yHTemp, xHTemp;
 
@@ -195,26 +193,24 @@ class Kid {
 
   boolean checkBoundaries (int x, int y){
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
-    if (checkTriggers(x, y)) return false;
+    checkTriggers(x, y);
     checkEnemy(x,y);
     return peep.map[y][x].isCollidable;
   }
   
   void checkEnemy(int x, int y) { 
-    println("AHDSAKJSHDKJASHDKJASHD " + x + " " + y);
-    println(peep.map[y][x]);
+    println("AHDSAKJSHDKJASHDKJASHD");
     if (peep.map[y][x].isSpawnable) {
-      double battleChance = random(1);
-      if (battleChance < 0.33) {
-        inBattle = false; //CHANGE L8R WHEN BATTLE WORKS 
-      }
-      System.out.println("chances: " + battleChance);
+      //double battleChance = random(1);
+      //if (battleChance > 0.33) {
+        inBattle = true; //CHANGE L8R WHEN BATTLE WORKS 
+      //}
+      //System.out.println("chances: " + battleChance);
     }
   }
   
   boolean checkTriggers (int x, int y) {
     //FACTOR IN WITCH HOUSE LATER
-    println("HUHHHH: " + x + " " + y);
      if (peep.map[y][x].isTrigger){
        boolean inRadius = false;
        if (xLead <= 35) {
@@ -232,9 +228,9 @@ class Kid {
          yHans += 850;
          inRadius = true;
        }
-       if (yLead >= 880){
-         yGret -= 820;
-         yHans -= 820;
+       if (yLead >= 850){
+         yGret -= 905;
+         yHans -= 905;
          inRadius = true;
        }
        if (inRadius) {

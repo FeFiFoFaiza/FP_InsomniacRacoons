@@ -2,13 +2,13 @@ import java.util.*;
 
 class Monsters {
   
-  int health;
-  int strength;
-  int x;
-  int y;
-  String name;
+  private int health;
+  private int strength;
+  private String dialogue; 
+  private int x;
+  private int y;
 
-  private Queue<String> moveList = new LinkedList<String>();
+  private Queue moveList = new LinkedList<>();
   
   public Monsters() {
     moveList.add("basic1");
@@ -18,6 +18,7 @@ class Monsters {
     moveList.add("mid2");
     moveList.add("basic2");
     moveList.add("ult");
+    
   }
   
   public int getX() {
@@ -36,11 +37,11 @@ class Monsters {
   
   }
   
-  public String getName() {
-    return name;
+  public String getDialogue() {
+    return dialogue;
   }
   
-  public int getHp() {
+  public int getHealth() {
     return health;
   }
   
@@ -49,7 +50,7 @@ class Monsters {
   }
   
   
-  public int setHp(int h) {
+  public int setHealth(int h) {
     this.health = h;
     return h;
   }
@@ -57,10 +58,6 @@ class Monsters {
   public int setStrength(int s) {
     this.strength = s;
     return s;
-  }
-  
-  public int attack(String n) {
-    return 0;
   }
 
 
