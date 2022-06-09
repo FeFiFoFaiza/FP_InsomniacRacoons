@@ -23,14 +23,13 @@ class Battle {
   int ultCounter; //checks if player punched enough times to access ult
   String playerMove;
   
-  Queue<Character> playerMovesList = new LinkedList<Character>();
+  //Queue<Character> playerMovesList = new LinkedList<Character>();
   
   private String enemyNextMove;
   //String story;
   
   //setup
   public Battle(Monsters type) {
-    playerMovesList.add('0');
     enemy = type;
     enemyHp = enemy.getHp();
     kidHp = kid.getHealth();
@@ -73,7 +72,7 @@ class Battle {
       storyDialogue = true;
       
       story.add("You have 15 seconds to make your move!");
-      story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use bread crumbs.\nYou can only use bread crumbs if you punch at least 3 times.");
+      story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
       
       //player turn
       if (playerTurn) {
@@ -82,27 +81,27 @@ class Battle {
         
         println("comm: " + command);
         if (inBattle && playerTurn) {
-          for (int i = 0; i < 15; i++) {
-            if (playerMovesList.peek() == '1') {
+          while (command != 1 || command != 2 || command != 3 || command != 4) {
+            if (command == 1) {
                 playerMove = "attack"; //no changes
                 println(playerMove);
                 playerTurn = false;
                 break;
              }
-             else if (playerMovesList.peek() == '2') {
+             if (command == 2) {
                 playerMove = "defend"; //lower dmg done on en, lower dmg done on player
                 println(playerMove);
                 playerTurn = false;
                 break;
              }
-             else if (playerMovesList.peek() == '3') {
+             if (command == 3) {
                 playerMove = "punch"; // higher dmg done on en, higher on player
                 println(playerMove);
                 ultCounter++;
                 playerTurn = false;
                 break;
              }
-             else if ((playerMovesList.peek() == '4') && (ultCounter >= 3)) {
+             if ((command == 4) && (ultCounter >= 3)) {
                 playerMove = "breadcrumbs"; //higher dmg done on en
                 println(playerMove);
                 ultCounter = 0;
@@ -110,12 +109,12 @@ class Battle {
                 break;
              }
              else {
-               println(playerMovesList.peek());
+               println(command);
                println(key);
                println("dying");
                delay(1000);
              }
-          } 
+          }
         }
         println("ataaack");
         playerMove = "attack"; //no changes
@@ -245,38 +244,33 @@ class Battle {
   }
   
   //choosing player's move
-  void keyPressed() { //playerMoves
-      println(command);
-      println("acka");
-      println("inBattle " + inBattle + ", playerTurn " + playerTurn);
-      switch(key) {
-        case '1':
-          println("wwww");
-          playerMovesList.add('1');
-          playerMovesList.remove();
-          //command = 1;
-          println("command 1");
-          break;
-        case '2':
-          playerMovesList.add('2');
-          playerMovesList.remove();
-          //command = 1;
-          println("command 2");
-          break;
-        case '3':
-          playerMovesList.add('3');
-          playerMovesList.remove();
-          //command = 1;
-          println("command 3");
-          break;
-        case '4':
-          playerMovesList.add('4');
-          playerMovesList.remove();
-          //command = 1;
-          println("command 4");
-          break;
-      }
-  }
+  //void keyPressed() { //playerMoves
+  //    println(command);
+  //    println("acka");
+  //    println("inBattle " + inBattle + ", playerTurn " + playerTurn);
+  //    switch(key) {
+  //      case '1':
+  //        //playerMovesList.add('1');
+  //        command = 1;
+  //        println("command 1");
+  //        break;
+  //      case '2':
+  //        //playerMovesList.add('2');
+  //        command = 1;
+  //        println("command 2");
+  //        break;
+  //      case '3':
+  //        //playerMovesList.add('3');
+  //        command = 1;
+  //        println("command 3");
+  //        break;
+  //      case '4':
+  //        //playerMovesList.add('4');
+  //        command = 1;
+  //        println("command 4");
+  //        break;
+  //    }
+  //}
   
   
 }

@@ -25,6 +25,8 @@ Battle battle;
 int counter = 0;
 int command = 0;
 
+AdvancedButton a,b,c;
+
 void setup() {
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
@@ -106,7 +108,7 @@ void draw() {
 }
 
 void keyPressed() {
-  battle.keyPressed();
+  //battle.keyPressed();
   
   if ( !inBattle ) {
     if (keyCode == UP || key == 'w') {
