@@ -42,10 +42,9 @@ void setup() {
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
   
-  /**
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
-  **/
+  
   
   for (int i = 0; i < gretelFrames; i++) {
     gretelImages[i] = loadImage("Gretel/gret_" + i + ".png");
@@ -64,61 +63,61 @@ void setup() {
 }
 
 void draw() {
-   background(peep.bgImage());
+  // background(peep.bgImage());
   
-   if (startG) {
-     dialogue.startGame();
-   }
+  // if (startG) {
+  //   dialogue.startGame();
+  // }
   
-   if ( !inBattle && !startG) {
-       kid.display();
+  // if ( !inBattle && !startG) {
+  //     kid.display();
       
-       if ( !tutorial ) {
-         kid.whoLeads();
-         kid.walk();
-       }
-   }  
+  //     if ( !tutorial ) {
+  //       kid.whoLeads();
+  //       kid.walk();
+  //     }
+  // }  
   
-   if (tutorial) {
-     dialogue.tutorial();
-   }
+  // if (tutorial) {
+  //   dialogue.tutorial();
+  // }
   
-   if (inBattle) {
-     peep.battleMenu();
-     image(enemy, 700, 100);
+  // if (inBattle) {
+  //   peep.battleMenu();
+  //   image(enemy, 700, 100);
     
-     peep.battleTurn();
-     dialogue.writeDialogue();
-     //delay(2000);
-   }
+  //   peep.battleTurn();
+  //   dialogue.writeDialogue();
+  //   //delay(2000);
+  // }
   
-    if (inBattle && playerTurn) {
-     if (keyCode == 49) {
-         command = 1;
-         println("command 1");
-      }
-      if (keyCode == 50) {
-         command = 2;
-         println("command 2");
-      }
-      if (keyCode == 51) {
-         command = 3;
-         println("command 3");
-      }
-      if (keyCode == 52) {
-         command = 4;
-         println("command 4");
-      }
-  }
+  //  if (inBattle && playerTurn) {
+  //   if (keyCode == 49) {
+  //       command = 1;
+  //       println("command 1");
+  //    }
+  //    if (keyCode == 50) {
+  //       command = 2;
+  //       println("command 2");
+  //    }
+  //    if (keyCode == 51) {
+  //       command = 3;
+  //       println("command 3");
+  //    }
+  //    if (keyCode == 52) {
+  //       command = 4;
+  //       println("command 4");
+  //    }
+  //}
   
-  if (storyDialogue) {
-    if (counter == 0) {
-      peep.battleMenu();
-      counter++;
-    }
-    dialogue.writeDialogue();
-    delay(2000);
-  }
+  //if (storyDialogue) {
+  //  if (counter == 0) {
+  //    peep.battleMenu();
+  //    counter++;
+  //  }
+  //  dialogue.writeDialogue();
+  //  delay(2000);
+  //}
 }
 
 void keyPressed() {

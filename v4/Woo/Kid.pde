@@ -26,8 +26,10 @@ class Kid {
   int offset = 0;
   int delay = 0;
   
+  /**
   Queue<> inventory = new LinkedList<>();
   boolean pickedUp = false;
+  **/
   
   Item cookie = new Item();
   Item items[] = new Item[6];
@@ -35,24 +37,24 @@ class Kid {
   int xTile, yTile, yGTemp, xGTemp, yHTemp, xHTemp;
 
 
-  boolean inventoryFull() {
-    return (inventory.size() > 6);
-  }
+  //boolean inventoryFull() {
+  //  return (inventory.size() > 6);
+  //}
   
   
-  void updateInventory(Item item) {
-    if (pickedUp) {
-      if (!inventoryFull()) {
-        inventory.add(item);
-      }
-      else {
-        // idk how to drop items on the ground,
-        // maybe display the PImage and then its pickuppable
-        inventory.remove();
-        inventory.add(item);
-      }
-    }
-  }
+  //void updateInventory(Item item) {
+  //  if (pickedUp) {
+  //    if (!inventoryFull()) {
+  //      inventory.add(item);
+  //    }
+  //    else {
+  //      // idk how to drop items on the ground,
+  //      // maybe display the PImage and then its pickuppable
+  //      inventory.remove();
+  //      inventory.add(item);
+  //    }
+  //  }
+  //}
   
   
   public Kid() {
@@ -193,13 +195,14 @@ class Kid {
 
   boolean checkBoundaries (int x, int y){
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
-    checkTriggers(x, y);
+    if (checkTriggers(x, y)) return false;
     checkEnemy(x,y);
     return peep.map[y][x].isCollidable;
   }
   
   void checkEnemy(int x, int y) { 
-    println("AHDSAKJSHDKJASHDKJASHD");
+    println("AHDSAKJSHDKJASHDKJASHD " + x + " " + y);
+    println(peep.map[y][x]);
     if (peep.map[y][x].isSpawnable) {
       double battleChance = random(1);
       if (battleChance < 0.33) {
@@ -211,6 +214,7 @@ class Kid {
   
   boolean checkTriggers (int x, int y) {
     //FACTOR IN WITCH HOUSE LATER
+    println("HUHHHH: " + x + " " + y);
      if (peep.map[y][x].isTrigger){
        boolean inRadius = false;
        if (xLead <= 35) {
@@ -228,9 +232,9 @@ class Kid {
          yHans += 850;
          inRadius = true;
        }
-       if (yLead >= 850){
-         yGret -= 905;
-         yHans -= 905;
+       if (yLead >= 880){
+         yGret -= 820;
+         yHans -= 820;
          inRadius = true;
        }
        if (inRadius) {
