@@ -30,8 +30,12 @@ class Battle {
   private String enemyNextMove;
   //String story;
   
+//  PImage background;
+  PImage enemyImage;
+  
   //setup
   public Battle(Monsters type) {
+    //move1 = new Button();
     //move1 = new Button(100, 100, 100, 50, "Move 1", 0, 200, 200);
     //move2 = new Button(100, 100, 100, 50, "Move 2", 0, 200, 200);
     //move3 = new Button(100, 100, 100, 50, "Move 3", 0, 200, 200);
@@ -40,18 +44,9 @@ class Battle {
     enemyHp = enemy.getHp();
     kidHp = kid.getHealth();
     strength = kid.getStrength();
+    //background = loadImage("WorldPics/black.png");
+    enemyImage = loadImage("Enemies/piggy.jpg");
   }
-  
-  //void draw() {
-  //  //?????
-  //  enemy.display(); 
-  //  if ( (enemy.getX() == Kid.getX() ) && (enemy.getY() == Kid.getY())  ) { 
-  //    while (!status ) {
-  //      displayMenu();  
-  //      turn();
-  //    }
-  //  }
-  //}
   
   public void displayMenu() { 
     //choose 1 2 3 4 when its player turn
@@ -61,8 +56,21 @@ class Battle {
   //displays health bar
   public void healthBar() {
   }
+  
+  void draw() {
+    println("ko");
+   // background = loadImage("WorldPics/black.png");
+    image(enemyImage, 700, 100);
+    move1.draw();
+    //move1.update();
+    //move1.render();
+    turn();
+  }
+  
+  
 
   public void turn() {
+    //detectButton();
     System.out.println("HELP " + kidHp);
     //System.out.println(enemy.isAlive());
     //println((kid.getHealth()));
@@ -75,15 +83,21 @@ class Battle {
 
       story.add("You have 15 seconds to make your move!");
       story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
-      println(playerTurn);
+
       //player turn
       if (playerTurn && inBattle) {
-        println("im tired" + playerTurn);
-        move1.render();
+        //println("im tired" + playerTurn);
+        //move1.render();
         //delay(2000);
         while (playerTurn) {
-            move1.update();
-            if (move1.isClicked()) {
+          //move1.render();
+          //move1.update();
+      
+            //move1.update();
+           // println("ack" + move1.isClicked());
+            //println("why" + playerTurn);
+            if (command == 1) {
+              println("fff");
                 playerMove = "attack"; //no changes
                 println(playerMove);
                 playerTurn = false;

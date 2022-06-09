@@ -1,4 +1,4 @@
-PImage enemy;
+//PImage enemy;
 
 PImage gretelImages [];
 PImage hanselImages [];
@@ -27,13 +27,14 @@ int command = 0;
 Button move1, move2, move3, move4;
 
 void setup() {
+  move1 = new Button();
+  //move1 = new Button(100, 100, 100, 50, "Move 1", 0, 200, 200);
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
   story = new LinkedList<String>();
   imp = new Imp();
   battle = new Battle(imp);
   //battle = new Battle();
-  move1 = new Button(100, 100, 100, 50, "Move 1", 0, 200, 200);
   
   size(1600, 960);
   //background(202, 158, 81);
@@ -60,7 +61,7 @@ void setup() {
   left = false;
   right = false;
   
-  enemy = loadImage("Enemies/piggy.jpg"); //CHANGE TO PNG
+  //enemy = loadImage("Enemies/piggy.jpg"); //CHANGE TO PNG
 }
 
 void draw() {
@@ -82,32 +83,22 @@ void draw() {
    if (tutorial) {
      dialogue.tutorial();
    }
-  
-  
-  
+
    if (inBattle) {
      println("What");
      peep.battleMenu();
-     image(enemy, 700, 100);
-    
-     peep.battleTurn();
-     dialogue.writeDialogue();
-     //if (playerTurn) {
-     //  println("Who");
-       
-     //}
-     //delay(2000);
+     battle.draw();
    }
-  
-   //if (storyDialogue) {
-   //  if (counter == 0) {
-   //    peep.battleMenu();
-   //    counter++;
-   //  }
-   //  dialogue.writeDialogue();
-   //  //delay(2000);
-   //}
 }
+
+//void detectButton() {
+//      //if (move1.isClicked()) {
+//      //  println("pain");
+//      //}
+//      move1.render();
+//     move1.update();
+////     move1.render();
+//  }
 
 void keyPressed() {
   //battle.keyPressed();

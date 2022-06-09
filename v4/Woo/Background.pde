@@ -144,17 +144,17 @@ class Background {
   }
   
   void battleMenu() {
-    battle = new Battle(imp);
+    //battle = new Battle(imp);
     if (inBattle) {
       bg = loadImage("WorldPics/black.png");
     }
   }
-  
-  void battleTurn() {
-    if (inBattle) {
-      battle.turn();
-    }
-  }
+
+  //void battleTurn() {
+  //  if (inBattle) {
+  //    battle.turn();
+  //  }
+  //}
   
   
   void setUpList() {
