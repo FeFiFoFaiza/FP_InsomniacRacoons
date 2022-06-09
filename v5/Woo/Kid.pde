@@ -193,10 +193,11 @@ class Kid {
 
   boolean checkBoundaries (int x, int y){
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
-    checkTriggers(x, y);
+    if (checkTriggers(x, y)) return false;
     checkEnemy(x,y);
     return peep.map[y][x].isCollidable;
   }
+
   
   void checkEnemy(int x, int y) { 
     println("AHDSAKJSHDKJASHDKJASHD");
@@ -211,6 +212,7 @@ class Kid {
   
   boolean checkTriggers (int x, int y) {
     //FACTOR IN WITCH HOUSE LATER
+    println("HUHHHH: " + x + " " + y);
      if (peep.map[y][x].isTrigger){
        boolean inRadius = false;
        if (xLead <= 35) {
@@ -228,9 +230,9 @@ class Kid {
          yHans += 850;
          inRadius = true;
        }
-       if (yLead >= 850){
-         yGret -= 905;
-         yHans -= 905;
+       if (yLead >= 880){
+         yGret -= 820;
+         yHans -= 820;
          inRadius = true;
        }
        if (inRadius) {

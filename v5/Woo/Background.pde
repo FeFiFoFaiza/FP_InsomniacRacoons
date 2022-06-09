@@ -10,9 +10,6 @@ class Background {
   LinkedList<String[]> worldList;
   ListIterator<String[]> worldIterator;
   
-  //PImage bg;
-  Imp imp = new Imp();
-  //Battle battle = new Battle(imp);
 
   public Background(){
      //bg = loadImage("WorldPics/World.png");
@@ -21,12 +18,14 @@ class Background {
       fwdTrigPnts = new DuplicateMap();
       prevTrigPnts = new DuplicateMap();
       worldList = new LinkedList<String[]>();
-      setUpList();
+      for (int i = 0; i <= 8; i++) {
+      worldList.add(loadStrings("WorldTxt/Forest" + i + ".txt"));
+      }
       render(worldList.get(0));
   }
   
   void render(String[] str) {
-    map = new Tile[25][25];
+    map = new Tile[15][25];
     tileXCor = 0;
     tileYCor = 0;
     prevTrigPnts.reset();
@@ -53,13 +52,15 @@ class Background {
         else if (str[j].charAt(i) == '@'){
           map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
         }
-        else if (str[j].charAt(i) == 'w'){
+        else if (str[j].charAt(i) == 'm'){
           map[j][i] = new Water(tileXCor, tileYCor, true); 
         }
         else if (str[j].charAt(i) == 'R'){
           map[j][i] = new Rock(tileXCor, tileYCor, true);
          }
-        
+        else if (str[j].charAt(i) == 'B'){
+          map[j][i] = new Bridge(tileXCor, tileYCor, true, false); //bridge
+        }
         // trees
         else if (str[j].charAt(i) == '1'){
           map[j][i] = new Tree(tileXCor, tileYCor, true, "A");
@@ -139,32 +140,8 @@ class Background {
      bg = loadImage("WorldPics/Forest_" + currIndex + ".png");
   }
 
-  PImage bgImage() {
-    return bg;
-  }
-  
-  //void battleMenu() {
-  //  //battle = new Battle(imp);
-  //  if (inBattle) {
-  //    bg = loadImage("WorldPics/black.png");
-  //  }
-  //}
 
-  //void battleTurn() {
-  //  if (inBattle) {
-  //    battle.turn();
-  //  }
-  //}
-  
-  
-  void setUpList() {
-    for (int i = 0; i <= 9; i++) {
-      worldList.add(loadStrings("WorldTxt/Forest" + i + ".txt"));
-    }
-    worldIterator = worldList.listIterator();
-  }
-  
-  void Triggered(int x, int y){
+void Triggered(int x, int y){
     if (fwdTrigPnts.contains(x, y)) {
       if (currIndex < worldList.size() -1){
         currIndex++;
