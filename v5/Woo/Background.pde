@@ -10,7 +10,7 @@ class Background {
   LinkedList<String[]> worldList;
   ListIterator<String[]> worldIterator;
   
-  PImage bg;
+  //PImage bg;
   Imp imp = new Imp();
   //Battle battle = new Battle(imp);
 
@@ -143,12 +143,12 @@ class Background {
     return bg;
   }
   
-  void battleMenu() {
-    //battle = new Battle(imp);
-    if (inBattle) {
-      bg = loadImage("WorldPics/black.png");
-    }
-  }
+  //void battleMenu() {
+  //  //battle = new Battle(imp);
+  //  if (inBattle) {
+  //    bg = loadImage("WorldPics/black.png");
+  //  }
+  //}
 
   //void battleTurn() {
   //  if (inBattle) {
