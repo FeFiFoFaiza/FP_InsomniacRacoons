@@ -20,7 +20,7 @@ boolean playerTurn = false;
 PFont font;
 boolean inBattle;
 Imp imp;
-  Battle battle;
+Battle battle;
 
 int counter = 0;
 int command = 0;
@@ -29,8 +29,8 @@ void setup() {
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
   story = new LinkedList<String>();
-  imp = new Imp();
-  battle = new Battle(imp);
+  //imp = new Imp();
+  //battle = new Battle(imp);
   //battle = new Battle();
   
   size(1600, 960);
@@ -157,25 +157,9 @@ void keyPressed() {
     }
   }
   
-  //if (inBattle && playerTurn) {
-  //  if (keyCode == 49) {
-  //      command = 1;
-  //      println("command 1");
-  //   }
-  //   if (keyCode == 50) {
-  //      command = 2;
-  //      println("command 2");
-  //   }
-  //   if (keyCode == 51) {
-  //      command = 3;
-  //      println("command 3");
-  //   }
-  //   if (keyCode == 52) {
-  //      command = 4;
-  //      println("command 4");
-  //   }
-  //}
-  
+  if (inBattle && playerTurn) {
+    battle.keyPressed();
+  }
 }
 
 

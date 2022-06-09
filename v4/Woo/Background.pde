@@ -11,7 +11,7 @@ class Background {
   ListIterator<String[]> worldIterator;
   
   PImage bg;
-  //Imp imp = new Imp();
+  Imp imp = new Imp();
   //Battle battle = new Battle(imp);
 
   public Background(){
@@ -144,6 +144,7 @@ class Background {
   }
   
   void battleMenu() {
+    battle = new Battle(imp);
     if (inBattle) {
       bg = loadImage("WorldPics/black.png");
     }
