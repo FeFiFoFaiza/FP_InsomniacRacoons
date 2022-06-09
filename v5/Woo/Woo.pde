@@ -255,6 +255,7 @@ void turn3() {
 
 public void turn() {
   bg = loadImage("WorldPics/black.png");
+  playerTurn = true;
   story.add("You have 15 seconds to make your move!");
   story.add("Press 1 to attack, Press 2 to defend, Press 3 to punch, Press 4 to use breadcrumbs.");
 }

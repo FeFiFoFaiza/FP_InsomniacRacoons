@@ -139,6 +139,10 @@ class Background {
      }
      bg = loadImage("WorldPics/Forest_" + currIndex + ".png");
   }
+  
+  PImage bgImage() {
+    return bg;
+  }
 
 
 void Triggered(int x, int y){

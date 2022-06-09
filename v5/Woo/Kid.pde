@@ -171,7 +171,6 @@ class Kid {
     if (gretLeads) {
         xTile = (xGret + xGTemp) / 64; 
         yTile = ((yGret + yGTemp) / 64);
-        println("BWAHAHAHAHA ");
         if (!checkBoundaries(xTile, yTile)) {
           xGret += xGTemp;
           yGret += yGTemp;
@@ -200,7 +199,6 @@ class Kid {
 
   
   void checkEnemy(int x, int y) { 
-    println("AHDSAKJSHDKJASHDKJASHD");
     if (peep.map[y][x].isSpawnable) {
       //double battleChance = random(1);
       //if (battleChance > 0.33) {
@@ -212,7 +210,6 @@ class Kid {
   
   boolean checkTriggers (int x, int y) {
     //FACTOR IN WITCH HOUSE LATER
-    println("HUHHHH: " + x + " " + y);
      if (peep.map[y][x].isTrigger){
        boolean inRadius = false;
        if (xLead <= 35) {
