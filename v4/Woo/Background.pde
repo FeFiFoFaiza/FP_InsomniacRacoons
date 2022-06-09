@@ -157,7 +157,7 @@ class Background {
   
   
   void setUpList() {
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 9; i++) {
       worldList.add(loadStrings("WorldTxt/Forest" + i + ".txt"));
     }
     worldIterator = worldList.listIterator();

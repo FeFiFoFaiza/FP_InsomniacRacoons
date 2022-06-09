@@ -195,12 +195,11 @@ class Kid {
     if ((x == 25) ||(y == 15) || (x == -1) || (y == -1)) return true;
     checkTriggers(x, y);
     checkEnemy(x,y);
-    //inBattle = false;
-    System.out.println(x + " " + y + " " + peep.map[y][x].isCollidable);
     return peep.map[y][x].isCollidable;
   }
   
   void checkEnemy(int x, int y) { 
+    println("AHDSAKJSHDKJASHDKJASHD");
     if (peep.map[y][x].isSpawnable) {
       double battleChance = random(1);
       if (battleChance < 0.33) {
@@ -212,9 +211,7 @@ class Kid {
   
   boolean checkTriggers (int x, int y) {
     //FACTOR IN WITCH HOUSE LATER
-    println("pein: " + x + " " + y);
      if (peep.map[y][x].isTrigger){
-       println("BOO " + xGret + " " +yGret);
        boolean inRadius = false;
        if (xLead <= 35) {
          xGret += 1510;
@@ -227,13 +224,13 @@ class Kid {
          inRadius = true;
        }
        if (yLead <= 35) {
-         yGret += 900;
-         yHans += 900;
+         yGret += 850;
+         yHans += 850;
          inRadius = true;
        }
-       if (yLead >= 930){
-         yGret -= 920;
-         yHans -= 920;
+       if (yLead >= 850){
+         yGret -= 905;
+         yHans -= 905;
          inRadius = true;
        }
        if (inRadius) {
