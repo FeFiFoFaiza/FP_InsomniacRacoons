@@ -24,7 +24,7 @@ class Background {
       for (int i = 0; i <= 8; i++) {
       worldList.add(loadStrings("WorldTxt/Forest" + i + ".txt"));
       }
-      render(worldList.get(6));
+      render(worldList.get(0));
   }
   
   void render(String[] str) {
@@ -143,6 +143,21 @@ class Background {
      bg = loadImage("WorldPics/Forest_" + currIndex + ".png");
   }
 
+
+void Triggered(int x, int y){
+    if (fwdTrigPnts.contains(x, y)) {
+      if (currIndex < worldList.size() -1){
+        currIndex++;
+        render(worldList.get(currIndex));
+      }
+    } else if (prevTrigPnts.contains(x, y)) {
+        if (currIndex > 0){
+          currIndex--;
+          render(worldList.get(currIndex));
+      }
+    }
+  }
+
   PImage bgImage() {
     return bg;
   }
@@ -159,19 +174,5 @@ class Background {
   //    battle.turn();
   //  }
   //}
-  
-  void Triggered(int x, int y){
-    if (fwdTrigPnts.contains(x, y)) {
-      if (currIndex < worldList.size() -1){
-        currIndex++;
-        render(worldList.get(currIndex));
-      }
-    } else if (prevTrigPnts.contains(x, y)) {
-        if (currIndex > 0){
-          currIndex--;
-          render(worldList.get(currIndex));
-      }
-    }
-  }
   
 }
