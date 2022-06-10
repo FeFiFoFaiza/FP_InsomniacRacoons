@@ -1,91 +1,65 @@
-Insomniac Racoons
+Insomniac Raccoons
 Diana Akhmedova
 Faiza Huda
 Tasnim Chowdhury
 pd08
 ---------------------
 Once Upon a Loaf
-Quaint little fantasy RPG
+Once Upon a Loaf is a quaint, interactive RPG, with both battling and story elements, uses processing.
+This project is based on a number of fairytales, including Hansel and Gretel, Pied Piper, Little Red Riding Hood, and Wizard of Oz.
 
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- How to do interactive background with animated sprites
+- How to do interactive background with animated sprites.
   Compromises might have to be made.
-- Edge cases for collisions
-- Triggering into the next setting
-- How to properly do trigger point / motion for the next setting
-    - Backtracking into past map
-    - The trigger detection is quite messy -> find a way to make detection work for a smaller radius
-- How to do literally all of battle turn
-    - display health bar
-    - Menu in battle
+- Edge cases for collisions.
+- Triggering into the next setting.
+- How to properly do trigger point / motion for the next setting.
+    - Backtracking into past map.
+    - The trigger detection is quite messy -> find a way to make detection work for a smaller radius.
+- How to do literally all of battle turn.
+    - keyPressed().
+    - Display health bar.
+    - Menu in battle.
+
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Have exit case when player is dead
-- Have exit case when monster is dead
-- Randomize monster and match right picture to it
-- Find witch house to place there
-   - Do not render it like we do with the map tiles
-   - But rather just put that picture on top of the WorldPics/Forest_9.png and take a picture of that to replace WorldPics/Forest_9.png
-   - Then where the door should be, make the rocks there have some sort of boolean (isTrigger ALSO add this to fwdTrigPnts)
-   - Then make Forest_10.png (Find some image off the internet)
-     This however should be the map or smth (add tree tiles H for any walls or collision)
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     -------------------------
-     NOTICE: NO triggers. Why? Because we dont want user to be able to get out
-  - Have witch inside here smhw
-  - If you can get dialogue to work talk with her, if not just fight her
-  - After fighting her ofc make it say "YOU WON GAME YAYYYYY"
-
-- Look at Giana world map and make a wolf character to place at those certain places (hint: if u need to know which map ur in, check currIndex)
-- Interact with that wolf
-  - Make dialogue happen
-  - (Once dialogue is done wolf disappears????)
-  - Once interactions become 3+
-      - Initiate battle with it ( probs setBattleUp() )
+- We do not have a Queue for walking, which sometimes results in awkward movement.
+- The WolfBoss does not work and returns a NullPointerException, so we removed it.
+- We did not change the tree, water, and rock graphics to more detailed tiles.
+- We do not have an ending screen for if the player wins against the Witch.
 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Image rendering in processing:
-  LoadImage, PImage, PGraphics, Tints and stuff
+  LoadImage, PImage, PGraphics, Tints and stuff.
 - Animating:
-  Using a PImage array and a constantly updating background
+  Using a PImage array and a constantly updating background.
 - Maps in Java:
   Maps, HashMaps, LinkedHashMaps, making mine own Map-esque structure
 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Got rid of inventory
-- Instead of using Doubly LinkedList for all the Trigger stuff, used a trusty Ol ArrayList
-- Not using a queue for movement tracking
+- Got rid of inventory.
+- Instead of using Doubly LinkedList for all the Trigger stuff, used a trusty Ol ArrayList.
+- Not using a queue for movement tracking.
+- No items on the ground or NPCs.
 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 ||||||||||||||||||||||||||||||||||||||||||
-- If it says "mixing active and static" IT MEANS CHECK YOUR BRACKETS IN EVERY TAB/CLASS
-- Sometimes too complicated truly is too complicated
-- Do the actual math when trying to detect (and avoid) triggers within a certain radius 
-- Four hour coding/pacing around the room like a madman session is not the way to go because there may be merge conflicts ruining your whole life's work
+- If it says "mixing active and static" IT MEANS CHECK YOUR BRACKETS IN EVERY TAB/CLASS.
+- Sometimes too complicated truly is too complicated.
+- Do the actual math when trying to detect (and avoid) triggers within a certain radius.
+- Four hour coding/pacing around the room like a madman session is not the way to go because there may be merge conflicts ruining your whole life's work.
+- Do not underestimate the amount of work a complex project will be and plan ahead.
 
 
 
@@ -216,13 +190,14 @@ Tasnim Chowdhury :: Worked on battle mechanisms, adjusted Witch
 
 2022-6-4 && 2022-6-5
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Created tutorial screen and start screen,
+                   added more tree graphics.
 
-Faiza Huda :: Added water tile(s)
-              Debugged what happened with integrating Monster into Woo
-              Created two of the maps whose layouts should be apart of final design
-              Made it so when triggered goes to the next setting
-              Cleaned up tree tiles into one concise file
+Faiza Huda :: Added water tile(s),
+              Debugged what happened with integrating Monster into Woo,
+              Created two of the maps whose layouts should be apart of final design,
+              Made it so when triggered goes to the next setting,
+              Cleaned up tree tiles into one concise file.
 
 Tasnim Chowdhury :: Created v3. Finished Battle mechanics,
                     finished healing fairy + siren + snake +
@@ -232,12 +207,12 @@ Tasnim Chowdhury :: Created v3. Finished Battle mechanics,
 2022-6-6
 --------------------------------------------------------------
 Diana Akhmedova :: Integrated Battle mechanisms into Woo,
-                   tried fixing KeyPressed()
+                   tried fixing KeyPressed().
 
-Faiza Huda ::
+Faiza Huda :: N/A.
 
-Tasnim Chowdhury ::  Integrated Battle mechanisms into Woo,
-                      tried fixing KeyPressed()
+Tasnim Chowdhury :: Integrated Battle mechanisms into Woo,
+                    tried fixing KeyPressed().
 ==============================================================
 
 2022-6-7
@@ -245,29 +220,30 @@ Tasnim Chowdhury ::  Integrated Battle mechanisms into Woo,
 Diana Akhmedova :: Worked on integrating battle into Woo by
                     fixing KeyPressed()
 
-Faiza Huda :: Created new data structure
-              Made backtracing functionality between moving through maps
-              Restructed all of trigger detecting
-              Created rock class and put in randomness for grass battles
+Faiza Huda :: Created new data structure.
+              Made back-tracing functionality between moving through maps,
+              Re-structed all of trigger detecting,
+              Created rock class and put in randomness for grass battles.
 
-Tasnim Chowdhury :: Finished 10 maps, Bridge
-                    tiles
+Tasnim Chowdhury :: Finished 10 maps, Bridge tiles.
 ==============================================================
 
 2022-6-8
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: N/A.
 
-Faiza Huda :: Integrated new maps from before and fixed triggers to accomodate for it
+Faiza Huda :: Integrated new maps from before and fixed triggers to accomodate for it.
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: N/A.
 ==============================================================
 
 2022-6-9
 --------------------------------------------------------------
-Diana Akhmedova ::
+Diana Akhmedova :: Added all graphics, including battle screens,
+                   Worked on Battle(), added music.
 
-Faiza Huda :: Made all of battle work.
+Faiza Huda :: Made all of Battle() work.
 
-Tasnim Chowdhury ::
+Tasnim Chowdhury :: Worked on Battle(), updated maps,
+                    Worked on Background().
 ==============================================================
