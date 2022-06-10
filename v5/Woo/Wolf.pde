@@ -19,28 +19,27 @@ class Wolf extends Monsters {
   
   public int attack(String move) {
     int dmg = 0;
-    String dialogue;
     if (move.equals("basic1") ) {
       dmg = (int)(strength * (0.5));
-      dialogue = "The Big Bad Wolf growls."; 
+      text("The Big Bad Wolf growls.", 50, 800); 
     } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5));
-      dialogue = "The Big Bad Wolf Wolf licks its teeth."; 
+      text("The Big Bad Wolf Wolf licks its teeth.", 50, 800); 
     } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5));
-       dialogue = "The Big Bad Wolf Wolf scratches you."; 
+       text("The Big Bad Wolf Wolf scratches you.", 50, 800); 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      dialogue = "The Big Bad Wolf Wolf pounces on you.";
+      text("The Big Bad Wolf Wolf pounces on you.", 50, 800);
     } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      dialogue = "The Big Bad Wolf Wolf slams you to the ground.";
+      text("The Big Bad Wolf Wolf slams you to the ground.", 50, 800);
     } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      dialogue = "The Big Bad Wolf throws you across the field.";
+      text("The Big Bad Wolf throws you across the field.", 50, 800);
     } else {
       dmg = 0;
-      dialogue = "oops?";
+      println("oops?");
     }
     return dmg;
    }

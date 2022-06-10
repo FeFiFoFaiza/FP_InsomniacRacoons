@@ -21,25 +21,25 @@ class Imp extends Monsters {
     int dmg = 0;
     if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5));
-      story.add("Imp screetches."); 
+      text("Imp screetches.", 50, 800); 
     } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5));
-      story.add("Imp circles around you."); 
+      text("Imp circles around you.", 50, 800); 
     } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5));
-       story.add("Imp is invisible and punches you."); 
+       text("Imp is invisible and punches you.", 50, 800); 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      story.add("Imp conjures fire and throws it at you.");
+      text("Imp conjures fire and throws it at you.", 50, 800);
     } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      story.add("Imp teleports behind you and kicks you.");
+      text("Imp teleports behind you and kicks you.", 50, 800);
     } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      story.add("Imp rebirthes stronger than ever and leaps at you.");
+      text("Imp rebirthes stronger than ever and leaps at you.", 50, 800);
     } else {
       dmg = 0;
-      println("oops? attack went wrong, no dmg");
+      println("oops? attack went wrong, no dmg", 50, 800);
     }
     return dmg;
    }

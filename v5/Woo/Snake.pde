@@ -21,22 +21,22 @@ class Snake extends Monsters {
     int dmg = 0;
     if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5));
-      story.add("Snake rattles its tail."); 
+      text("Snake rattles its tail.", 50, 800); 
     } else if (move.equals("basic2") ) {
        dmg = (int)(strength * (0.5));
-      story.add("Snake meanacingly slithers around you."); 
+      text("Snake meanacingly slithers around you.", 50, 800); 
     } else if (move.equals("basic3") ) {
        dmg = (int)(strength * (0.5));
-       story.add("Snake sticks its tongue out at you."); 
+       text("Snake sticks its tongue out at you.", 50, 800); 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      story.add("Snake whips its tail at you.");
+      text("Snake whips its tail at you.", 50, 800);
     } else if (move.equals("mid2") ) {
       dmg = (int)(strength);
-      story.add("Snake spits venom at your face.");
+      text("Snake spits venom at your face.", 50, 800);
     } else if (move.equals("ult") ) {
       dmg = (int)(strength * (2));
-      story.add("Snake bites you and poisons you.");
+      text("Snake bites you and poisons you.", 50, 800);
     } else {
       dmg = 0;
       println("oops? attack went wrong, no dmg");
