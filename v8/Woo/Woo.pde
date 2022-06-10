@@ -66,8 +66,6 @@ void setup() {
   gretelImages = new PImage[gretelFrames];
   hanselImages = new PImage[hanselFrames];
   
-  enemyImage = loadImage("Enemies/piggy.jpg");
-  
   font = createFont("pcsenior.ttf", 16);
   textFont(font);
   
@@ -222,10 +220,9 @@ public void updEnemy() {
     if (enemy.getHp() <= 0 && kid.getHealth() > 0) { 
      // story.add("You defeated " +enemy.name+ " !. You gained HP and Strength");
       updateBaseStats(enemy.name);
-    battleWon = true; 
-    
+      battleWon = true;
     }
-    if (enemy.getHp() >= 0 && kid.getHealth() <= 0) {
+    if (kid.getHealth() <= 0 && enemy.getHp() >= 0) {
       //peep.battleScreenOver();
       peep.exitBScreen();
       exit();
@@ -309,6 +306,11 @@ public void updPlayer(int dmg) {
   int randomNumber = (int) ((Math.random()*6) + 1);
   if (randomNumber > 0) {
     kid.setHealth((kidHp + kidDefense) - realDmg);
+    if (kid.getHealth() < 0) {
+      kid.setHealth(0);
+      story.add("GAME OVER");
+      attackEnemy();
+    }
     story.add(enemy.getAttack());
   } else {
     story.add(enemy.getName() + " missed its attack because you successfully dodged!");
@@ -324,8 +326,8 @@ public void updPlayer(int dmg) {
       kid.setHealth((int) (kidHp + 30));
       story.add("Your health increased by 30HP. Your strength increased by 50%.");
     } else { 
-      kid.setStrength((int) (strength * 1.05));
-      kid.setHealth((int) (kidHp + 5));
+      kid.setStrength((int) (strength * 1.1));
+      kid.setHealth((int) (kidHp + 10));
       story.add("Your health increased by 10HP. Your strength increased by 5%.");
     }
   }
@@ -348,14 +350,19 @@ void setBattleUp(String type) {
 void checkMonster(String type) {
   if (type.equals("Imp")) {
     enemy = new Imp();
+    enemyImage = loadImage("Enemies/ImpBattle.png");
   } else if (type.equals("Snake")) {
-    enemy = new Snake(); 
+    enemy = new Snake();
+    enemyImage = loadImage("Enemies/SnakeBattle.png");
   } else if (type.equals("Siren")) {
     enemy = new Siren();
+    enemyImage = loadImage("Enemies/SirenBattle.png");
   } else if (type.equals("Wolf")) {
     enemy = new Wolf();
+    enemyImage = loadImage("Enemies/WolfBattle.png");
   } else if (type.equals("Witch")) {
-    enemy = new Witch(1200, 40);
+    enemy = new Witch();
+    enemyImage = loadImage("Enemies/WitchBattle.png");
   }
 }
 
@@ -374,7 +381,7 @@ boolean battle(){
       return true;
     } else {
       fill(255);
-      image(enemyImage, 1200, 40, 60, 60);
+      image(enemyImage, 0, 0, 1600, 960);
       text("Player: " + kidHp, 40, 40);
       text(enemy.name + ": " + enemyHp, 40, 85);
       text(moveDescription, 50, 800);

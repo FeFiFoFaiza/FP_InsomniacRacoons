@@ -52,6 +52,9 @@ class Background {
         else if (str[j].charAt(i) == '@'){
           map[j][i] = new Grass(tileXCor, tileYCor, true, false); // battle grass
         }
+        else if (str[j].charAt(i) == '%'){
+          map[j][i] = new WolfBoss(tileXCor, tileYCor, true, false); // wolf grass
+        }
         else if (str[j].charAt(i) == 'm'){
           map[j][i] = new Water(tileXCor, tileYCor, true); 
         }
@@ -59,7 +62,7 @@ class Background {
           map[j][i] = new Rock(tileXCor, tileYCor, true);
          }
         else if (str[j].charAt(i) == 'B'){
-          map[j][i] = new Bridge(tileXCor, tileYCor, true, false); //bridge
+          map[j][i] = new Bridge(tileXCor, tileYCor, true, false); // bridge
         }
         // trees
         else if (str[j].charAt(i) == '1'){

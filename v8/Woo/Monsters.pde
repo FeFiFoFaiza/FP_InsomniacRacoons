@@ -80,7 +80,7 @@ class Imp extends Monsters {
   public Imp() {
     super();
     setHp(80);
-    setStrength(800);
+    setStrength(8);
     name = "Imp";
     
   }
@@ -144,22 +144,22 @@ class Snake extends Monsters {
     int dmg = 0;
     if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5));
-      text("Snake rattles its tail.", 50, 800); 
+      attack = "Snake rattles its tail."; 
     } else if (move.equals("basic2") ) {
        dmg = (int)(strength * (0.5));
-      text("Snake meanacingly slithers around you.", 50, 800); 
+      attack = "Snake meanacingly slithers around you."; 
     } else if (move.equals("basic3") ) {
        dmg = (int)(strength * (0.5));
-       text("Snake sticks its tongue out at you.", 50, 800); 
+       attack = "Snake sticks its tongue out at you."; 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      text("Snake whips its tail at you.", 50, 800);
+      attack = "Snake whips its tail at you.";
     } else if (move.equals("mid2") ) {
       dmg = (int)(strength);
-      text("Snake spits venom at your face.", 50, 800);
+      attack = "Snake spits venom at your face.";
     } else if (move.equals("ult") ) {
       dmg = (int)(strength * (2));
-      text("Snake bites you and poisons you.", 50, 800);
+      attack = "Snake bites you and poisons you.";
     } else {
       dmg = 0;
       println("oops? attack went wrong, no dmg");
@@ -193,22 +193,22 @@ class Siren extends Monsters {
     int dmg = 0;
     if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5));
-      text("Siren stares at you, suggestingly.", 50, 800); 
+      attack = "Siren stares at you, suggestingly."; 
     } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5));
-      text("Siren smiles at you, arms open.", 50, 800); 
+      attack = "Siren smiles at you, arms open."; 
     } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5));
-       text("Siren swims around you.", 50, 800); 
+       attack = "Siren swims around you."; 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      text("Siren sings beautifully.", 50, 800);
+      attack = "Siren sings beautifully.";
     } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      text("Siren drags you by the arm to her home.", 50, 800);
+      attack = "Siren drags you by the arm to her home.";
     } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      text("Siren throws her child at you and sings a song of lamentation.", 50, 800);
+      attack = "Siren throws her child at you and sings a song of lamentation.";
     } else {
       dmg = 0;
       println("oops? attack went wrong, dmg 0");
@@ -242,22 +242,22 @@ class Wolf extends Monsters {
     int dmg = 0;
     if (move.equals("basic1") ) {
       dmg = (int)(strength * (0.5));
-      text("The Big Bad Wolf growls.", 50, 800); 
+      attack = "The Big Bad Wolf growls."; 
     } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5));
-      text("The Big Bad Wolf Wolf licks its teeth.", 50, 800); 
+      attack = "The Big Bad Wolf Wolf licks its teeth."; 
     } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5));
-       text("The Big Bad Wolf Wolf scratches you.", 50, 800); 
+       attack = "The Big Bad Wolf Wolf scratches you."; 
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      text("The Big Bad Wolf Wolf pounces on you.", 50, 800);
+      attack = "The Big Bad Wolf Wolf pounces on you.";
     } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      text("The Big Bad Wolf Wolf slams you to the ground.", 50, 800);
+      attack = "The Big Bad Wolf Wolf slams you to the ground.";
     } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      text("The Big Bad Wolf throws you across the field.", 50, 800);
+      attack = "The Big Bad Wolf throws you across the field.";
     } else {
       dmg = 0;
       println("oops?");
@@ -273,10 +273,8 @@ class Witch extends Monsters {
   
   PImage Witch;
   
-  public Witch (int xCor, int yCor) {
+  public Witch() {
     super();
-    x = xCor;
-    y = yCor;
     name = "Witch";
     setHp(200);
     setStrength(20);
@@ -292,22 +290,22 @@ class Witch extends Monsters {
     int dmg = 0;
     if (move.equals("basic1")) {
       dmg = (int)(strength * (0.5));
-      text("Muahahah. The Witch cackles!", 50, 800);
+      attack = "Muahahah. The Witch cackles!";
     } else if (move.equals("basic2")) {
        dmg = (int)(strength * (0.5));
-      text("The Witch wackes you with broomstick!", 50, 800); 
+      attack = "The Witch wackes you with broomstick!";
     } else if (move.equals("basic3")) {
        dmg = (int)(strength * (0.5));
-       text("The Witch slaps you.", 50, 800); 
+       attack = "The Witch slaps you.";
     } else if (move.equals("mid1")) {
       dmg = (int)(strength);
-      text("The Witch splashes Draught of Living Death!", 50, 800);
+      attack = "The Witch splashes Draught of Living Death!";
     } else if (move.equals("mid2")) {
       dmg = (int)(strength);
-      text("The Witch uses Confundo!", 50, 800);
+      attack = "The Witch uses Confundo!";
     } else if (move.equals("ult")) {
       dmg = (int)(strength * (2));
-      text("The Witch casts Avada Kedavra!", 50, 800);
+      attack = "The Witch casts Avada Kedavra!";
     } else {
       dmg = 0;
       println("oops?");
