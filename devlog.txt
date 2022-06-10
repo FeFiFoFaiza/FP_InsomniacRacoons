@@ -18,10 +18,47 @@ OBSTACLES OVERCOME
 - How to properly do trigger point / motion for the next setting
     - Backtracking into past map
     - The trigger detection is quite messy -> find a way to make detection work for a smaller radius
+- How to do literally all of battle turn
+    - display health bar
+    - Menu in battle
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Display health bar, dialogue, menu in battle
+- Have exit case when player is dead
+- Have exit case when monster is dead
+- Randomize monster and match right picture to it
+- Find witch house to place there
+   - Do not render it like we do with the map tiles
+   - But rather just put that picture on top of the WorldPics/Forest_9.png and take a picture of that to replace WorldPics/Forest_9.png
+   - Then where the door should be, make the rocks there have some sort of boolean (isTrigger ALSO add this to fwdTrigPnts)
+   - Then make Forest_10.png (Find some image off the internet)
+     This however should be the map or smth (add tree tiles H for any walls or collision)
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     -------------------------
+     NOTICE: NO triggers. Why? Because we dont want user to be able to get out
+  - Have witch inside here smhw
+  - If you can get dialogue to work talk with her, if not just fight her
+  - After fighting her ofc make it say "YOU WON GAME YAYYYYY"
+
+- Look at Giana world map and make a wolf character to place at those certain places (hint: if u need to know which map ur in, check currIndex)
+- Interact with that wolf
+  - Make dialogue happen
+  - (Once dialogue is done wolf disappears????)
+  - Once interactions become 3+
+      - Initiate battle with it ( probs setBattleUp() )
 
 
 COOL STUFF LEARNED
@@ -38,6 +75,7 @@ MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Got rid of inventory
 - Instead of using Doubly LinkedList for all the Trigger stuff, used a trusty Ol ArrayList
+- Not using a queue for movement tracking
 
 
 LESSONS LEARNED
@@ -220,7 +258,16 @@ Tasnim Chowdhury :: Finished 10 maps, Bridge
 --------------------------------------------------------------
 Diana Akhmedova ::
 
-Faiza Huda ::
+Faiza Huda :: Integrated new maps from before and fixed triggers to accomodate for it
+
+Tasnim Chowdhury ::
+==============================================================
+
+2022-6-9
+--------------------------------------------------------------
+Diana Akhmedova ::
+
+Faiza Huda :: Made all of battle work.
 
 Tasnim Chowdhury ::
 ==============================================================
