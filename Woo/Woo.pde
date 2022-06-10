@@ -87,13 +87,11 @@ void setup() {
     hanselImages[i] = loadImage("Hansel/hans_" + i + ".png");
   }
   
-  
   up = false;
   down = false;
   left = false;
   right = false;
   
-  //enemy = loadImage("Enemies/piggy.jpg"); //CHANGE TO PNG
 }
 
 void draw() {
@@ -115,15 +113,9 @@ void draw() {
   
    if (tutorial) {
      dialogue.tutorial();
-   } 
-   
+   }
 
    battle();
-   
-   //if (battleWon) {
-   //  dialogue.battle1();
-      
-   //}
 }
 
 void keyPressed() {
@@ -222,6 +214,8 @@ void keyReleased() {
 }
 
 public void updEnemy() {
+  //fill(0);
+  //rect(0, 780, 2000, 1000, 1);
   int dmg = attackEnemy();
   int max = dmg + 3;
   int min = dmg - 3;
@@ -404,9 +398,6 @@ boolean battle(){
       }
       if (counter == 400){
         story.remove();
-        
-
-        
         if (enemy.getHp() <= 0) {
           moveDescription = "GAME OVER";
         }
