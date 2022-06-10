@@ -374,15 +374,15 @@ void playerMove(){
      //playerTurn = true;
      text(moveDescription, 50, 800);
      //delay(1000);
-      int counter = 0;
-      while (counter < 1000) {
-        for (int i = 0; i < 100; i++) {
-          println(i);
-        }
-        println(counter);
-        counter++;
-      }
-      println("AAAAAAAAAA");
+      //int counter = 0;
+      //while (counter < 1000) {
+      //  for (int i = 0; i < 100; i++) {
+      //    println(i);
+      //  }
+      //  println(counter);
+      //  counter++;
+      //}
+      //println("AAAAAAAAAA");
   }
   else if (playerMove.equals("defend")){
      battleMenu();
