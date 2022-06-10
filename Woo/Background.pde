@@ -64,51 +64,6 @@ class Background {
         else if (str[j].charAt(i) == 'B'){
           map[j][i] = new Bridge(tileXCor, tileYCor, true, false); // bridge
         }
-        // trees
-        else if (str[j].charAt(i) == '1'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "A");
-        }
-        else if (str[j].charAt(i) == '2'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "B");
-        }
-        else if (str[j].charAt(i) == '3'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "C");
-        }
-        else if (str[j].charAt(i) == '4'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "D");
-        }
-        
-        else if (str[j].charAt(i) == '5'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "E");
-        }
-        else if (str[j].charAt(i) == '6'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "F");
-        }
-        else if (str[j].charAt(i) == '7'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "G");
-        }
-        else if (str[j].charAt(i) == '8'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "H");
-        }
-        
-        else if (str[j].charAt(i) == '9'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "I");
-        }
-        else if (str[j].charAt(i) == '0'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "J");
-        }
-        else if (str[j].charAt(i) == 'P'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "K");
-        }
-        else if (str[j].charAt(i) == 'O'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "L");
-        }
-        else if (str[j].charAt(i) == 'S'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "M");
-        }
-        else if (str[j].charAt(i) == 'A'){
-          map[j][i] = new Tree(tileXCor, tileYCor, true, "N");
-        }
         
         //water
         else if (str[j].charAt(i) == 'q'){
