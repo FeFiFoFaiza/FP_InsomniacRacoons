@@ -1,4 +1,4 @@
-//PImage enemy;
+import processing.sound.*;
 
 PImage gretelImages [];
 PImage hanselImages [];
@@ -50,10 +50,21 @@ String enemyNextMove;
 PImage enemyImage;
 PImage bg;
 
-String moveDescription = "Press 1 to attack, 2 to defend, 3 to punch";
+String moveDescription = "Press 1 to attack, 2 to defend, 3 to punch.";
+
+PImage[] forest = new PImage[20];
+
+SoundFile music;
 
 
 void setup() {
+  music = new SoundFile(this, "Music/JourneyBegins.mp3");
+  music.amp(0.01);
+  music.loop();
+  smooth();
+  for (int i = 0; i < 20; i++) {
+    forest[i] = loadImage("Forest/forest_" + i + ".gif");
+  }
   kid = new Kid(100, 10);
   dialogue = new Dialogue();
   story = new LinkedList<String>();
@@ -89,6 +100,7 @@ void draw() {
    background(peep.bgImage());
   
    if (startG) {
+     image(forest[(frameCount/15)%20], 0, 0);
      dialogue.startGame();
    }
   
