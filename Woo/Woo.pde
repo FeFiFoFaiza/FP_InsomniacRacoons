@@ -272,7 +272,8 @@ public int attackEnemy() {
       kidDefense = 15;
       dmg = (int)(strength * 2.4);
       story.add("You threw the mighty breadcrumbs at " + enemy.getName() + "\n for " + dmg + " hp of damage!");
-   }
+      readingSpeed = true;
+    }
    else {
      return 0;
    }
@@ -384,6 +385,7 @@ boolean battle(){
       
       peep.exitBScreen();
       inBattle = false;
+      readingSpeed = false;
       return true;
     } else {
       fill(255);
