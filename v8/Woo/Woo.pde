@@ -396,7 +396,9 @@ boolean battle(){
       image(enemyImage, 0, 0, 1600, 960);
       text("Player: " + kidHp, 40, 40);
       text(enemy.name + ": " + enemyHp, 40, 85);
-      text(moveDescription, 50, 800);
+      if (moveDescription != null) {
+        text(moveDescription, 50, 800);
+      }
       if (counter == 200){
         story.remove();
         //moveDescription = story.peek();
